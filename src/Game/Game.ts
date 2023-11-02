@@ -7,8 +7,6 @@ enum GameState {
     attacking
 }
 
-const fullEnemyPass = 1;
-const enemyPassTime = 2000;
 const attackTimeout = 1000;
 
 interface Game {
@@ -17,7 +15,6 @@ interface Game {
     time: number,
     gameState: GameState,
     attackTimer: number,
-    movingTimer: number,
     enemy: Enemy | null,
     tick: (timeStamp: number) => void,
     runPressed: () => void,
@@ -36,7 +33,6 @@ export const game: Game = {
     time: 0,
     gameState: GameState.start,
     attackTimer: 0,
-    movingTimer: 0,
     enemy: null,
     tick (timeStamp: number) {
         if (this.isRun && this.lastTimeStamp === 0) {
@@ -45,10 +41,11 @@ export const game: Game = {
         if (this.isRun) {
             const deltaTime = timeStamp - this.lastTimeStamp;
             this.time += deltaTime;
-            if (this.gameState === GameState.moving && this.movingTimer < enemyPassTime) {
-                this.movingTimer += deltaTime;
-                this.enemyProgressHandlers(fullEnemyPass * (this.movingTimer / enemyPassTime));
-                if (this.movingTimer >= enemyPassTime) {
+            this.timeChangeHandlers(this.time);
+            if (this.gameState === GameState.moving && this.enemy && !this.enemy.isArrive()) {
+                this.enemy.changeTimer(deltaTime);
+                this.enemyProgressHandlers(this.enemy.movingProgress());
+                if (this.enemy.isArrive()) {
                     this.attackTimer = 0;
                     this.gameState = GameState.attacking;
                 }
@@ -61,14 +58,12 @@ export const game: Game = {
                         this.enemyReceiveDmgHandler(this.enemy.hp);
                     } else {
                         this.enemy = createEnemy();
-                        this.movingTimer = 0;
                         this.gameState = GameState.moving;
                     }
                 } else {
                     this.attackTimer -= deltaTime;
                 }
             }
-            this.timeChangeHandlers(this.time);
         }
         this.lastTimeStamp = timeStamp;
     },
@@ -76,7 +71,6 @@ export const game: Game = {
         this.isRun = true;
         this.lastTimeStamp = 0;
         if (this.gameState === GameState.start) {
-            this.movingTimer = 0;
             this.gameState = GameState.moving;
             this.enemy = createEnemy();
         }
