@@ -16,7 +16,6 @@ interface Game {
     isRun: boolean,
     time: number,
     gameState: GameState,
-    enemyPass: number,
     attackTimer: number,
     movingTimer: number,
     enemy: Enemy | null,
@@ -36,7 +35,6 @@ export const game: Game = {
     isRun: false,
     time: 0,
     gameState: GameState.start,
-    enemyPass: 0,
     attackTimer: 0,
     movingTimer: 0,
     enemy: null,
@@ -47,11 +45,10 @@ export const game: Game = {
         if (this.isRun) {
             const deltaTime = timeStamp - this.lastTimeStamp;
             this.time += deltaTime;
-            if (this.gameState === GameState.moving && this.enemyPass < 1) {
+            if (this.gameState === GameState.moving && this.movingTimer < enemyPassTime) {
                 this.movingTimer += deltaTime;
-                this.enemyPass = fullEnemyPass * (this.movingTimer / enemyPassTime);
-                this.enemyProgressHandlers(this.enemyPass);
-                if (this.enemyPass >= 1) {
+                this.enemyProgressHandlers(fullEnemyPass * (this.movingTimer / enemyPassTime));
+                if (this.movingTimer >= enemyPassTime) {
                     this.attackTimer = 0;
                     this.gameState = GameState.attacking;
                 }
@@ -64,7 +61,6 @@ export const game: Game = {
                         this.enemyReceiveDmgHandler(this.enemy.hp);
                     } else {
                         this.enemy = createEnemy();
-                        this.enemyPass = 0;
                         this.movingTimer = 0;
                         this.gameState = GameState.moving;
                     }
