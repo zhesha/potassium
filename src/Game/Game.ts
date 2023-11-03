@@ -1,4 +1,5 @@
 import { Enemy, createEnemy } from "./Enemy";
+import { Player, createPlayer } from "./Player";
 
 enum GameState {
     start,
@@ -7,16 +8,16 @@ enum GameState {
     attacking
 }
 
-const attackTimeout = 1000;
-
 interface Game {
     lastTimeStamp: number,
     isRun: boolean,
     time: number,
     gameState: GameState,
-    attackTimer: number,
+    player: Player,
     enemy: Enemy | null,
     tick: (timeStamp: number) => void,
+    doMove: (deltaTime: number) => void,
+    doAttack: (deltaTime: number) => void;
     runPressed: () => void,
     runReleased: () => void,
     timeChangeHandlers: (value: number) => void,
@@ -32,7 +33,7 @@ export const game: Game = {
     isRun: false,
     time: 0,
     gameState: GameState.start,
-    attackTimer: 0,
+    player: createPlayer(),
     enemy: null,
     tick (timeStamp: number) {
         if (this.isRun && this.lastTimeStamp === 0) {
@@ -43,29 +44,38 @@ export const game: Game = {
             this.time += deltaTime;
             this.timeChangeHandlers(this.time);
             if (this.gameState === GameState.moving && this.enemy && !this.enemy.isArrive()) {
-                this.enemy.changeTimer(deltaTime);
-                this.enemyProgressHandlers(this.enemy.movingProgress());
-                if (this.enemy.isArrive()) {
-                    this.attackTimer = 0;
-                    this.gameState = GameState.attacking;
-                }
+                this.doMove(deltaTime);
             }
             if (this.gameState === GameState.attacking) {
-                if (this.attackTimer <= 0) {
-                    this.attackTimer = attackTimeout;
-                    this.enemy?.doDamage(1);
-                    if (this.enemy?.isAlive()) {
-                        this.enemyReceiveDmgHandler(this.enemy.hp);
-                    } else {
-                        this.enemy = createEnemy();
-                        this.gameState = GameState.moving;
-                    }
-                } else {
-                    this.attackTimer -= deltaTime;
-                }
+                this.doAttack(deltaTime);
             }
         }
         this.lastTimeStamp = timeStamp;
+    },
+    doMove (deltaTime: number) {
+        if (!this.enemy) {
+            return;
+        }
+        this.enemy.changeTimer(deltaTime);
+        this.enemyProgressHandlers(this.enemy.movingProgress());
+        if (this.enemy.isArrive()) {
+            this.player.startAttackTimer();
+            this.gameState = GameState.attacking;
+        }
+    },
+    doAttack (deltaTime: number) {
+        if (this.player.isAttack()) {
+            this.player.resetAttackTimer();
+            this.enemy?.doDamage(1);
+            if (this.enemy?.isAlive()) {
+                this.enemyReceiveDmgHandler(this.enemy.hp);
+            } else {
+                this.enemy = createEnemy();
+                this.gameState = GameState.moving;
+            }
+        } else {
+            this.player.updateAttackTimer(deltaTime);
+        }
     },
     runPressed () {
         this.isRun = true;
