@@ -5,7 +5,7 @@ enum GameState {
     start,
     idle,
     moving,
-    attacking
+    fighting
 }
 
 interface Game {
@@ -17,7 +17,8 @@ interface Game {
     enemy: Enemy | null,
     tick: (timeStamp: number) => void,
     doMove: (deltaTime: number) => void,
-    doAttack: (deltaTime: number) => void;
+    doPlayerAttack: (deltaTime: number) => void;
+    doEnemyAttack: (deltaTime: number) => void;
     runPressed: () => void,
     runReleased: () => void,
     timeChangeHandlers: (value: number) => void,
@@ -46,8 +47,9 @@ export const game: Game = {
             if (this.gameState === GameState.moving && this.enemy && !this.enemy.isArrive()) {
                 this.doMove(deltaTime);
             }
-            if (this.gameState === GameState.attacking) {
-                this.doAttack(deltaTime);
+            if (this.gameState === GameState.fighting) {
+                this.doPlayerAttack(deltaTime);
+                this.doEnemyAttack(deltaTime);
             }
         }
         this.lastTimeStamp = timeStamp;
@@ -60,10 +62,10 @@ export const game: Game = {
         this.enemyProgressHandlers(this.enemy.movingProgress());
         if (this.enemy.isArrive()) {
             this.player.startAttackTimer();
-            this.gameState = GameState.attacking;
+            this.gameState = GameState.fighting;
         }
     },
-    doAttack (deltaTime: number) {
+    doPlayerAttack (deltaTime: number) {
         if (this.player.isAttack()) {
             this.player.resetAttackTimer();
             this.enemy?.doDamage(1);
@@ -75,6 +77,17 @@ export const game: Game = {
             }
         } else {
             this.player.updateAttackTimer(deltaTime);
+        }
+    },
+    doEnemyAttack (deltaTime: number) {
+        if (this.enemy?.isAttack()) {
+            this.enemy?.resetAttackTimer();
+            this.player?.doDamage(1);
+            if (!this.player?.isAlive()) {
+                alert('You lost');
+            }
+        } else {
+            this.enemy?.updateAttackTimer(deltaTime);
         }
     },
     runPressed () {
