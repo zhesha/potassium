@@ -1,20 +1,23 @@
+import { Inventory, createInventory } from "./Inventory";
+
 export interface Player {
     attackTimer: number,
     hp: number,
+    inventory: Inventory,
     updateAttackTimer: (delta: number) => void,
     isAttack: () => boolean,
     resetAttackTimer: () => void,
     startAttackTimer: () => void,
     doDamage: (dmg: number) => void,
     isAlive: () => boolean,
+    getDmg: () => number,
 }
-
-const attackTimeout = 1000;
 
 export function createPlayer (): Player {
     return {
         attackTimer: 0,
-        hp: 5,
+        hp: 10,
+        inventory: createInventory(),
         updateAttackTimer (delta: number) {
             this.attackTimer -= delta;
         },
@@ -22,7 +25,7 @@ export function createPlayer (): Player {
             return this.attackTimer <= 0;
         },
         resetAttackTimer () {
-            this.attackTimer = attackTimeout;
+            this.attackTimer = this.inventory.getSpeed();
         },
         startAttackTimer () {
             this.attackTimer = 0;
@@ -32,6 +35,9 @@ export function createPlayer (): Player {
         },
         isAlive () {
             return this.hp > 0;
+        },
+        getDmg () {
+            return this.inventory.getDmg();
         }
     }
 }

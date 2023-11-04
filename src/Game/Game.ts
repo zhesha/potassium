@@ -68,7 +68,7 @@ export const game: Game = {
     doPlayerAttack (deltaTime: number) {
         if (this.player.isAttack()) {
             this.player.resetAttackTimer();
-            this.enemy?.doDamage(1);
+            this.enemy?.doDamage(this.player.getDmg());
             if (this.enemy?.isAlive()) {
                 this.enemyReceiveDmgHandler(this.enemy.hp);
             } else {
