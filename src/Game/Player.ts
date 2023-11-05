@@ -11,6 +11,7 @@ export interface Player {
     doDamage: (dmg: number) => void,
     isAlive: () => boolean,
     getDmg: () => number,
+    getHitChance: () => number,
 }
 
 export function createPlayer (): Player {
@@ -38,6 +39,9 @@ export function createPlayer (): Player {
         },
         getDmg () {
             return this.inventory.getDmg();
+        },
+        getHitChance () {
+            return this.inventory.getHitChance();
         }
     }
 }

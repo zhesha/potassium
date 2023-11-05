@@ -1,5 +1,6 @@
 import { Enemy, createEnemy } from "./Enemy";
 import { Player, createPlayer } from "./Player";
+import { randomizer } from "./randomizer";
 
 enum GameState {
     start,
@@ -68,12 +69,17 @@ export const game: Game = {
     doPlayerAttack (deltaTime: number) {
         if (this.player.isAttack()) {
             this.player.resetAttackTimer();
-            this.enemy?.doDamage(this.player.getDmg());
-            if (this.enemy?.isAlive()) {
-                this.enemyReceiveDmgHandler(this.enemy.hp);
+            if (randomizer.isSuccess(this.player.getHitChance())) {
+                console.log('player hit');
+                this.enemy?.doDamage(this.player.getDmg());
+                if (this.enemy?.isAlive()) {
+                    this.enemyReceiveDmgHandler(this.enemy.hp);
+                } else {
+                    this.enemy = createEnemy();
+                    this.gameState = GameState.moving;
+                }
             } else {
-                this.enemy = createEnemy();
-                this.gameState = GameState.moving;
+                console.log('miss');
             }
         } else {
             this.player.updateAttackTimer(deltaTime);
@@ -81,6 +87,7 @@ export const game: Game = {
     },
     doEnemyAttack (deltaTime: number) {
         if (this.enemy?.isAttack()) {
+            console.log('enemy hit');
             this.enemy?.resetAttackTimer();
             this.player?.doDamage(1);
             if (!this.player?.isAlive()) {

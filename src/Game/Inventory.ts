@@ -8,15 +8,20 @@ interface Boots {
     speed: number
 }
 
+interface Gloves {
+    chance: number
+}
+
 export interface Inventory {
     weapon: Weapon,
-    gloves: InventoryItem,
+    gloves: Gloves,
     boots: Boots,
     shield: InventoryItem,
     armor: InventoryItem,
     helmet: InventoryItem,
     getDmg: () => number,
     getSpeed: () => number,
+    getHitChance: () => number,
 }
 
 export function createInventory (): Inventory {
@@ -24,7 +29,9 @@ export function createInventory (): Inventory {
         weapon: {
             dmg: 1
         },
-        gloves: {},
+        gloves: {
+            chance: 20
+        },
         boots: {
             speed: 1000
         },
@@ -36,6 +43,9 @@ export function createInventory (): Inventory {
         },
         getSpeed () {
             return this.boots.speed;
+        },
+        getHitChance () {
+            return this.gloves.chance;
         }
     };
 }
