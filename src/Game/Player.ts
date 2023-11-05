@@ -12,6 +12,7 @@ export interface Player {
     isAlive: () => boolean,
     getDmg: () => number,
     getHitChance: () => number,
+    getBlockChance: () => number,
 }
 
 export function createPlayer (): Player {
@@ -42,6 +43,9 @@ export function createPlayer (): Player {
         },
         getHitChance () {
             return this.inventory.getHitChance();
+        },
+        getBlockChance () {
+            return this.inventory.getBlockChance();
         }
     }
 }

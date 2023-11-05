@@ -89,9 +89,13 @@ export const game: Game = {
         if (this.enemy?.isAttack()) {
             console.log('enemy hit');
             this.enemy?.resetAttackTimer();
-            this.player?.doDamage(1);
-            if (!this.player?.isAlive()) {
-                alert('You lost');
+            if (!randomizer.isSuccess(this.player.getBlockChance())) {
+                this.player?.doDamage(1);
+                if (!this.player?.isAlive()) {
+                    alert('You lost');
+                }
+            } else {
+                console.log('block');
             }
         } else {
             this.enemy?.updateAttackTimer(deltaTime);
