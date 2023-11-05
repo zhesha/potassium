@@ -33,7 +33,12 @@ export function createPlayer (): Player {
             this.attackTimer = 0;
         },
         doDamage (dmg: number) {
-            this.hp -= dmg;
+            const realDmg = (dmg - this.inventory.getBlockValue()) * this.inventory.getBlockPercent() / 100;
+            if (realDmg > 1) {
+                this.hp -= dmg;
+            } else {
+                this.hp -= 1;
+            }
         },
         isAlive () {
             return this.hp > 0;

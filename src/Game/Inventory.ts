@@ -1,5 +1,3 @@
-interface InventoryItem {}
-
 interface Weapon {
     dmg: number
 }
@@ -16,17 +14,27 @@ interface Shield {
     blockChance: number
 }
 
+interface Armor {
+    blockPercent: number
+}
+
+interface Helmet {
+    blockValue: number
+}
+
 export interface Inventory {
     weapon?: Weapon,
     gloves?: Gloves,
     boots?: Boots,
     shield?: Shield,
-    armor?: InventoryItem,
-    helmet?: InventoryItem,
+    armor?: Armor,
+    helmet?: Helmet,
     getDmg: () => number,
     getSpeed: () => number,
     getHitChance: () => number,
     getBlockChance: () => number,
+    getBlockPercent: () => number,
+    getBlockValue: () => number,
 }
 
 export function createInventory (): Inventory {
@@ -41,8 +49,8 @@ export function createInventory (): Inventory {
             speed: 1000
         },
         shield: undefined,
-        armor: {},
-        helmet: {},
+        armor: undefined,
+        helmet: undefined,
         getDmg () {
             return this.weapon?.dmg || 1;
         },
@@ -54,6 +62,12 @@ export function createInventory (): Inventory {
         },
         getBlockChance () {
             return this.shield?.blockChance || 0;
+        },
+        getBlockPercent () {
+            return this.armor?.blockPercent || 0;
+        },
+        getBlockValue () {
+            return this.helmet?.blockValue || 0;
         }
     };
 }
