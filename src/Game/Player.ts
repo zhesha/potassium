@@ -18,7 +18,7 @@ export interface Player {
 export function createPlayer (): Player {
     return {
         attackTimer: 0,
-        hp: 10,
+        hp: 100,
         inventory: createInventory(),
         updateAttackTimer (delta: number) {
             this.attackTimer -= delta;

@@ -19,7 +19,7 @@ const fullEnemyPass = 1;
 
 export function createEnemy (): Enemy {
     return {
-        hp: 3,
+        hp: 1,
         movingTimer: 0,
         attackTimer: 0,
         doDamage (dmg: number) {

@@ -1,4 +1,5 @@
 import { Enemy, createEnemy } from "./Enemy";
+import { Loot, loot } from "./Loot";
 import { Player, createPlayer } from "./Player";
 import { randomizer } from "./randomizer";
 
@@ -16,6 +17,7 @@ interface Game {
     gameState: GameState,
     player: Player,
     enemy: Enemy | null,
+    loot: Loot,
     tick: (timeStamp: number) => void,
     doMove: (deltaTime: number) => void,
     doPlayerAttack: (deltaTime: number) => void;
@@ -28,6 +30,10 @@ interface Game {
     onEnemyProgress: (handler: (value: number) => void) => void,
     enemyReceiveDmgHandler: (currentHp: number) => void,
     onEnemyDmgReceive: (handler: (currentHp: number) => void) => void,
+    showLootHandler: (message: string) => void,
+    onShowLoot: (handler: (message: string) => void) => void,
+    killEnemy(): void,
+    generateLoot(): void,
 }
 
 export const game: Game = {
@@ -37,7 +43,8 @@ export const game: Game = {
     gameState: GameState.start,
     player: createPlayer(),
     enemy: null,
-    tick (timeStamp: number) {
+    loot,
+    tick(timeStamp: number) {
         if (this.isRun && this.lastTimeStamp === 0) {
             this.lastTimeStamp = timeStamp;
         }
@@ -55,7 +62,7 @@ export const game: Game = {
         }
         this.lastTimeStamp = timeStamp;
     },
-    doMove (deltaTime: number) {
+    doMove(deltaTime: number) {
         if (!this.enemy) {
             return;
         }
@@ -66,7 +73,7 @@ export const game: Game = {
             this.gameState = GameState.fighting;
         }
     },
-    doPlayerAttack (deltaTime: number) {
+    doPlayerAttack(deltaTime: number) {
         if (this.player.isAttack()) {
             this.player.resetAttackTimer();
             if (randomizer.isSuccess(this.player.getHitChance())) {
@@ -75,8 +82,7 @@ export const game: Game = {
                 if (this.enemy?.isAlive()) {
                     this.enemyReceiveDmgHandler(this.enemy.hp);
                 } else {
-                    this.enemy = createEnemy();
-                    this.gameState = GameState.moving;
+                    this.killEnemy();
                 }
             } else {
                 console.log('miss');
@@ -85,7 +91,7 @@ export const game: Game = {
             this.player.updateAttackTimer(deltaTime);
         }
     },
-    doEnemyAttack (deltaTime: number) {
+    doEnemyAttack(deltaTime: number) {
         if (this.enemy?.isAttack()) {
             console.log('enemy hit');
             this.enemy?.resetAttackTimer();
@@ -101,7 +107,7 @@ export const game: Game = {
             this.enemy?.updateAttackTimer(deltaTime);
         }
     },
-    runPressed () {
+    runPressed() {
         this.isRun = true;
         this.lastTimeStamp = 0;
         if (this.gameState === GameState.start) {
@@ -109,20 +115,34 @@ export const game: Game = {
             this.enemy = createEnemy();
         }
     },
-    runReleased () {
+    runReleased() {
         this.isRun = false;
     },
-    timeChangeHandlers: (value: number) => {},
-    onTimeChange (handler: (value: number) => void) {
+    timeChangeHandlers: (value: number) => { },
+    onTimeChange(handler: (value: number) => void) {
         this.timeChangeHandlers = handler;
     },
-    enemyProgressHandlers: (value: number) => {},
-    onEnemyProgress (handler: (value: number) => void) {
+    enemyProgressHandlers: (value: number) => { },
+    onEnemyProgress(handler: (value: number) => void) {
         this.enemyProgressHandlers = handler;
     },
-    enemyReceiveDmgHandler: (currentHp: number) => {},
-    onEnemyDmgReceive (handler: (currentHp: number) => void) {
+    enemyReceiveDmgHandler: (currentHp: number) => { },
+    onEnemyDmgReceive(handler: (currentHp: number) => void) {
         this.enemyReceiveDmgHandler = handler;
+    },
+    showLootHandler: (message: string) => { },
+    onShowLoot(handler: (message: string) => void) {
+        this.showLootHandler = handler;
+    },
+    killEnemy: function () {
+        this.enemy = createEnemy();
+        this.gameState = GameState.moving;
+        this.isRun = false;
+        this.generateLoot();
+    },
+    generateLoot () {
+        const item = this.loot.generate();
+        this.showLootHandler(item.message);
     }
 }
 
