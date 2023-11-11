@@ -142,6 +142,7 @@ export const game: Game = {
     },
     generateLoot () {
         const item = this.loot.generate();
+        this.player.inventory.backpack.add(item);
         this.showLootHandler(item.message);
     }
 }

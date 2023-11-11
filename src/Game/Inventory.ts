@@ -1,24 +1,32 @@
-interface Weapon {
+import { Backpack, createBackpack } from "./Backpack"
+
+export interface InventoryItemBase {
+    name: string;
+}
+
+export type InventoryItem = Weapon | Boots | Gloves | Shield | Armor | Helmet;
+
+interface Weapon extends InventoryItemBase {
     dmg: number
 }
 
-interface Boots {
+interface Boots extends InventoryItemBase {
     speed: number
 }
 
-interface Gloves {
+interface Gloves extends InventoryItemBase {
     hitChance: number
 }
 
-interface Shield {
+interface Shield extends InventoryItemBase {
     blockChance: number
 }
 
-interface Armor {
+interface Armor extends InventoryItemBase {
     blockPercent: number
 }
 
-interface Helmet {
+interface Helmet extends InventoryItemBase {
     blockValue: number
 }
 
@@ -29,6 +37,7 @@ export interface Inventory {
     shield?: Shield,
     armor?: Armor,
     helmet?: Helmet,
+    backpack: Backpack,
     getDmg: () => number,
     getSpeed: () => number,
     getHitChance: () => number,
@@ -40,17 +49,21 @@ export interface Inventory {
 export function createInventory (): Inventory {
     return {
         weapon: {
-            dmg: 1
+            name: 'Sword',
+            dmg: 1,
         },
         gloves: {
+            name: 'Gloves',
             hitChance: 20
         },
         boots: {
+            name: 'Boots',
             speed: 1000
         },
         shield: undefined,
         armor: undefined,
         helmet: undefined,
+        backpack: createBackpack(),
         getDmg () {
             return this.weapon?.dmg || 1;
         },

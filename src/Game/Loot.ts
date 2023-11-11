@@ -1,7 +1,8 @@
-import { count } from "console";
+import { InventoryItem } from "./Inventory";
 
 export interface LootItem {
     message: string;
+    item: InventoryItem;
 }
 
 interface LootLists {
@@ -22,22 +23,66 @@ export interface Loot {
     generateLootListByType(lootType: number): void
 }
 
-const lootMap = {
+interface LootMap {
+    1: Array<LootItem>,
+    2: Array<LootItem>,
+    3: Array<LootItem>,
+    4: Array<LootItem>,
+    5: Array<LootItem>,
+}
+
+const lootMap: LootMap = {
     1: [
-        { message: 'test11' },
-        { message: 'test12' }
+        {
+            message: 'test11',
+            item: {
+                name: 'sword',
+                dmg: 2,
+            }
+        },
+        {
+            message: 'test12',
+            item: {
+                name: 'sword',
+                dmg: 2,
+            }
+        }
     ],
     2: [
-        { message: 'test2' }
+        {
+            message: 'test2',
+            item: {
+                name: 'sword',
+                dmg: 2,
+            }
+        }
     ],
     3: [
-        { message: 'test3' }
+        {
+            message: 'test3',
+            item: {
+                name: 'sword',
+                dmg: 2,
+            }
+        }
     ],
     4: [
-        { message: 'test4' }
+        {
+            message: 'test4',
+            item: {
+                name: 'sword',
+                dmg: 2,
+            }
+        }
     ],
     5: [
-        { message: 'test5' }
+        {
+            message: 'test5',
+            item: {
+                name: 'sword',
+                dmg: 2,
+            }
+        }
     ],
 };
 
