@@ -1,0 +1,18 @@
+.selected-wrapper {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.selected-inner {
+    width: 100px;
+    height: 100px;
+    background-color: brown;
+    display: flex;
+    flex-direction: column;
+}

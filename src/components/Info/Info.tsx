@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './Info.scss'
-import { game } from '../Game/Game';
+import { game } from '../../Game/Game';
 
 export function Info() {
     const [time, setTime] = useState(0);

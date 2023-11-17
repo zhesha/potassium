@@ -2,31 +2,41 @@ import { Backpack, createBackpack } from "./Backpack"
 
 export interface InventoryItemBase {
     name: string;
+    type: InventoryType;
 }
 
 export type InventoryItem = Weapon | Boots | Gloves | Shield | Armor | Helmet;
 
-interface Weapon extends InventoryItemBase {
+export enum InventoryType {
+    weapon,
+    boots,
+    gloves,
+    shield,
+    armor,
+    helmet,
+}
+
+export interface Weapon extends InventoryItemBase {
     dmg: number
 }
 
-interface Boots extends InventoryItemBase {
+export interface Boots extends InventoryItemBase {
     speed: number
 }
 
-interface Gloves extends InventoryItemBase {
+export interface Gloves extends InventoryItemBase {
     hitChance: number
 }
 
-interface Shield extends InventoryItemBase {
+export interface Shield extends InventoryItemBase {
     blockChance: number
 }
 
-interface Armor extends InventoryItemBase {
+export interface Armor extends InventoryItemBase {
     blockPercent: number
 }
 
-interface Helmet extends InventoryItemBase {
+export interface Helmet extends InventoryItemBase {
     blockValue: number
 }
 
@@ -51,14 +61,17 @@ export function createInventory (): Inventory {
         weapon: {
             name: 'Sword',
             dmg: 1,
+            type: InventoryType.weapon
         },
         gloves: {
             name: 'Gloves',
-            hitChance: 20
+            hitChance: 20,
+            type: InventoryType.gloves
         },
         boots: {
             name: 'Boots',
-            speed: 1000
+            speed: 1000,
+            type: InventoryType.boots
         },
         shield: undefined,
         armor: undefined,

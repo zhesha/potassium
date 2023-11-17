@@ -1,4 +1,4 @@
-import { InventoryItem } from "./Inventory";
+import { InventoryItem, InventoryType } from "./Inventory";
 
 export interface LootItem {
     message: string;
@@ -38,6 +38,7 @@ const lootMap: LootMap = {
             item: {
                 name: 'sword',
                 dmg: 2,
+                type: InventoryType.weapon
             }
         },
         {
@@ -45,6 +46,7 @@ const lootMap: LootMap = {
             item: {
                 name: 'sword',
                 dmg: 2,
+                type: InventoryType.weapon
             }
         }
     ],
@@ -54,6 +56,7 @@ const lootMap: LootMap = {
             item: {
                 name: 'sword',
                 dmg: 2,
+                type: InventoryType.weapon
             }
         }
     ],
@@ -63,6 +66,7 @@ const lootMap: LootMap = {
             item: {
                 name: 'sword',
                 dmg: 2,
+                type: InventoryType.weapon
             }
         }
     ],
@@ -72,6 +76,7 @@ const lootMap: LootMap = {
             item: {
                 name: 'sword',
                 dmg: 2,
+                type: InventoryType.weapon
             }
         }
     ],
@@ -81,6 +86,7 @@ const lootMap: LootMap = {
             item: {
                 name: 'sword',
                 dmg: 2,
+                type: InventoryType.weapon
             }
         }
     ],

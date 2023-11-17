@@ -13,6 +13,8 @@ export interface Player {
     getDmg: () => number,
     getHitChance: () => number,
     getBlockChance: () => number,
+    changeInventoryHandler: () => void,
+    onChangeInventory(handler: () => void): void
 }
 
 export function createPlayer (): Player {
@@ -51,6 +53,10 @@ export function createPlayer (): Player {
         },
         getBlockChance () {
             return this.inventory.getBlockChance();
+        },
+        changeInventoryHandler: () => { },
+        onChangeInventory(handler: () => void) {
+            this.changeInventoryHandler = handler;
         }
     }
 }

@@ -1,13 +1,20 @@
 import React, { useState } from 'react';
 import './App.scss';
-import { Field } from './Field/Field';
-import { Controls } from './Controls/Controls';
-import { Info } from './Info/Info';
-import { Modal } from './Modal/Modal';
+import { Field } from './components/Field/Field';
+import { Controls } from './components/Controls/Controls';
+import { Info } from './components/Info/Info';
+import { Modal } from './components/Modal/Modal';
 import { game } from './Game/Game';
+import { Inventory } from './components/Inventory/Inventory';
+
+enum Pages {
+    game,
+    inventory,
+}
 
 function App() {
     const [lootMessage, setLootMessage] = useState<string | null>(null);
+    const [page, setPage] = useState(Pages.game);
 
     game.onShowLoot(function (message: string) {
         setLootMessage(message);
@@ -16,9 +23,16 @@ function App() {
     return (
         <div className="App">
             <div className="game-box">
-                <Field />
-                <Controls/>
-                <Info/>
+                {page === Pages.game &&
+                    <>
+                        <Field />
+                        <Controls toInventory={() => setPage(Pages.inventory)}/>
+                        <Info/>
+                    </>
+                }
+                {page === Pages.inventory &&
+                    <Inventory />
+                }
                 {lootMessage && <Modal close={() => setLootMessage(null)} message={lootMessage}/>}
             </div>
         </div>
