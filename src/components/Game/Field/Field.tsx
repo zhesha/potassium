@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './Field.scss';
-import { config } from '../../config';
-import { game } from '../../Game/Game';
+import { config } from '../../../config';
+import { game } from '../../../Game/Game';
 
 export function Field() {
     const [enemyProgress, setEnemyProgress] = useState(0);

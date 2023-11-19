@@ -1,39 +1,40 @@
 import React, { useState } from 'react';
 import './App.scss';
-import { Field } from './components/Field/Field';
-import { Controls } from './components/Controls/Controls';
-import { Info } from './components/Info/Info';
-import { Modal } from './components/Modal/Modal';
-import { game } from './Game/Game';
 import { Inventory } from './components/Inventory/Inventory';
+import { Skill } from './components/Skill/Skill';
+import { Character } from './components/Character/Character';
+import { Pocket } from './components/Pocket/Pocket';
+import { Game } from './components/Game/Game';
 
-enum Pages {
+export enum Pages {
     game,
     inventory,
+    skill,
+    character,
+    pocket,
 }
 
 function App() {
-    const [lootMessage, setLootMessage] = useState<string | null>(null);
     const [page, setPage] = useState(Pages.game);
-
-    game.onShowLoot(function (message: string) {
-        setLootMessage(message);
-    });
 
     return (
         <div className="App">
             <div className="game-box">
                 {page === Pages.game &&
-                    <>
-                        <Field />
-                        <Controls toInventory={() => setPage(Pages.inventory)}/>
-                        <Info/>
-                    </>
+                    <Game setPage={setPage} />
                 }
                 {page === Pages.inventory &&
                     <Inventory />
                 }
-                {lootMessage && <Modal close={() => setLootMessage(null)} message={lootMessage}/>}
+                {page === Pages.skill &&
+                    <Skill />
+                }
+                {page === Pages.character &&
+                    <Character />
+                }
+                {page === Pages.pocket &&
+                    <Pocket />
+                }
             </div>
         </div>
     );
