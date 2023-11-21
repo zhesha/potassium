@@ -1,4 +1,5 @@
 import { Inventory, createInventory } from "./Inventory";
+import { Pocket, createPocket } from "./Pocket";
 import { Skill } from "./Skill";
 
 interface CharData {
@@ -11,6 +12,7 @@ export interface Player {
     attackTimer: number,
     hp: number,
     inventory: Inventory,
+    pocket: Pocket,
     updateAttackTimer: (delta: number) => void,
     isAttack: () => boolean,
     resetAttackTimer: () => void,
@@ -33,6 +35,7 @@ export function createPlayer (): Player {
         attackTimer: 0,
         hp: 100,
         inventory: createInventory(),
+        pocket: createPocket(),
         updateAttackTimer (delta: number) {
             this.attackTimer -= delta;
         },
