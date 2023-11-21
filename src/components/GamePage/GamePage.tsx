@@ -10,7 +10,7 @@ interface GameProps {
     setPage (page: Pages): void
 }
 
-export function Game ({setPage}: GameProps) {
+export function GamePage ({setPage}: GameProps) {
     const [lootMessage, setLootMessage] = useState<string | null>(null);
 
     game.onShowLoot(function (message: string) {

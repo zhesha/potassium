@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import './Backpack.scss';
 import { game } from "../../../Game/Game";
 import { InventoryItem, InventoryType } from "../../../Game/Inventory";
-import { SelectedAct } from "../Inventory";
+import { SelectedAct } from "../InventoryPage";
 
 interface BackpackProps {
     select (item: InventoryItem, selectedAct: SelectedAct): void

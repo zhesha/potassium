@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import './Used.scss';
 import { game } from "../../../Game/Game";
 import { InventoryItem } from "../../../Game/Inventory";
-import { SelectedAct } from "../Inventory";
+import { SelectedAct } from "../InventoryPage";
 
 interface UsedProps {
     select (item: InventoryItem, selectedAct: SelectedAct): void

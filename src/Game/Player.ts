@@ -1,4 +1,11 @@
 import { Inventory, createInventory } from "./Inventory";
+import { Skill } from "./Skill";
+
+interface CharData {
+    experience: string
+    level: string
+    point: string
+}
 
 export interface Player {
     attackTimer: number,
@@ -13,8 +20,12 @@ export interface Player {
     getDmg: () => number,
     getHitChance: () => number,
     getBlockChance: () => number,
+    getSkills (): Array<Skill>;
+    getCharData (): CharData;
     changeInventoryHandler: () => void,
     onChangeInventory(handler: () => void): void
+    charDataChangeHandler: () => void,
+    onCharDataChange(handler: () => void): void
 }
 
 export function createPlayer (): Player {
@@ -54,9 +65,25 @@ export function createPlayer (): Player {
         getBlockChance () {
             return this.inventory.getBlockChance();
         },
+        getSkills () {
+            // TODO implementation
+            return [];
+        },
+        getCharData () {
+            // TODO implementation
+            return {
+                experience: '0/100',
+                level: '0',
+                point: '0',
+            };
+        },
         changeInventoryHandler: () => { },
         onChangeInventory(handler: () => void) {
             this.changeInventoryHandler = handler;
+        },
+        charDataChangeHandler: () => {},
+        onCharDataChange(handler: () => void) {
+            this.charDataChangeHandler = handler;
         }
     }
 }

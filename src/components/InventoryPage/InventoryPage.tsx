@@ -20,7 +20,7 @@ export enum SelectedAct {
     useHelmet,
 }
 
-export function Inventory () {
+export function InventoryPage () {
     const [selected, setSelected] = useState<InventoryItem | null>(null)
     const [selectedAct, setSelectedAct] = useState<SelectedAct | null>(null)
 

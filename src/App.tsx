@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import './App.scss';
-import { Inventory } from './components/Inventory/Inventory';
-import { Skill } from './components/Skill/Skill';
-import { Character } from './components/Character/Character';
-import { Pocket } from './components/Pocket/Pocket';
-import { Game } from './components/Game/Game';
+import { InventoryPage } from './components/InventoryPage/InventoryPage';
+import { SkillPage } from './components/SkillPage/SkillPage';
+import { CharacterPage } from './components/CharacterPage/CharacterPage';
+import { PocketPage } from './components/PocketPage/PocketPage';
+import { GamePage } from './components/GamePage/GamePage';
 
 export enum Pages {
     game,
@@ -21,19 +21,19 @@ function App() {
         <div className="App">
             <div className="game-box">
                 {page === Pages.game &&
-                    <Game setPage={setPage} />
+                    <GamePage setPage={setPage} />
                 }
                 {page === Pages.inventory &&
-                    <Inventory />
+                    <InventoryPage />
                 }
                 {page === Pages.skill &&
-                    <Skill />
+                    <SkillPage />
                 }
                 {page === Pages.character &&
-                    <Character />
+                    <CharacterPage />
                 }
                 {page === Pages.pocket &&
-                    <Pocket />
+                    <PocketPage />
                 }
             </div>
         </div>

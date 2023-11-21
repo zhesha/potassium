@@ -1,7 +1,7 @@
 import React from "react";
 import './Selected.scss';
 import { Armor, Boots, Gloves, Helmet, InventoryItem, Shield, Weapon } from "../../../Game/Inventory";
-import { SelectedAct } from "../Inventory";
+import { SelectedAct } from "../InventoryPage";
 import { game } from "../../../Game/Game";
 
 interface SelectedProps {
