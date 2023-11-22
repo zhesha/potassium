@@ -5,17 +5,23 @@ import { CurrentPocket } from "./CurrentPocket/CurrentPocket";
 import { BackpackForPocket } from "./BackpackForPocket/BackpackForPocket";
 import { SelectedPocket } from "./SelectedPocket/SelectedPocket";
 
+export enum PocketSelectedAct {
+    remove,
+    use
+}
+
 export function PocketPage () {
     const [selected, setSelected] = useState<InventoryItem | null>(null)
-    // const [selectedAct, setSelectedAct] = useState<SelectedAct | null>(null)
+    const [selectedAct, setSelectedAct] = useState<PocketSelectedAct | null>(null)
 
-    function select (selectedItem: InventoryItem) {
+    function select (selectedItem: InventoryItem | null, act: PocketSelectedAct | null) {
         setSelected(selectedItem);
+        setSelectedAct(act);
     }
 
     return <div className="pocket">
-        <CurrentPocket />
-        <BackpackForPocket />
-        {selected && <SelectedPocket />}
+        <CurrentPocket select={select} />
+        <BackpackForPocket select={select}/>
+        {selected && <SelectedPocket select={select} selected={selected} act={selectedAct} />}
     </div>
 }

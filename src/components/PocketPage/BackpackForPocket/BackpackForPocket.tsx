@@ -1,7 +1,13 @@
 import React, { useState } from "react";
 import { game } from "../../../Game/Game";
+import { InventoryItem } from "../../../Game/Inventory";
+import { PocketSelectedAct } from "../PocketPage";
 
-export function BackpackForPocket () {
+interface CurrentPocketProps {
+    select (selectedItem: InventoryItem, act: PocketSelectedAct): void
+}
+
+export function BackpackForPocket ({select}: CurrentPocketProps) {
     const [backpackList, setBackpackList] = useState(game.player.inventory.backpack.list);
 
     game.player.onChangeInventory(() => {
@@ -9,6 +15,9 @@ export function BackpackForPocket () {
     });
 
     return <div className="backpack-for-pocket">
-        {backpackList.map(item => <div className='backpack-for-pocket-item'>{item.name}</div>)}
+        {backpackList.map(item => <div
+            className='backpack-for-pocket-item'
+            onClick={() => select(item, PocketSelectedAct.use)}
+        >{item.name}</div>)}
     </div>
 }

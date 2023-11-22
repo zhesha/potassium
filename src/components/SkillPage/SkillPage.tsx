@@ -1,5 +1,4 @@
 import React from "react";
-import './Skill.scss'
 import { game } from "../../Game/Game";
 
 export function SkillPage () {
