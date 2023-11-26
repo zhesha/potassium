@@ -1,3 +1,4 @@
+import { game } from "./Game";
 import { Inventory, createInventory } from "./Inventory";
 import { Pocket, createPocket } from "./Pocket";
 import { Skill } from "./Skill";
@@ -55,6 +56,7 @@ export function createPlayer (): Player {
             } else {
                 this.hp -= 1;
             }
+            game.infoChangeHandler();
         },
         isAlive () {
             return this.hp > 0;

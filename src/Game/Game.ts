@@ -1,3 +1,4 @@
+import { InfoData } from "../components/GamePage/Info/Info";
 import { Enemy, createEnemy } from "./Enemy";
 import { Loot, loot } from "./Loot";
 import { Player, createPlayer } from "./Player";
@@ -18,22 +19,24 @@ interface Game {
     player: Player,
     enemy: Enemy | null,
     loot: Loot,
+    distance: number,
     tick: (timeStamp: number) => void,
     doMove: (deltaTime: number) => void,
     doPlayerAttack: (deltaTime: number) => void;
     doEnemyAttack: (deltaTime: number) => void;
     runPressed: () => void,
     runReleased: () => void,
-    timeChangeHandlers: (value: number) => void,
-    onTimeChange: (handler: (value: number) => void) => void,
     enemyProgressHandlers: (value: number) => void,
     onEnemyProgress: (handler: (value: number) => void) => void,
     enemyReceiveDmgHandler: (currentHp: number) => void,
     onEnemyDmgReceive: (handler: (currentHp: number) => void) => void,
     showLootHandler: (message: string) => void,
     onShowLoot: (handler: (message: string) => void) => void,
+    infoChangeHandler: () => void,
+    onInfoChange: (handler: () => void) => void,
     killEnemy(): void,
     generateLoot(): void,
+    getInfo(): InfoData,
 }
 
 export const game: Game = {
@@ -44,6 +47,7 @@ export const game: Game = {
     player: createPlayer(),
     enemy: null,
     loot,
+    distance: 0,
     tick(timeStamp: number) {
         if (this.isRun && this.lastTimeStamp === 0) {
             this.lastTimeStamp = timeStamp;
@@ -51,9 +55,10 @@ export const game: Game = {
         if (this.isRun) {
             const deltaTime = timeStamp - this.lastTimeStamp;
             this.time += deltaTime;
-            this.timeChangeHandlers(this.time);
             if (this.gameState === GameState.moving && this.enemy && !this.enemy.isArrive()) {
                 this.doMove(deltaTime);
+                this.distance += 1.4 * deltaTime / 1000;
+                this.infoChangeHandler();
             }
             if (this.gameState === GameState.fighting) {
                 this.doPlayerAttack(deltaTime);
@@ -118,10 +123,6 @@ export const game: Game = {
     runReleased() {
         this.isRun = false;
     },
-    timeChangeHandlers: (value: number) => { },
-    onTimeChange(handler: (value: number) => void) {
-        this.timeChangeHandlers = handler;
-    },
     enemyProgressHandlers: (value: number) => { },
     onEnemyProgress(handler: (value: number) => void) {
         this.enemyProgressHandlers = handler;
@@ -134,6 +135,10 @@ export const game: Game = {
     onShowLoot(handler: (message: string) => void) {
         this.showLootHandler = handler;
     },
+    infoChangeHandler () {},
+    onInfoChange (handler: () => void) {
+        this.infoChangeHandler = handler
+    },
     killEnemy: function () {
         this.enemy = createEnemy();
         this.gameState = GameState.moving;
@@ -144,7 +149,13 @@ export const game: Game = {
         const item = this.loot.generate();
         this.player.inventory.backpack.add(item.item);
         this.showLootHandler(item.message);
-    }
+    },
+    getInfo(): InfoData {
+        return {
+            distance: Math.floor(this.distance),
+            hp: this.player.hp,
+        }
+    },
 }
 
 function step(timeStamp: number) {

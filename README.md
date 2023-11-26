@@ -1,5 +1,5 @@
 + add close button
-- show info
++ show info
 - add experience
 - add some items as loot
 - make level ups

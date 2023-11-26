@@ -2,14 +2,20 @@ import React, { useState } from 'react';
 import './Info.scss'
 import { game } from '../../../Game/Game';
 
-export function Info() {
-    const [time, setTime] = useState(0);
+export interface InfoData {
+    distance: number
+    hp: number
+}
 
-    game.onTimeChange((newTime: number) => {
-        setTime(newTime);
+export function Info() {
+    const [info, setInfo] = useState<InfoData>(game.getInfo());
+
+    game.onInfoChange(() => {
+        setInfo(game.getInfo());
     });
 
     return <div className="info">
-        Time: {time}
+        <div>Distance: {info.distance}</div>
+        <div>HP: {info.hp}</div>
     </div>
 }
