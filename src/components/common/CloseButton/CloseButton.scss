@@ -1,0 +1,9 @@
+.close-button-wrapper {
+    display: flex;
+    justify-content: end;
+    .close-button {
+        background-color: red;
+        padding: 10px;
+        cursor: pointer;
+    }
+}

@@ -24,16 +24,16 @@ function App() {
                     <GamePage setPage={setPage} />
                 }
                 {page === Pages.inventory &&
-                    <InventoryPage />
+                    <InventoryPage setPage={setPage} />
                 }
                 {page === Pages.skill &&
-                    <SkillPage />
+                    <SkillPage setPage={setPage} />
                 }
                 {page === Pages.character &&
-                    <CharacterPage />
+                    <CharacterPage setPage={setPage} />
                 }
                 {page === Pages.pocket &&
-                    <PocketPage />
+                    <PocketPage setPage={setPage} />
                 }
             </div>
         </div>

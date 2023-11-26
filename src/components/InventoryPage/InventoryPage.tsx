@@ -4,6 +4,8 @@ import { Used } from "./Used/Used";
 import { Backpack } from "./Backpack/Backpack";
 import { Selected } from "./Selected/Selected";
 import { InventoryItem } from "../../Game/Inventory";
+import { Pages } from "../../App";
+import { CloseButton } from "../common/CloseButton/CloseButton";
 
 export enum SelectedAct {
     removeWeapon,
@@ -20,7 +22,11 @@ export enum SelectedAct {
     useHelmet,
 }
 
-export function InventoryPage () {
+interface InventoryPageProps {
+    setPage (page: Pages): void
+}
+
+export function InventoryPage ({ setPage }: InventoryPageProps) {
     const [selected, setSelected] = useState<InventoryItem | null>(null)
     const [selectedAct, setSelectedAct] = useState<SelectedAct | null>(null)
 
@@ -30,6 +36,7 @@ export function InventoryPage () {
     }
 
     return <div className="inventory">
+        <CloseButton setPage={setPage} />
         <Used select={select}/>
         <Backpack select={select}/>
         {selected && <Selected selected={selected} act={selectedAct} setSelected={setSelected}/>}
