@@ -35,6 +35,7 @@ interface Game {
     infoChangeHandler: () => void,
     onInfoChange: (handler: () => void) => void,
     killEnemy(): void,
+    addExperience(value: number): void,
     generateLoot(): void,
     getInfo(): InfoData,
 }
@@ -144,6 +145,10 @@ export const game: Game = {
         this.gameState = GameState.moving;
         this.isRun = false;
         this.generateLoot();
+        this.addExperience(1)
+    },
+    addExperience (value: number) {
+        this.player.addExperience(value);
     },
     generateLoot () {
         const item = this.loot.generate();
