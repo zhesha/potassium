@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import './CloseButton.scss'
 import { Pages } from "../../../App";
 
