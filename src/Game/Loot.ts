@@ -1,9 +1,6 @@
 import { InventoryItem, InventoryType } from "./Inventory";
 
-export interface LootItem {
-    message: string;
-    item: InventoryItem;
-}
+export type LootItem = InventoryItem;
 
 interface LootLists {
     1: Array<number>,
@@ -34,252 +31,162 @@ interface LootMap {
 const lootMap: LootMap = {
     1: [
         {
-            message: 'sword 2',
-            item: {
-                name: 'sword',
-                dmg: 2,
-                type: InventoryType.weapon
-            }
+            name: 'sword 2',
+            dmg: 2,
+            type: InventoryType.weapon
         },
         {
-            message: 'boots 0.9',
-            item: {
-                name: 'boots',
-                speed: 900,
-                type: InventoryType.boots
-            }
+            name: 'boots 0.9',
+            speed: 900,
+            type: InventoryType.boots
         },
         {
-            message: 'gloves 30%',
-            item: {
-                name: 'gloves',
-                hitChance: 30,
-                type: InventoryType.gloves
-            }
+            name: 'gloves 30%',
+            hitChance: 30,
+            type: InventoryType.gloves
         },
         {
-            message: 'shield 10%',
-            item: {
-                name: 'shield',
-                blockChance: 10,
-                type: InventoryType.shield
-            }
+            name: 'shield 10%',
+            blockChance: 10,
+            type: InventoryType.shield
         },
         {
-            message: 'armor 10%',
-            item: {
-                name: 'armor',
-                blockPercent: 10,
-                type: InventoryType.armor
-            }
+            name: 'armor 10%',
+            blockPercent: 10,
+            type: InventoryType.armor
         },
         {
-            message: 'helmet 1',
-            item: {
-                name: 'helmet',
-                blockValue: 1,
-                type: InventoryType.helmet
-            }
+            name: 'helmet 1',
+            blockValue: 1,
+            type: InventoryType.helmet
         }
     ],
     2: [
         {
-            message: 'sword 3',
-            item: {
-                name: 'sword',
-                dmg: 3,
-                type: InventoryType.weapon
-            }
+            name: 'sword 3',
+            dmg: 3,
+            type: InventoryType.weapon
         },
         {
-            message: 'boots 0.8',
-            item: {
-                name: 'boots',
-                speed: 800,
-                type: InventoryType.boots
-            }
+            name: 'boots 0.8',
+            speed: 800,
+            type: InventoryType.boots
         },
         {
-            message: 'gloves 40%',
-            item: {
-                name: 'gloves',
-                hitChance: 40,
-                type: InventoryType.gloves
-            }
+            name: 'gloves 40%',
+            hitChance: 40,
+            type: InventoryType.gloves
         },
         {
-            message: 'shield 20%',
-            item: {
-                name: 'shield',
-                blockChance: 20,
-                type: InventoryType.shield
-            }
+            name: 'shield 20%',
+            blockChance: 20,
+            type: InventoryType.shield
         },
         {
-            message: 'armor 20%',
-            item: {
-                name: 'armor',
-                blockPercent: 20,
-                type: InventoryType.armor
-            }
+            name: 'armor 20%',
+            blockPercent: 20,
+            type: InventoryType.armor
         },
         {
-            message: 'helmet 2',
-            item: {
-                name: 'helmet',
-                blockValue: 2,
-                type: InventoryType.helmet
-            }
+            name: 'helmet 2',
+            blockValue: 2,
+            type: InventoryType.helmet
         }
     ],
     3: [
         {
-            message: 'sword 4',
-            item: {
-                name: 'sword',
-                dmg: 4,
-                type: InventoryType.weapon
-            }
+            name: 'sword 4',
+            dmg: 4,
+            type: InventoryType.weapon
         },
         {
-            message: 'boots 0.7',
-            item: {
-                name: 'boots',
-                speed: 700,
-                type: InventoryType.boots
-            }
+            name: 'boots 0.7',
+            speed: 700,
+            type: InventoryType.boots
         },
         {
-            message: 'gloves 50%',
-            item: {
-                name: 'gloves',
-                hitChance: 50,
-                type: InventoryType.gloves
-            }
+            name: 'gloves 50%',
+            hitChance: 50,
+            type: InventoryType.gloves
         },
         {
-            message: 'shield 30%',
-            item: {
-                name: 'shield',
-                blockChance: 30,
-                type: InventoryType.shield
-            }
+            name: 'shield 30%',
+            blockChance: 30,
+            type: InventoryType.shield
         },
         {
-            message: 'armor 30%',
-            item: {
-                name: 'armor',
-                blockPercent: 30,
-                type: InventoryType.armor
-            }
+            name: 'armor 30%',
+            blockPercent: 30,
+            type: InventoryType.armor
         },
         {
-            message: 'helmet 3',
-            item: {
-                name: 'helmet',
-                blockValue: 3,
-                type: InventoryType.helmet
-            }
+            name: 'helmet 3',
+            blockValue: 3,
+            type: InventoryType.helmet
         }
     ],
     4: [
         {
-            message: 'sword 5',
-            item: {
-                name: 'sword',
-                dmg: 5,
-                type: InventoryType.weapon
-            }
+            name: 'sword 5',
+            dmg: 5,
+            type: InventoryType.weapon
         },
         {
-            message: 'boots 0.6',
-            item: {
-                name: 'boots',
-                speed: 600,
-                type: InventoryType.boots
-            }
+            name: 'boots 0.6',
+            speed: 600,
+            type: InventoryType.boots
         },
         {
-            message: 'gloves 60%',
-            item: {
-                name: 'gloves',
-                hitChance: 60,
-                type: InventoryType.gloves
-            }
+            name: 'gloves 60%',
+            hitChance: 60,
+            type: InventoryType.gloves
         },
         {
-            message: 'shield 40%',
-            item: {
-                name: 'shield',
-                blockChance: 40,
-                type: InventoryType.shield
-            }
+            name: 'shield 40%',
+            blockChance: 40,
+            type: InventoryType.shield
         },
         {
-            message: 'armor 40%',
-            item: {
-                name: 'armor',
-                blockPercent: 40,
-                type: InventoryType.armor
-            }
+            name: 'armor 40%',
+            blockPercent: 40,
+            type: InventoryType.armor
         },
         {
-            message: 'helmet 4',
-            item: {
-                name: 'helmet',
-                blockValue: 4,
-                type: InventoryType.helmet
-            }
+            name: 'helmet 4',
+            blockValue: 4,
+            type: InventoryType.helmet
         }
     ],
     5: [
         {
-            message: 'sword 6',
-            item: {
-                name: 'sword',
-                dmg: 6,
-                type: InventoryType.weapon
-            }
+            name: 'sword 6',
+            dmg: 6,
+            type: InventoryType.weapon
         },
         {
-            message: 'boots 0.5',
-            item: {
-                name: 'boots',
-                speed: 500,
-                type: InventoryType.boots
-            }
+            name: 'boots 0.5',
+            speed: 500,
+            type: InventoryType.boots
         },
         {
-            message: 'gloves 70%',
-            item: {
-                name: 'gloves',
-                hitChance: 70,
-                type: InventoryType.gloves
-            }
+            name: 'gloves 70%',
+            hitChance: 70,
+            type: InventoryType.gloves
         },
         {
-            message: 'shield 50%',
-            item: {
-                name: 'shield',
-                blockChance: 50,
-                type: InventoryType.shield
-            }
+            name: 'shield 50%',
+            blockChance: 50,
+            type: InventoryType.shield
         },
         {
-            message: 'armor 50%',
-            item: {
-                name: 'armor',
-                blockPercent: 50,
-                type: InventoryType.armor
-            }
+            name: 'armor 50%',
+            blockPercent: 50,
+            type: InventoryType.armor
         },
         {
-            message: 'helmet 5',
-            item: {
-                name: 'helmet',
-                blockValue: 5,
-                type: InventoryType.helmet
-            }
+            name: 'helmet 5',
+            blockValue: 5,
+            type: InventoryType.helmet
         }
     ],
 };

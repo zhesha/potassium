@@ -2,7 +2,7 @@
 + show info
 + add experience
 + add some items as loot
-- improve item names
++ improve item names
 - add pocket items
 - add monsters
 - add some skills to skill-tree
