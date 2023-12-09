@@ -3,9 +3,11 @@ import './Backpack.scss';
 import { game } from "../../../Game/Game";
 import { InventoryItem, InventoryType } from "../../../Game/Inventory";
 import { SelectedAct } from "../InventoryPage";
+import { PocketItemType } from "../../../Game/Pocket";
+import { LootItem } from "../../../Game/Loot";
 
 interface BackpackProps {
-    select (item: InventoryItem, selectedAct: SelectedAct): void
+    select (item: LootItem, selectedAct: SelectedAct): void
 }
 
 export function Backpack ({select}: BackpackProps) {
@@ -16,11 +18,26 @@ export function Backpack ({select}: BackpackProps) {
     });
 
     return <div className="backpack">
-        {backpackList.map(item => <div onClick={() => select(item, inventoryTypeToAct(item.type))} className='backpackItem'>{item.name}</div>)}
+        {backpackList.map(item => <BackpackItem item={item} select={select} />)}
     </div>
 }
 
-function inventoryTypeToAct (type: InventoryType) {
+interface BackpackItemProps {
+    item: LootItem
+    select (item: LootItem, selectedAct: SelectedAct): void
+}
+
+function BackpackItem ({item, select}: BackpackItemProps) {
+    const act = inventoryTypeToAct(item.type);
+
+    if (!act) {
+        return null;
+    }
+
+    return <div onClick={() => select(item, act)} className='backpackItem'>{item.name}</div>
+}
+
+function inventoryTypeToAct (type: InventoryType | PocketItemType) {
     if (type === InventoryType.weapon) {
         return SelectedAct.useWeapon
     } else if (type === InventoryType.gloves) {
@@ -31,7 +48,7 @@ function inventoryTypeToAct (type: InventoryType) {
         return SelectedAct.useShield
     } else if (type === InventoryType.armor) {
         return SelectedAct.useArmor
-    } else {
+    } else if (type === InventoryType.helmet) {
         return SelectedAct.useHelmet
     }
 }

@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import './Pocket.scss'
-import { InventoryItem } from "../../Game/Inventory";
 import { CurrentPocket } from "./CurrentPocket/CurrentPocket";
 import { BackpackForPocket } from "./BackpackForPocket/BackpackForPocket";
 import { SelectedPocket } from "./SelectedPocket/SelectedPocket";
 import { CloseButton } from "../common/CloseButton/CloseButton";
 import { Pages } from "../../App";
+import { PocketItem } from "../../Game/Pocket";
 
 export enum PocketSelectedAct {
     remove,
@@ -17,10 +17,10 @@ interface PocketPageProps {
 }
 
 export function PocketPage ({ setPage }: PocketPageProps) {
-    const [selected, setSelected] = useState<InventoryItem | null>(null)
+    const [selected, setSelected] = useState<PocketItem | null>(null)
     const [selectedAct, setSelectedAct] = useState<PocketSelectedAct | null>(null)
 
-    function select (selectedItem: InventoryItem | null, act: PocketSelectedAct | null) {
+    function select (selectedItem: PocketItem | null, act: PocketSelectedAct | null) {
         setSelected(selectedItem);
         setSelectedAct(act);
     }

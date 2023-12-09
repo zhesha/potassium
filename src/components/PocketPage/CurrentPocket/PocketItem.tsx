@@ -1,10 +1,10 @@
 import React from "react";
-import { InventoryItem } from "../../../Game/Inventory";
 import { PocketSelectedAct } from "../PocketPage";
+import { PocketItem as PocketItemType } from "../../../Game/Pocket";
 
 interface PocketItemProps {
-    item: InventoryItem
-    select (selectedItem: InventoryItem, act: PocketSelectedAct): void
+    item: PocketItemType
+    select (selectedItem: PocketItemType, act: PocketSelectedAct): void
 }
 
 export function PocketItem ({item, select}: PocketItemProps) {

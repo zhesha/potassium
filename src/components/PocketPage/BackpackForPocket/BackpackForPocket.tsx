@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import { game } from "../../../Game/Game";
-import { InventoryItem } from "../../../Game/Inventory";
 import { PocketSelectedAct } from "../PocketPage";
+import { PocketItem, PocketItemType } from "../../../Game/Pocket";
+import { LootItem } from "../../../Game/Loot";
 
 interface CurrentPocketProps {
-    select (selectedItem: InventoryItem, act: PocketSelectedAct): void
+    select (selectedItem: PocketItem, act: PocketSelectedAct): void
 }
 
 export function BackpackForPocket ({select}: CurrentPocketProps) {
@@ -15,9 +16,21 @@ export function BackpackForPocket ({select}: CurrentPocketProps) {
     });
 
     return <div className="backpack-for-pocket">
-        {backpackList.map(item => <div
-            className='backpack-for-pocket-item'
-            onClick={() => select(item, PocketSelectedAct.use)}
-        >{item.name}</div>)}
+        {backpackList.map(item => <BackpackForPocketItem item={item} select={select}/>)}
     </div>
+}
+
+interface BackpackForPocketItemProps {
+    item: LootItem
+    select(selectedItem: PocketItem, act: PocketSelectedAct): void
+}
+
+function BackpackForPocketItem ({item, select}: BackpackForPocketItemProps) {
+    if (item.type !== PocketItemType.potion) {
+        return null;
+    }
+    return <div
+        className='backpack-for-pocket-item'
+        onClick={() => select(item, PocketSelectedAct.use)}
+    >{item.name}</div>
 }

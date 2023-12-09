@@ -1,14 +1,22 @@
-import { InventoryItem } from "./Inventory"
+export enum PocketItemType {
+    potion
+}
+
+export interface PocketItem {
+    name: string
+    hp: number
+    type: PocketItemType
+}
 
 export interface Pocket {
-    list: Array<InventoryItem>
+    list: Array<PocketItem>
     limit: number
-    getList (): Array<InventoryItem>
+    getList (): Array<PocketItem>
     changeHandler (): void
     onChange (handler: () => void): void
-    remove (item: InventoryItem): void
+    remove (item: PocketItem): void
     hasPlace (): boolean
-    add (item: InventoryItem): void
+    add (item: PocketItem): void
 }
 
 export function createPocket (): Pocket {
@@ -25,12 +33,12 @@ export function createPocket (): Pocket {
         hasPlace () {
             return this.list.length < this.limit;
         },
-        add (item: InventoryItem) {
+        add (item: PocketItem) {
             if (this.hasPlace()) {
                 this.list.push(item);
             }
         },
-        remove (item: InventoryItem) {
+        remove (item: PocketItem) {
             const index = this.list.indexOf(item);
             if (index !== -1) {
                 this.list.splice(index, 1);

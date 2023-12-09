@@ -4,6 +4,7 @@
 + add some items as loot
 + improve item names
 - add pocket items
+- add some extra loot
 - add monsters
 - add some skills to skill-tree
 - add magic and rare weapons

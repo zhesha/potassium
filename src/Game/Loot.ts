@@ -1,6 +1,7 @@
 import { InventoryItem, InventoryType } from "./Inventory";
+import { PocketItem, PocketItemType } from "./Pocket";
 
-export type LootItem = InventoryItem;
+export type LootItem = InventoryItem | PocketItem;
 
 interface LootLists {
     1: Array<number>,
@@ -59,6 +60,11 @@ const lootMap: LootMap = {
             name: 'helmet 1',
             blockValue: 1,
             type: InventoryType.helmet
+        },
+        {
+            name: 'health potion 50',
+            hp: 50,
+            type: PocketItemType.potion
         }
     ],
     2: [
@@ -91,6 +97,11 @@ const lootMap: LootMap = {
             name: 'helmet 2',
             blockValue: 2,
             type: InventoryType.helmet
+        },
+        {
+            name: 'health potion 100',
+            hp: 100,
+            type: PocketItemType.potion
         }
     ],
     3: [
@@ -123,6 +134,11 @@ const lootMap: LootMap = {
             name: 'helmet 3',
             blockValue: 3,
             type: InventoryType.helmet
+        },
+        {
+            name: 'health potion 200',
+            hp: 200,
+            type: PocketItemType.potion
         }
     ],
     4: [
@@ -155,6 +171,11 @@ const lootMap: LootMap = {
             name: 'helmet 4',
             blockValue: 4,
             type: InventoryType.helmet
+        },
+        {
+            name: 'health potion 300',
+            hp: 300,
+            type: PocketItemType.potion
         }
     ],
     5: [
@@ -187,6 +208,11 @@ const lootMap: LootMap = {
             name: 'helmet 5',
             blockValue: 5,
             type: InventoryType.helmet
+        },
+        {
+            name: 'health potion 500',
+            hp: 500,
+            type: PocketItemType.potion
         }
     ],
 };

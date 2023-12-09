@@ -1,11 +1,11 @@
 import React from "react";
-import { InventoryItem } from "../../../Game/Inventory";
 import { game } from "../../../Game/Game";
 import { PocketSelectedAct } from "../PocketPage";
+import { PocketItem } from "../../../Game/Pocket";
 
 interface SelectedProps {
-    select (selectedItem: InventoryItem | null, act: PocketSelectedAct | null): void
-    selected: InventoryItem
+    select (selectedItem: PocketItem | null, act: PocketSelectedAct | null): void
+    selected: PocketItem
     act: PocketSelectedAct | null
 }
 
