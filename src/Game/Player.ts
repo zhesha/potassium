@@ -106,11 +106,12 @@ export function createPlayer (): Player {
             }
         },
         getNextLevelExp() {
-            let level = this.getCurrentLevel() - 1;
+            let currentLevel = this.getCurrentLevel();
             let exp = 0;
-            while (level > 1) {
+            let level = 1;
+            while (level <= currentLevel) {
                 exp += level * levelMultiplier
-                level -= 1;
+                level += 1;
             }
             return exp;
         },

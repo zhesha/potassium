@@ -145,7 +145,7 @@ export const game: Game = {
         this.gameState = GameState.moving;
         this.isRun = false;
         this.generateLoot();
-        this.addExperience(1)
+        this.addExperience(10)
     },
     addExperience (value: number) {
         this.player.addExperience(value);
