@@ -3,6 +3,7 @@ import { game } from "../../../Game/Game";
 import { PocketSelectedAct } from "../PocketPage";
 import { PocketItem, PocketItemType } from "../../../Game/Pocket";
 import { LootItem } from "../../../Game/Loot";
+import './BackpackForPocket.scss';
 
 interface CurrentPocketProps {
     select (selectedItem: PocketItem, act: PocketSelectedAct): void
@@ -16,6 +17,7 @@ export function BackpackForPocket ({select}: CurrentPocketProps) {
     });
 
     return <div className="backpack-for-pocket">
+        <div>Backpack:</div>
         {backpackList.map(item => <BackpackForPocketItem item={item} select={select}/>)}
     </div>
 }

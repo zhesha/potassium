@@ -8,7 +8,7 @@ interface PocketItemProps {
 }
 
 export function PocketItem ({item, select}: PocketItemProps) {
-    return <div className="current-pocket" onClick={() => select(item, PocketSelectedAct.remove)}>
+    return <div className="pocket-item" onClick={() => select(item, PocketSelectedAct.remove)}>
         {item.name}
     </div>
 }
