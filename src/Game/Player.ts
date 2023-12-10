@@ -1,7 +1,8 @@
 import { game } from "./Game";
 import { Inventory, createInventory } from "./Inventory";
-import { Pocket, createPocket } from "./Pocket";
+import { Pocket, createPocket, PocketItem } from "./Pocket";
 import { Skill } from "./Skill";
+import { SkillsList, createSkills } from "./SkillsList";
 
 interface CharData {
     experience: string
@@ -16,6 +17,7 @@ export interface Player {
     usedPoints: number,
     inventory: Inventory,
     pocket: Pocket,
+    skillsList: SkillsList,
     updateAttackTimer: (delta: number) => void,
     isAttack: () => boolean,
     resetAttackTimer: () => void,
@@ -26,6 +28,7 @@ export interface Player {
     getHitChance: () => number,
     getBlockChance: () => number,
     getSkills (): Array<Skill>;
+    getPocketItems (): Array<PocketItem>;
     getCharData (): CharData;
     addExperience (value: number): void,
     getCurrentLevel(): number,
@@ -35,6 +38,10 @@ export interface Player {
     onChangeInventory(handler: () => void): void
     charDataChangeHandler: () => void,
     onCharDataChange(handler: () => void): void
+    pocketItemsChangeHandler: () => void,
+    onPocketItemsChange(handler: () => void): void
+    skillsChangeHandler: () => void,
+    onSkillsChange(handler: () => void): void
 }
 
 const levelMultiplier = 50;
@@ -47,6 +54,7 @@ export function createPlayer (): Player {
         usedPoints: 0,
         inventory: createInventory(),
         pocket: createPocket(),
+        skillsList: createSkills(),
         updateAttackTimer (delta: number) {
             this.attackTimer -= delta;
         },
@@ -81,8 +89,10 @@ export function createPlayer (): Player {
             return this.inventory.getBlockChance();
         },
         getSkills () {
-            // TODO implementation
-            return [];
+            return [...this.skillsList.getList()];
+        },
+        getPocketItems () {
+            return [...this.pocket.getList()];
         },
         getCharData () {
             return {
@@ -125,6 +135,14 @@ export function createPlayer (): Player {
         charDataChangeHandler: () => {},
         onCharDataChange(handler: () => void) {
             this.charDataChangeHandler = handler;
-        }
+        },
+        pocketItemsChangeHandler: () => {},
+        onPocketItemsChange(handler: () => void) {
+            this.pocketItemsChangeHandler = handler;
+        },
+        skillsChangeHandler: () => {},
+        onSkillsChange(handler: () => void) {
+            this.skillsChangeHandler = handler;
+        },
     }
 }

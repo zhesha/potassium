@@ -1,6 +1,21 @@
+@import '../../style-variables.scss';
+
 .skill {
     display: flex;
     flex-direction: column;
     justify-content: stretch;
     height: 100%;
+}
+
+.pocket-items {
+    text-align: left;
+    border-bottom: 1px solid $border
+}
+
+.skills {
+    text-align: left;
+}
+
+.skillItem {
+    cursor: pointer;
 }

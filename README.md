@@ -3,7 +3,8 @@
 + add experience
 + add some items as loot
 + improve item names
-- add pocket items
++ add pocket items
+- implement skill page
 - add some extra loot
 - add monsters
 - add some skills to skill-tree
