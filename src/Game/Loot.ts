@@ -1,3 +1,4 @@
+import { game } from "./Game";
 import { InventoryItem, InventoryType } from "./Inventory";
 import { PocketItem, PocketItemType } from "./Pocket";
 
@@ -64,7 +65,11 @@ const lootMap: LootMap = {
         {
             name: 'health potion 50',
             hp: 50,
-            type: PocketItemType.potion
+            type: PocketItemType.potion,
+            use () {
+                game.player.heal(this.hp);
+                game.player.pocket.remove(this);
+            }
         }
     ],
     2: [
@@ -101,7 +106,11 @@ const lootMap: LootMap = {
         {
             name: 'health potion 100',
             hp: 100,
-            type: PocketItemType.potion
+            type: PocketItemType.potion,
+            use () {
+                game.player.heal(this.hp);
+                game.player.pocket.remove(this);
+            }
         }
     ],
     3: [
@@ -138,7 +147,11 @@ const lootMap: LootMap = {
         {
             name: 'health potion 200',
             hp: 200,
-            type: PocketItemType.potion
+            type: PocketItemType.potion,
+            use () {
+                game.player.heal(this.hp);
+                game.player.pocket.remove(this);
+            }
         }
     ],
     4: [
@@ -175,7 +188,11 @@ const lootMap: LootMap = {
         {
             name: 'health potion 300',
             hp: 300,
-            type: PocketItemType.potion
+            type: PocketItemType.potion,
+            use () {
+                game.player.heal(this.hp);
+                game.player.pocket.remove(this);
+            }
         }
     ],
     5: [
@@ -212,7 +229,11 @@ const lootMap: LootMap = {
         {
             name: 'health potion 500',
             hp: 500,
-            type: PocketItemType.potion
+            type: PocketItemType.potion,
+            use () {
+                game.player.heal(this.hp);
+                game.player.pocket.remove(this);
+            }
         }
     ],
 };

@@ -6,6 +6,7 @@ export interface PocketItem {
     name: string
     hp: number
     type: PocketItemType
+    use(): void
 }
 
 export interface Pocket {

@@ -13,6 +13,7 @@ interface CharData {
 export interface Player {
     attackTimer: number,
     hp: number,
+    maxHp: number,
     experience: number,
     usedPoints: number,
     inventory: Inventory,
@@ -23,6 +24,7 @@ export interface Player {
     resetAttackTimer: () => void,
     startAttackTimer: () => void,
     doDamage: (dmg: number) => void,
+    heal: (hp: number) => void,
     isAlive: () => boolean,
     getDmg: () => number,
     getHitChance: () => number,
@@ -50,6 +52,7 @@ export function createPlayer (): Player {
     return {
         attackTimer: 0,
         hp: 100,
+        maxHp: 100,
         experience: 0,
         usedPoints: 0,
         inventory: createInventory(),
@@ -73,6 +76,13 @@ export function createPlayer (): Player {
                 this.hp -= dmg;
             } else {
                 this.hp -= 1;
+            }
+            game.infoChangeHandler();
+        },
+        heal (hp: number) {
+            this.hp += hp;
+            if (this.hp > this.maxHp) {
+                this.hp = this.maxHp;
             }
             game.infoChangeHandler();
         },

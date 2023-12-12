@@ -25,13 +25,13 @@ export function SkillPage ({ setPage }: SkillPageProps) {
         <div className="pocket-items">
             <div>Pocket Items:</div>
             <div>
-                {pocketItems.map(skill => <div className="skillItem">{skill.name}</div>)}
+                {pocketItems.map(skill => <div className="skillItem" onClick={() => skill.use()}>{skill.name}</div>)}
             </div>
         </div>
         <div className="skills">
             <div>Skills:</div>
             <div>
-                {skills.map(skill => <div className="skillItem">{skill.name}</div>)}
+                {skills.map(skill => <div className="skillItem" onClick={() => skill.use()}>{skill.name}</div>)}
             </div>
         </div>
     </div>
