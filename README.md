@@ -5,7 +5,8 @@
 + improve item names
 + add pocket items
 + implement skill page
-- add monsters
++ add monsters
+- save
 - add some extra loot
 - add some skills to skill-tree
 - add magic and rare weapons

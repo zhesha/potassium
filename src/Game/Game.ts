@@ -118,7 +118,7 @@ export const game: Game = {
         this.lastTimeStamp = 0;
         if (this.gameState === GameState.start) {
             this.gameState = GameState.moving;
-            this.enemy = createEnemy();
+            this.enemy = createEnemy(this.distance);
         }
     },
     runReleased() {
@@ -141,7 +141,7 @@ export const game: Game = {
         this.infoChangeHandler = handler
     },
     killEnemy: function () {
-        this.enemy = createEnemy();
+        this.enemy = createEnemy(0);
         this.gameState = GameState.moving;
         this.isRun = false;
         this.generateLoot();
