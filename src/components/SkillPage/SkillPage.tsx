@@ -3,6 +3,7 @@ import { game } from "../../Game/Game";
 import { CloseButton } from "../common/CloseButton/CloseButton";
 import { Pages } from "../../App";
 import './SkillPage.scss';
+import { itemUseHandler } from "../../Game/Loot";
 
 interface SkillPageProps {
     setPage (page: Pages): void
@@ -25,7 +26,7 @@ export function SkillPage ({ setPage }: SkillPageProps) {
         <div className="pocket-items">
             <div>Pocket Items:</div>
             <div>
-                {pocketItems.map(skill => <div className="skillItem" onClick={() => skill.use()}>{skill.name}</div>)}
+                {pocketItems.map(skill => <div className="skillItem" onClick={() => itemUseHandler(skill)}>{skill.name}</div>)}
             </div>
         </div>
         <div className="skills">

@@ -1,4 +1,5 @@
 import { Backpack, createBackpack } from "./Backpack"
+import { LootItem } from "./Loot";
 
 export interface InventoryItemBase {
     name: string;
@@ -40,6 +41,16 @@ export interface Helmet extends InventoryItemBase {
     blockValue: number
 }
 
+interface InventorySaveData {
+    weapon?: Weapon,
+    gloves?: Gloves,
+    boots?: Boots,
+    shield?: Shield,
+    armor?: Armor,
+    helmet?: Helmet,
+    backpack: Array<LootItem>,
+}
+
 export interface Inventory {
     weapon?: Weapon,
     gloves?: Gloves,
@@ -54,6 +65,8 @@ export interface Inventory {
     getBlockChance: () => number,
     getBlockPercent: () => number,
     getBlockValue: () => number,
+    getSaveData: () => InventorySaveData,
+    applySaveData: (data: InventorySaveData) => void,
 }
 
 export function createInventory (): Inventory {
@@ -94,6 +107,26 @@ export function createInventory (): Inventory {
         },
         getBlockValue () {
             return this.helmet?.blockValue || 0;
-        }
+        },
+        getSaveData () {
+            return {
+                weapon: this.weapon,
+                gloves: this.gloves,
+                boots: this.boots,
+                shield: this.shield,
+                armor: this.armor,
+                helmet: this.helmet,
+                backpack: this.backpack.list,
+            }
+        },
+        applySaveData (data: InventorySaveData) {
+            this.weapon = data.weapon;
+            this.gloves = data.gloves;
+            this.boots = data.boots;
+            this.shield = data.shield;
+            this.armor = data.armor;
+            this.helmet = data.helmet;
+            this.backpack.list = data.backpack;
+        },
     };
 }

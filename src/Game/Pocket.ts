@@ -6,7 +6,10 @@ export interface PocketItem {
     name: string
     hp: number
     type: PocketItemType
-    use(): void
+}
+
+interface PocketSaveData {
+    list: Array<PocketItem>
 }
 
 export interface Pocket {
@@ -18,6 +21,8 @@ export interface Pocket {
     remove (item: PocketItem): void
     hasPlace (): boolean
     add (item: PocketItem): void
+    getSaveData (): PocketSaveData
+    applySaveData (item: PocketSaveData): void
 }
 
 export function createPocket (): Pocket {
@@ -45,5 +50,13 @@ export function createPocket (): Pocket {
                 this.list.splice(index, 1);
             }
         },
+        getSaveData () {
+            return {
+                list: this.list
+            }
+        },
+        applySaveData (data: PocketSaveData) {
+            this.list = data.list;
+        }
     }
 }

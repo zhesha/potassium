@@ -20,6 +20,7 @@ interface Game {
     enemy: Enemy | null,
     loot: Loot,
     distance: number,
+    init(): void,
     tick: (timeStamp: number) => void,
     doMove: (deltaTime: number) => void,
     doPlayerAttack: (deltaTime: number) => void;
@@ -38,6 +39,7 @@ interface Game {
     addExperience(value: number): void,
     generateLoot(): void,
     getInfo(): InfoData,
+    save(): void,
 }
 
 export const game: Game = {
@@ -49,6 +51,20 @@ export const game: Game = {
     enemy: null,
     loot,
     distance: 0,
+    init() {
+        const savedDataStr = localStorage.getItem('data');
+        if (savedDataStr) {
+            const savedData = JSON.parse(savedDataStr);
+            this.distance = savedData.distance || 0;
+            this.player.hp = savedData.hp || 100;
+            this.player.maxHp = savedData.maxHp || 100;
+            this.player.experience = savedData.experience || 0;
+            this.player.usedPoints = savedData.usedPoint || 0;
+            this.player.inventory.applySaveData(savedData.inventory);
+            this.player.pocket.applySaveData(savedData.pocket);
+            this.player.skillsList.applySaveData(savedData.skillsList);
+        }
+    },
     tick(timeStamp: number) {
         if (this.isRun && this.lastTimeStamp === 0) {
             this.lastTimeStamp = timeStamp;
@@ -62,8 +78,8 @@ export const game: Game = {
                 this.infoChangeHandler();
             }
             if (this.gameState === GameState.fighting) {
-                this.doPlayerAttack(deltaTime);
                 this.doEnemyAttack(deltaTime);
+                this.doPlayerAttack(deltaTime);
             }
         }
         this.lastTimeStamp = timeStamp;
@@ -118,7 +134,7 @@ export const game: Game = {
         this.lastTimeStamp = 0;
         if (this.gameState === GameState.start) {
             this.gameState = GameState.moving;
-            this.enemy = createEnemy(this.distance);
+            this.enemy = createEnemy(0);
         }
     },
     runReleased() {
@@ -141,11 +157,12 @@ export const game: Game = {
         this.infoChangeHandler = handler
     },
     killEnemy: function () {
-        this.enemy = createEnemy(0);
+        this.enemy = createEnemy(this.distance);
         this.gameState = GameState.moving;
         this.isRun = false;
         this.generateLoot();
-        this.addExperience(10)
+        this.addExperience(10);
+        this.save();
     },
     addExperience (value: number) {
         this.player.addExperience(value);
@@ -161,6 +178,19 @@ export const game: Game = {
             hp: this.player.hp,
         }
     },
+    save() {
+        const savedData = {
+            distance: this.distance,
+            hp: this.player.hp,
+            maxHp: this.player.maxHp,
+            experience: this.player.experience,
+            usedPoint: this.player.usedPoints,
+            inventory: this.player.inventory.getSaveData(),
+            pocket: this.player.pocket.getSaveData(),
+            skillsList: this.player.skillsList.getSaveData(),
+        };
+        localStorage.setItem('data', JSON.stringify(savedData));
+    }
 }
 
 function step(timeStamp: number) {
@@ -168,4 +198,5 @@ function step(timeStamp: number) {
     game.tick(timeStamp);
 }
 
-window.requestAnimationFrame(step)
+game.init();
+window.requestAnimationFrame(step);
