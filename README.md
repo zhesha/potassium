@@ -7,7 +7,7 @@
 + implement skill page
 + add monsters
 + save
-- fixed pocket update on use
++ fixed pocket update on use
 - add some extra loot
 - add some skills to skill-tree
 - add magic and rare weapons

@@ -30,7 +30,7 @@ export function createPocket (): Pocket {
         list: [],
         limit: 4,
         getList () {
-            return this.list;
+            return [...this.list];
         },
         changeHandler: () => {},
         onChange (handler: () => void) {
@@ -49,6 +49,7 @@ export function createPocket (): Pocket {
             if (index !== -1) {
                 this.list.splice(index, 1);
             }
+            this.changeHandler();
         },
         getSaveData () {
             return {

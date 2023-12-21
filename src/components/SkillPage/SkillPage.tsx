@@ -13,7 +13,7 @@ export function SkillPage ({ setPage }: SkillPageProps) {
     const [pocketItems, setPocketItems] = useState(game.player.getPocketItems());
     const [skills, setSkills] = useState(game.player.getSkills());
 
-    game.player.onPocketItemsChange(() => {
+    game.player.pocket.onChange(() => {
         setPocketItems(game.player.getPocketItems());
     });
     

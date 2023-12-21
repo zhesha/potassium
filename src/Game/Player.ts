@@ -40,8 +40,6 @@ export interface Player {
     onChangeInventory(handler: () => void): void
     charDataChangeHandler: () => void,
     onCharDataChange(handler: () => void): void
-    pocketItemsChangeHandler: () => void,
-    onPocketItemsChange(handler: () => void): void
     skillsChangeHandler: () => void,
     onSkillsChange(handler: () => void): void
 }
@@ -102,7 +100,7 @@ export function createPlayer (): Player {
             return [...this.skillsList.getList()];
         },
         getPocketItems () {
-            return [...this.pocket.getList()];
+            return this.pocket.getList();
         },
         getCharData () {
             return {
@@ -145,10 +143,6 @@ export function createPlayer (): Player {
         charDataChangeHandler: () => {},
         onCharDataChange(handler: () => void) {
             this.charDataChangeHandler = handler;
-        },
-        pocketItemsChangeHandler: () => {},
-        onPocketItemsChange(handler: () => void) {
-            this.pocketItemsChangeHandler = handler;
         },
         skillsChangeHandler: () => {},
         onSkillsChange(handler: () => void) {
