@@ -1,8 +1,7 @@
 import { game } from "./Game";
 import { Inventory, createInventory } from "./Inventory";
 import { Pocket, createPocket, PocketItem } from "./Pocket";
-import { Skill } from "./Skill";
-import { SkillsList, createSkills } from "./SkillsList";
+import { SkillTreeItem, SkillsList, createSkills } from "./SkillsList";
 
 interface CharData {
     experience: string
@@ -13,7 +12,7 @@ interface CharData {
 export interface Player {
     attackTimer: number,
     hp: number,
-    maxHp: number,
+    getMaxHp(): number,
     experience: number,
     usedPoints: number,
     inventory: Inventory,
@@ -29,7 +28,7 @@ export interface Player {
     getDmg: () => number,
     getHitChance: () => number,
     getBlockChance: () => number,
-    getSkills (): Array<Skill>;
+    getSkills (): Array<SkillTreeItem>;
     getPocketItems (): Array<PocketItem>;
     getCharData (): CharData;
     addExperience (value: number): void,
@@ -50,12 +49,14 @@ export function createPlayer (): Player {
     return {
         attackTimer: 0,
         hp: 100,
-        maxHp: 100,
         experience: 0,
         usedPoints: 0,
         inventory: createInventory(),
         pocket: createPocket(),
         skillsList: createSkills(),
+        getMaxHp() {
+            return 100 + this.skillsList.getMaxHp();
+        },
         updateAttackTimer (delta: number) {
             this.attackTimer -= delta;
         },
@@ -79,8 +80,8 @@ export function createPlayer (): Player {
         },
         heal (hp: number) {
             this.hp += hp;
-            if (this.hp > this.maxHp) {
-                this.hp = this.maxHp;
+            if (this.hp > this.getMaxHp()) {
+                this.hp = this.getMaxHp();
             }
             game.infoChangeHandler();
         },

@@ -57,7 +57,7 @@ export const game: Game = {
             const savedData = JSON.parse(savedDataStr);
             this.distance = savedData.distance || 0;
             this.player.hp = savedData.hp || 100;
-            this.player.maxHp = savedData.maxHp || 100;
+            // this.player.maxHp = savedData.getMaxHp() || 100;
             this.player.experience = savedData.experience || 0;
             this.player.usedPoints = savedData.usedPoint || 0;
             this.player.inventory.applySaveData(savedData.inventory);
@@ -182,7 +182,7 @@ export const game: Game = {
         const savedData = {
             distance: this.distance,
             hp: this.player.hp,
-            maxHp: this.player.maxHp,
+            // maxHp: this.player.getMaxHp(),
             experience: this.player.experience,
             usedPoint: this.player.usedPoints,
             inventory: this.player.inventory.getSaveData(),

@@ -2,4 +2,21 @@
 
 .skill-tree {
     border-top: 1px solid $border;
+    padding: 20px 0;
+}
+
+.skill-layer {
+    display: flex;
+    justify-content: space-around;
+}
+
+.skill-tree-item {
+    border: 1px solid $border;
+    width: 100px;
+    height: 100px;
+    cursor: pointer;
+}
+
+.skill-tree-activated {
+    background-color: $border;
 }
