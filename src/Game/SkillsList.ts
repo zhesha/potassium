@@ -14,10 +14,12 @@ export const skillTreeList: Array<SkillTreeItem> = [
     {
         name: 'Heal',
         type: SkillType.heal,
+        manaCost: 10,
     },
     {
         name: 'Fireball',
         type: SkillType.fireball,
+        manaCost: 10,
     }
 ];
 
@@ -34,6 +36,7 @@ export interface  SkillTreeLayers {
 export interface SkillTreeItem {
     name: string
     type: SkillType
+    manaCost?: number
 }
 
 interface SkillsListSaveData {
@@ -92,10 +95,14 @@ export function createSkills(): SkillsList {
 }
 
 export function skillUseHandler (item: SkillTreeItem) {
+    if (!item.manaCost || game.player.mana < item.manaCost) {
+        return;
+    }
     if (item.type === SkillType.heal) {
-        // TODO
-        game.player.heal(0);
+        game.player.heal(10);
+        game.player.mana -= item.manaCost;
     } else if (item.type === SkillType.fireball) {
-        // TODO
+        game.hitEnemy(10);
+        game.player.mana -= item.manaCost;
     }
 }

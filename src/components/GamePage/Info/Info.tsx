@@ -6,6 +6,7 @@ export interface InfoData {
     distance: number
     hp: number
     maxHp: number
+    mana: number
 }
 
 export function Info() {
@@ -18,5 +19,6 @@ export function Info() {
     return <div className="info">
         <div>Distance: {info.distance}</div>
         <div>HP: {info.hp}/{info.maxHp}</div>
+        <div>Mana: {info.mana}</div>
     </div>
 }

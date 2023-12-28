@@ -9,9 +9,7 @@
 + save
 + fixed pocket update on use
 - add some skills to skill-tree
-    add mana
-    add heal
-    add fireball
+- fix enemy disapear on screen change
 - add game play loop
 - add NPC
 - add timeout for skills

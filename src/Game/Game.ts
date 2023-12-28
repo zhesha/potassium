@@ -35,6 +35,7 @@ interface Game {
     onShowLoot: (handler: (message: string) => void) => void,
     infoChangeHandler: () => void,
     onInfoChange: (handler: () => void) => void,
+    hitEnemy (dmg: number): void,
     killEnemy(): void,
     addExperience(value: number): void,
     generateLoot(): void,
@@ -99,18 +100,21 @@ export const game: Game = {
         if (this.player.isAttack()) {
             this.player.resetAttackTimer();
             if (randomizer.isSuccess(this.player.getHitChance())) {
-                console.log('player hit');
-                this.enemy?.doDamage(this.player.getDmg());
-                if (this.enemy?.isAlive()) {
-                    this.enemyReceiveDmgHandler(this.enemy.hp);
-                } else {
-                    this.killEnemy();
-                }
+                this.hitEnemy(this.player.getDmg());
             } else {
                 console.log('miss');
             }
         } else {
             this.player.updateAttackTimer(deltaTime);
+        }
+    },
+    hitEnemy (dmg: number) {
+        console.log('player hit');
+        this.enemy?.doDamage(dmg);
+        if (this.enemy?.isAlive()) {
+            this.enemyReceiveDmgHandler(this.enemy.hp);
+        } else {
+            this.killEnemy();
         }
     },
     doEnemyAttack(deltaTime: number) {
@@ -177,6 +181,7 @@ export const game: Game = {
             distance: Math.floor(this.distance),
             hp: this.player.hp,
             maxHp: this.player.getMaxHp(),
+            mana: this.player.mana,
         }
     },
     save() {
