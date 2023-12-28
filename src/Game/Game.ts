@@ -176,6 +176,7 @@ export const game: Game = {
         return {
             distance: Math.floor(this.distance),
             hp: this.player.hp,
+            maxHp: this.player.getMaxHp(),
         }
     },
     save() {

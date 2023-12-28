@@ -79,7 +79,7 @@ export function createSkills(): SkillsList {
         },
         getMaxHp () {
             const hpUp = this.list.find(index => skillTreeList[index].type === SkillType.maxHp);
-            if (hpUp) {
+            if (hpUp !== undefined) {
                 return 100;
             }
             return 0;
