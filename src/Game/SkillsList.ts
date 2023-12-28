@@ -43,10 +43,13 @@ interface SkillsListSaveData {
 export interface SkillsList {
     list: Array<number>
     getList(): Array<SkillTreeItem>;
+    getIndexes(): Array<number>;
     getSaveData (): SkillsListSaveData;
     applySaveData(data: SkillsListSaveData): void
     activateSkill(index: number): void
     getMaxHp(): number
+    changeHandler: () => void,
+    onChange(handler: () => void): void
 }
 
 export function createSkills(): SkillsList {
@@ -54,6 +57,9 @@ export function createSkills(): SkillsList {
         list: [],
         getList() {
             return this.list.map(index => skillTreeList[index]).filter(item => item.type !== SkillType.maxHp);
+        },
+        getIndexes() {
+            return [...this.list];
         },
         getSaveData () {
             return {
@@ -67,6 +73,8 @@ export function createSkills(): SkillsList {
             if (game.player.getCurrentLevel() - game.player.usedPoints - 1 > 0) {
                 this.list.push(index);
                 game.player.usedPoints += 1;
+                game.player.charDataChangeHandler();
+                this.changeHandler();
             }
         },
         getMaxHp () {
@@ -75,6 +83,10 @@ export function createSkills(): SkillsList {
                 return 100;
             }
             return 0;
+        },
+        changeHandler: () => {},
+        onChange(handler: () => void) {
+            this.changeHandler = handler;
         }
     };
 }
