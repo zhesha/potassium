@@ -4,13 +4,13 @@ import { config } from '../../../config';
 import { game } from '../../../Game/Game';
 
 export function Field() {
-    const [enemyProgress, setEnemyProgress] = useState(0);
-    const [enemyDmgReceive, setEnemyDmgReceive] = useState(0);
-    game.onEnemyProgress((newProgress: number) => {
-        setEnemyProgress(newProgress);
+    const [enemyProgress, setEnemyProgress] = useState(game.enemy?.movingProgress() || 0);
+    const [enemyDmgReceive, setEnemyDmgReceive] = useState(game.enemy?.hp || 0);
+    game.onEnemyProgress(() => {
+        setEnemyProgress(game.enemy?.movingProgress() || 0);
     });
-    game.onEnemyDmgReceive((currentHp: number) => {
-        setEnemyDmgReceive(currentHp);
+    game.onEnemyDmgReceive(() => {
+        setEnemyDmgReceive(game.enemy?.hp || 0);
     });
 
     const enemyPassLength = config.fieldWidth - config.playerWidth - config.playerMargin;
