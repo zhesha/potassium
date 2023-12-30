@@ -10,7 +10,7 @@
 + fixed pocket update on use
 + add some skills to skill-tree
 + fix enemy disapear on screen change
-- add game play loop
++ add game play loop
 - add NPC
 - add timeout for skills
 - config first 100 monsters

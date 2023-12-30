@@ -43,6 +43,7 @@ export interface Player {
     onCharDataChange(handler: () => void): void
     skillsChangeHandler: () => void,
     onSkillsChange(handler: () => void): void
+    restart(): void
 }
 
 const levelMultiplier = 50;
@@ -158,6 +159,11 @@ export function createPlayer (): Player {
         skillsChangeHandler: () => {},
         onSkillsChange(handler: () => void) {
             this.skillsChangeHandler = handler;
+        },
+        restart () {
+            this.attackTimer = 0;
+            this.hp = this.getMaxHp();
+            this.mana = 100;
         },
     }
 }

@@ -12,9 +12,14 @@ interface GameProps {
 
 export function GamePage ({setPage}: GameProps) {
     const [lootMessage, setLootMessage] = useState<string | null>(null);
+    const [gameOverMessage, setGameOverMessage] = useState<string | null>(null);
 
     game.onShowLoot(function (message: string) {
         setLootMessage(message);
+    });
+
+    game.onGameOver(function () {
+        setGameOverMessage('Game Over');
     });
     
     return <div className="game">
@@ -27,5 +32,12 @@ export function GamePage ({setPage}: GameProps) {
         />
         <Info/>
         {lootMessage && <Modal close={() => setLootMessage(null)} message={lootMessage}/>}
+        {gameOverMessage && <Modal
+            close={() => {
+                setGameOverMessage(null);
+                game.restart();
+            }}
+            message={gameOverMessage}
+        />}
     </div>
 }

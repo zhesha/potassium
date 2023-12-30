@@ -15,6 +15,7 @@ interface Game {
     lastTimeStamp: number,
     isRun: boolean,
     time: number,
+    enemyKilledInRun: number,
     gameState: GameState,
     player: Player,
     enemy: Enemy | null,
@@ -41,12 +42,16 @@ interface Game {
     generateLoot(): void,
     getInfo(): InfoData,
     save(): void,
+    gameOverHandler: () => void,
+    onGameOver(handler: () => void): void
+    restart(): void
 }
 
 export const game: Game = {
     lastTimeStamp: 0,
     isRun: false,
     time: 0,
+    enemyKilledInRun: 0,
     gameState: GameState.start,
     player: createPlayer(),
     enemy: null,
@@ -61,6 +66,7 @@ export const game: Game = {
             // this.player.maxHp = savedData.getMaxHp() || 100;
             this.player.experience = savedData.experience || 0;
             this.player.usedPoints = savedData.usedPoint || 0;
+            this.enemyKilledInRun = savedData.enemyKilledInRun || 0;
             this.player.inventory.applySaveData(savedData.inventory);
             this.player.pocket.applySaveData(savedData.pocket);
             this.player.skillsList.applySaveData(savedData.skillsList);
@@ -124,7 +130,7 @@ export const game: Game = {
             if (!randomizer.isSuccess(this.player.getBlockChance())) {
                 this.player?.doDamage(1);
                 if (!this.player?.isAlive()) {
-                    alert('You lost');
+                    game.gameOverHandler();
                 }
             } else {
                 console.log('block');
@@ -164,6 +170,7 @@ export const game: Game = {
         this.enemy = createEnemy(this.distance);
         this.gameState = GameState.moving;
         this.isRun = false;
+        this.enemyKilledInRun += 0;
         this.generateLoot();
         this.addExperience(10);
         this.save();
@@ -194,8 +201,24 @@ export const game: Game = {
             inventory: this.player.inventory.getSaveData(),
             pocket: this.player.pocket.getSaveData(),
             skillsList: this.player.skillsList.getSaveData(),
+            enemyKilledInRun: this.enemyKilledInRun,
         };
         localStorage.setItem('data', JSON.stringify(savedData));
+    },
+    gameOverHandler: () => {},
+    onGameOver(handler: () => void) {
+        this.gameOverHandler = handler;
+    },
+    restart() {
+        this.distance = 0;
+        this.enemy = null;
+        this.isRun = false;
+        this.enemyKilledInRun = 0;
+        this.distance = 0;
+        this.gameState = GameState.idle;
+        this.player.restart();
+        this.enemyProgressHandlers(0);
+        this.infoChangeHandler();
     }
 }
 
