@@ -1,4 +1,5 @@
 export interface Enemy {
+    name: string,
     hp: number,
     movingTimer: number,
     attackTimer: number,
@@ -17,7 +18,9 @@ const enemyPassTime = 2000;
 const fullEnemyPass = 1;
 
 interface EnemyConfig {
+    name: string,
     hp: number,
+    dmg: number,
     attackTimeout: number
 }
 
@@ -27,15 +30,21 @@ interface EnemyTypes {
 
 const enemyTypes: EnemyTypes = {
     snail: {
-        hp: 1,
-        attackTimeout: 1000,
+        name: 'snail',
+        hp: 3,
+        dmg: 2,
+        attackTimeout: 3000,
     },
     rat: {
+        name: 'rat',
         hp: 3,
+        dmg: 2,
         attackTimeout: 900,
     },
     woolf: {
+        name: 'woolf',
         hp: 8,
+        dmg: 2,
         attackTimeout: 800,
     },
 };
@@ -54,6 +63,7 @@ export function createEnemy (distance: number): Enemy {
 
 function createConcreteEnemy(config: EnemyConfig): Enemy {
     return {
+        name: config.name,
         hp: config.hp,
         movingTimer: 0,
         attackTimer: 0,

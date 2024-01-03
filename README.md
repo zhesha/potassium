@@ -11,9 +11,10 @@
 + add some skills to skill-tree
 + fix enemy disapear on screen change
 + add game play loop
+- config first 100 monsters
+    hp 3 / dmg 2 / speed 2000
 - add NPC
 - add timeout for skills
-- config first 100 monsters
 - add magic and rare weapons
 - add elemental attacks
 - add unique

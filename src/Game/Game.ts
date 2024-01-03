@@ -170,9 +170,11 @@ export const game: Game = {
         this.enemy = createEnemy(this.distance);
         this.gameState = GameState.moving;
         this.isRun = false;
-        this.enemyKilledInRun += 0;
+        this.enemyKilledInRun += 1;
         this.generateLoot();
         this.addExperience(10);
+        this.enemyProgressHandlers(this.enemy.movingProgress());
+        this.infoChangeHandler();
         this.save();
     },
     addExperience (value: number) {
@@ -189,6 +191,7 @@ export const game: Game = {
             hp: this.player.hp,
             maxHp: this.player.getMaxHp(),
             mana: this.player.mana,
+            enemyKilled: this.enemyKilledInRun,
         }
     },
     save() {
