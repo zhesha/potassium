@@ -71,21 +71,9 @@ export interface Inventory {
 
 export function createInventory (): Inventory {
     return {
-        weapon: {
-            name: 'Sword',
-            dmg: 1,
-            type: InventoryType.weapon
-        },
-        gloves: {
-            name: 'Gloves',
-            hitChance: 20,
-            type: InventoryType.gloves
-        },
-        boots: {
-            name: 'Boots',
-            speed: 1000,
-            type: InventoryType.boots
-        },
+        weapon: undefined,
+        gloves: undefined,
+        boots: undefined,
         shield: undefined,
         armor: undefined,
         helmet: undefined,

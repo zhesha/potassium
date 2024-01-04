@@ -12,6 +12,7 @@
 + fix enemy disapear on screen change
 + add game play loop
 - config first 100 monsters
+    preset loot
     hp 3 / dmg 2 / speed 2000
 - add NPC
 - add timeout for skills
