@@ -1,6 +1,7 @@
 export interface Enemy {
     name: string,
     hp: number,
+    dmg: number,
     movingTimer: number,
     attackTimer: number,
     doDamage: (dmg: number) => void,
@@ -32,8 +33,8 @@ const enemyTypes: EnemyTypes = {
     snail: {
         name: 'snail',
         hp: 3,
-        dmg: 2,
-        attackTimeout: 3000,
+        dmg: 3,
+        attackTimeout: 2000,
     },
     rat: {
         name: 'rat',
@@ -65,6 +66,7 @@ function createConcreteEnemy(config: EnemyConfig): Enemy {
     return {
         name: config.name,
         hp: config.hp,
+        dmg: config.dmg,
         movingTimer: 0,
         attackTimer: 0,
         doDamage (dmg: number) {

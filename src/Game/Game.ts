@@ -128,7 +128,7 @@ export const game: Game = {
             console.log('enemy hit');
             this.enemy?.resetAttackTimer();
             if (!randomizer.isSuccess(this.player.getBlockChance())) {
-                this.player?.doDamage(1);
+                this.player?.doDamage(this.enemy?.dmg);
                 if (!this.player?.isAlive()) {
                     game.gameOverHandler();
                 }

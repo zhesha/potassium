@@ -1,6 +1,7 @@
 import { game } from "./Game";
-import { InventoryItem, InventoryType } from "./Inventory";
+import { InventoryItem } from "./Inventory";
 import { PocketItem, PocketItemType } from "./Pocket";
+import { lootMap } from "./lootMap";
 
 export type LootItem = InventoryItem | PocketItem;
 
@@ -15,6 +16,7 @@ interface LootLists {
 export interface Loot {
     lootTypes: Array<number>,
     lootLists: LootLists,
+    init(): void,
     generate (): LootItem,
     generateTypeList (): void,
     addNumbersToTypeList (params: {type: number, count: number}): void
@@ -22,7 +24,7 @@ export interface Loot {
     generateLootListByType(lootType: number): void
 }
 
-interface LootMap {
+export interface LootMap {
     1: Array<LootItem>,
     2: Array<LootItem>,
     3: Array<LootItem>,
@@ -37,194 +39,6 @@ export function itemUseHandler (item: LootItem) {
     }
 }
 
-const lootMap: LootMap = {
-    1: [
-        {
-            name: 'sword 2',
-            dmg: 2,
-            type: InventoryType.weapon
-        },
-        {
-            name: 'boots 0.9',
-            speed: 900,
-            type: InventoryType.boots
-        },
-        {
-            name: 'gloves 30%',
-            hitChance: 30,
-            type: InventoryType.gloves
-        },
-        {
-            name: 'shield 10%',
-            blockChance: 10,
-            type: InventoryType.shield
-        },
-        {
-            name: 'armor 10%',
-            blockPercent: 10,
-            type: InventoryType.armor
-        },
-        {
-            name: 'helmet 1',
-            blockValue: 1,
-            type: InventoryType.helmet
-        },
-        {
-            name: 'health potion 50',
-            hp: 50,
-            type: PocketItemType.potion,
-        }
-    ],
-    2: [
-        {
-            name: 'sword 3',
-            dmg: 3,
-            type: InventoryType.weapon
-        },
-        {
-            name: 'boots 0.8',
-            speed: 800,
-            type: InventoryType.boots
-        },
-        {
-            name: 'gloves 40%',
-            hitChance: 40,
-            type: InventoryType.gloves
-        },
-        {
-            name: 'shield 20%',
-            blockChance: 20,
-            type: InventoryType.shield
-        },
-        {
-            name: 'armor 20%',
-            blockPercent: 20,
-            type: InventoryType.armor
-        },
-        {
-            name: 'helmet 2',
-            blockValue: 2,
-            type: InventoryType.helmet
-        },
-        {
-            name: 'health potion 100',
-            hp: 100,
-            type: PocketItemType.potion,
-        }
-    ],
-    3: [
-        {
-            name: 'sword 4',
-            dmg: 4,
-            type: InventoryType.weapon
-        },
-        {
-            name: 'boots 0.7',
-            speed: 700,
-            type: InventoryType.boots
-        },
-        {
-            name: 'gloves 50%',
-            hitChance: 50,
-            type: InventoryType.gloves
-        },
-        {
-            name: 'shield 30%',
-            blockChance: 30,
-            type: InventoryType.shield
-        },
-        {
-            name: 'armor 30%',
-            blockPercent: 30,
-            type: InventoryType.armor
-        },
-        {
-            name: 'helmet 3',
-            blockValue: 3,
-            type: InventoryType.helmet
-        },
-        {
-            name: 'health potion 200',
-            hp: 200,
-            type: PocketItemType.potion,
-        }
-    ],
-    4: [
-        {
-            name: 'sword 5',
-            dmg: 5,
-            type: InventoryType.weapon
-        },
-        {
-            name: 'boots 0.6',
-            speed: 600,
-            type: InventoryType.boots
-        },
-        {
-            name: 'gloves 60%',
-            hitChance: 60,
-            type: InventoryType.gloves
-        },
-        {
-            name: 'shield 40%',
-            blockChance: 40,
-            type: InventoryType.shield
-        },
-        {
-            name: 'armor 40%',
-            blockPercent: 40,
-            type: InventoryType.armor
-        },
-        {
-            name: 'helmet 4',
-            blockValue: 4,
-            type: InventoryType.helmet
-        },
-        {
-            name: 'health potion 300',
-            hp: 300,
-            type: PocketItemType.potion,
-        }
-    ],
-    5: [
-        {
-            name: 'sword 6',
-            dmg: 6,
-            type: InventoryType.weapon
-        },
-        {
-            name: 'boots 0.5',
-            speed: 500,
-            type: InventoryType.boots
-        },
-        {
-            name: 'gloves 70%',
-            hitChance: 70,
-            type: InventoryType.gloves
-        },
-        {
-            name: 'shield 50%',
-            blockChance: 50,
-            type: InventoryType.shield
-        },
-        {
-            name: 'armor 50%',
-            blockPercent: 50,
-            type: InventoryType.armor
-        },
-        {
-            name: 'helmet 5',
-            blockValue: 5,
-            type: InventoryType.helmet
-        },
-        {
-            name: 'health potion 500',
-            hp: 500,
-            type: PocketItemType.potion,
-        }
-    ],
-};
-
 export const loot: Loot = {
     lootTypes: [],
     lootLists: {
@@ -234,11 +48,28 @@ export const loot: Loot = {
         4: [],
         5: [],
     },
+    init() {
+        this.lootTypes = [
+            1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+            1, 2, 1, 1, 1, 1, 1, 1, 1, 2,
+            1, 1, 1, 1, 1, 2, 1, 1, 1, 1,
+            1, 2, 1, 1, 2, 1, 1, 1, 2, 1,
+            1, 2, 1, 1, 2, 1, 2, 1, 1, 1,
+            2, 1, 2, 1, 1, 2, 3, 1, 1, 1,
+            2, 1, 1, 3, 1, 2, 1, 1, 2, 3,
+            1, 4, 1, 1, 1, 2, 1, 1, 3, 2,
+            1, 1, 2, 1, 2, 3, 1, 1, 1, 2,
+            1, 1, 2, 3, 1, 1, 4, 1, 1, 2,
+            1, 1, 3, 1, 2, 1, 1, 2, 3, 1,
+            2, 1, 4, 1, 2, 1, 3, 5, 1, 2, 1,
+        ];
+        this.lootLists[1] = [2, 0, 6, 4, 1, 3, 5];
+    },
     generate () {
         if (this.lootTypes.length === 0) {
             this.generateTypeList();
         }
-        const lootType = this.lootTypes.pop();
+        const lootType = this.lootTypes.shift();
         if (lootType === undefined) {
             throw Error('lootType should be defined');
         }
@@ -247,10 +78,10 @@ export const loot: Loot = {
     generateTypeList () {
         this.lootTypes = [];
         this.addNumbersToTypeList({type: 5, count: 1});
-        this.addNumbersToTypeList({type: 4, count: 2});
-        this.addNumbersToTypeList({type: 3, count: 4});
-        this.addNumbersToTypeList({type: 2, count: 8});
-        this.addNumbersToTypeList({type: 1, count: 16});
+        this.addNumbersToTypeList({type: 4, count: 3});
+        this.addNumbersToTypeList({type: 3, count: 9});
+        this.addNumbersToTypeList({type: 2, count: 27});
+        this.addNumbersToTypeList({type: 1, count: 81});
         this.lootTypes.sort(() => 0.5 - Math.random());
     },
     addNumbersToTypeList (params: {type: number, count: number}) {
@@ -263,7 +94,7 @@ export const loot: Loot = {
         if (lootListByType.length === 0) {
             this.generateLootListByType(lootType);
         }
-        const lootIndex = lootListByType.pop();
+        const lootIndex = lootListByType.shift();
         if (lootIndex === undefined) {
             throw Error('lootIndex should be defined');
         }
@@ -276,3 +107,5 @@ export const loot: Loot = {
         this.lootLists[lootType].sort(() => 0.5 - Math.random());
     }
 };
+
+loot.init();
