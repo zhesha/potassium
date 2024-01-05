@@ -12,7 +12,6 @@
 + fix enemy disapear on screen change
 + add game play loop
 - config first 100 monsters
-    did not restart on game over
     get predictable random
     hp 3 / dmg 2 / speed 2000
 - add NPC

@@ -17,7 +17,7 @@ export function Field() {
     const enemyStartPosition = config.fieldWidth - (enemyProgress * enemyPassLength);
 
     return <div className="field">
-        <div className="player"></div>
+        <div className="player">Hero</div>
         <div className="enemy" style={{marginLeft: enemyStartPosition}}>{game.enemy?.name}</div>
     </div>
 }

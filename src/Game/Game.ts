@@ -6,7 +6,6 @@ import { randomizer } from "./randomizer";
 
 enum GameState {
     start,
-    idle,
     moving,
     fighting
 }
@@ -28,8 +27,8 @@ interface Game {
     doEnemyAttack: (deltaTime: number) => void;
     runPressed: () => void,
     runReleased: () => void,
-    enemyProgressHandlers: (value: number) => void,
-    onEnemyProgress: (handler: (value: number) => void) => void,
+    enemyProgressHandlers: () => void,
+    onEnemyProgress: (handler: () => void) => void,
     enemyReceiveDmgHandler: (currentHp: number) => void,
     onEnemyDmgReceive: (handler: (currentHp: number) => void) => void,
     showLootHandler: (message: string) => void,
@@ -96,7 +95,7 @@ export const game: Game = {
             return;
         }
         this.enemy.changeTimer(deltaTime);
-        this.enemyProgressHandlers(this.enemy.movingProgress());
+        this.enemyProgressHandlers();
         if (this.enemy.isArrive()) {
             this.player.startAttackTimer();
             this.gameState = GameState.fighting;
@@ -150,8 +149,8 @@ export const game: Game = {
     runReleased() {
         this.isRun = false;
     },
-    enemyProgressHandlers: (value: number) => { },
-    onEnemyProgress(handler: (value: number) => void) {
+    enemyProgressHandlers: () => { },
+    onEnemyProgress(handler: () => void) {
         this.enemyProgressHandlers = handler;
     },
     enemyReceiveDmgHandler: (currentHp: number) => { },
@@ -173,7 +172,7 @@ export const game: Game = {
         this.enemyKilledInRun += 1;
         this.generateLoot();
         this.addExperience(10);
-        this.enemyProgressHandlers(this.enemy.movingProgress());
+        this.enemyProgressHandlers();
         this.infoChangeHandler();
         this.save();
     },
@@ -218,9 +217,9 @@ export const game: Game = {
         this.isRun = false;
         this.enemyKilledInRun = 0;
         this.distance = 0;
-        this.gameState = GameState.idle;
+        this.gameState = GameState.start;
         this.player.restart();
-        this.enemyProgressHandlers(0);
+        this.enemyProgressHandlers();
         this.infoChangeHandler();
     }
 }
