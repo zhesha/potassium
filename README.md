@@ -12,7 +12,8 @@
 + fix enemy disapear on screen change
 + add game play loop
 - config first 100 monsters
-    get predictable random
+    fix rounding of damage
+    check save loot lists
     hp 3 / dmg 2 / speed 2000
 - add NPC
 - add timeout for skills

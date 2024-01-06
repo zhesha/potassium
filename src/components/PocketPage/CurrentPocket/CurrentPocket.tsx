@@ -18,6 +18,6 @@ export function CurrentPocket ({select}: CurrentPocketProps) {
 
     return <div className="current-pocket">
         <div>Pocket:</div>
-        {current.map(item => <PocketItem item={item} select={select} />)}
+        {current.map((item, index) => <PocketItem item={item} select={select} key={index}/>)}
     </div>
 }

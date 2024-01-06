@@ -1,6 +1,7 @@
 import { game } from "./Game";
 import { Inventory, createInventory } from "./Inventory";
 import { Pocket, createPocket, PocketItem } from "./Pocket";
+import { ProbabilityGenerator, createProbabilityDeck } from "./Probability";
 import { SkillTreeItem, SkillsList, createSkills } from "./SkillsList";
 
 interface CharData {
@@ -20,6 +21,7 @@ export interface Player {
     inventory: Inventory,
     pocket: Pocket,
     skillsList: SkillsList,
+    hitProbability: ProbabilityGenerator,
     updateAttackTimer: (delta: number) => void,
     isAttack: () => boolean,
     resetAttackTimer: () => void,
@@ -28,7 +30,6 @@ export interface Player {
     heal: (hp: number) => void,
     isAlive: () => boolean,
     getDmg: () => number,
-    getHitChance: () => number,
     getBlockChance: () => number,
     getSkills (): Array<SkillTreeItem>;
     getPocketItems (): Array<PocketItem>;
@@ -44,6 +45,7 @@ export interface Player {
     skillsChangeHandler: () => void,
     onSkillsChange(handler: () => void): void
     restart(): void
+    isHitSuccess(): boolean
 }
 
 const levelMultiplier = 50;
@@ -65,6 +67,7 @@ export function createPlayer (): Player {
         inventory: createInventory(),
         pocket: createPocket(),
         skillsList: createSkills(),
+        hitProbability: createProbabilityDeck(10),
         getMaxHp() {
             return 100 + this.skillsList.getMaxHp();
         },
@@ -101,9 +104,6 @@ export function createPlayer (): Player {
         },
         getDmg () {
             return this.inventory.getDmg();
-        },
-        getHitChance () {
-            return this.inventory.getHitChance();
         },
         getBlockChance () {
             return this.inventory.getBlockChance();
@@ -165,5 +165,8 @@ export function createPlayer (): Player {
             this.hp = this.getMaxHp();
             this.mana = 100;
         },
+        isHitSuccess() {
+            return this.hitProbability.generate();
+        }
     }
 }

@@ -1,4 +1,5 @@
 import { Backpack, createBackpack } from "./Backpack"
+import { game } from "./Game";
 import { LootItem } from "./Loot";
 
 export interface InventoryItemBase {
@@ -53,6 +54,7 @@ interface InventorySaveData {
 
 export interface Inventory {
     weapon?: Weapon,
+    _gloves?: Gloves,
     gloves?: Gloves,
     boots?: Boots,
     shield?: Shield,
@@ -72,7 +74,14 @@ export interface Inventory {
 export function createInventory (): Inventory {
     return {
         weapon: undefined,
-        gloves: undefined,
+        _gloves: undefined,
+        get gloves() {
+            return this._gloves;
+        },
+        set gloves(gloves: Gloves | undefined) {
+            game.player.hitProbability.changeProbability(gloves?.hitChance || 0);
+            this._gloves = gloves;
+        },
         boots: undefined,
         shield: undefined,
         armor: undefined,

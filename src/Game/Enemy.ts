@@ -33,7 +33,7 @@ const enemyTypes: EnemyTypes = {
     snail: {
         name: 'snail',
         hp: 3,
-        dmg: 3,
+        dmg: 2,
         attackTimeout: 2000,
     },
     rat: {

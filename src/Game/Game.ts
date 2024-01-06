@@ -104,7 +104,7 @@ export const game: Game = {
     doPlayerAttack(deltaTime: number) {
         if (this.player.isAttack()) {
             this.player.resetAttackTimer();
-            if (randomizer.isSuccess(this.player.getHitChance())) {
+            if (this.player.isHitSuccess()) {
                 this.hitEnemy(this.player.getDmg());
             } else {
                 console.log('miss');

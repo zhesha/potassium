@@ -18,7 +18,7 @@ export function Backpack ({select}: BackpackProps) {
     });
 
     return <div className="backpack">
-        {backpackList.map(item => <BackpackItem item={item} select={select} />)}
+        {backpackList.map((item, index) => <BackpackItem item={item} select={select} key={index}/>)}
     </div>
 }
 

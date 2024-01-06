@@ -18,7 +18,7 @@ export function BackpackForPocket ({select}: CurrentPocketProps) {
 
     return <div className="backpack-for-pocket">
         <div>Backpack:</div>
-        {backpackList.map(item => <BackpackForPocketItem item={item} select={select}/>)}
+        {backpackList.map((item, index) => <BackpackForPocketItem item={item} select={select} key={index}/>)}
     </div>
 }
 
