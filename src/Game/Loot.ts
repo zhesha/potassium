@@ -13,6 +13,11 @@ interface LootLists {
     5: Array<number>,
 }
 
+interface LootSaveData {
+    lootTypes: Array<number>,
+    lootLists: LootLists,
+}
+
 export interface Loot {
     lootTypes: Array<number>,
     lootLists: LootLists,
@@ -22,6 +27,8 @@ export interface Loot {
     addNumbersToTypeList (params: {type: number, count: number}): void
     getLootByType (lootType: number): LootItem
     generateLootListByType(lootType: number): void
+    getSavedData(): LootSaveData
+    applySavedData(data: LootSaveData): void
 }
 
 export interface LootMap {
@@ -105,6 +112,16 @@ export const loot: Loot = {
             this.lootLists[lootType].push(i);
         }
         this.lootLists[lootType].sort(() => 0.5 - Math.random());
+    },
+    getSavedData() {
+        return {
+            lootTypes: this.lootTypes,
+            lootLists: this.lootLists,
+        }
+    },
+    applySavedData(data: LootSaveData) {
+        this.lootTypes = data.lootTypes;
+        this.lootLists = data.lootLists;
     }
 };
 

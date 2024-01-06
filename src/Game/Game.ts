@@ -69,6 +69,7 @@ export const game: Game = {
             this.player.inventory.applySaveData(savedData.inventory);
             this.player.pocket.applySaveData(savedData.pocket);
             this.player.skillsList.applySaveData(savedData.skillsList);
+            this.loot.applySavedData(savedData.loot);
         }
     },
     tick(timeStamp: number) {
@@ -203,6 +204,7 @@ export const game: Game = {
             inventory: this.player.inventory.getSaveData(),
             pocket: this.player.pocket.getSaveData(),
             skillsList: this.player.skillsList.getSaveData(),
+            loot: this.loot.getSavedData(),
             enemyKilledInRun: this.enemyKilledInRun,
         };
         localStorage.setItem('data', JSON.stringify(savedData));
