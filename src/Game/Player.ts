@@ -86,7 +86,7 @@ export function createPlayer (): Player {
         doDamage (dmg: number) {
             const realDmg = (dmg - this.inventory.getBlockValue()) * (100 - this.inventory.getBlockPercent()) / 100;
             if (realDmg > 1) {
-                this.hp -= realDmg;
+                this.hp -= Math.floor(realDmg);
             } else {
                 this.hp -= 1;
             }

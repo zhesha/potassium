@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import './Backpack.scss';
 import { game } from "../../../Game/Game";
-import { InventoryItem, InventoryType } from "../../../Game/Inventory";
+import { InventoryType } from "../../../Game/Inventory";
 import { SelectedAct } from "../InventoryPage";
 import { PocketItemType } from "../../../Game/Pocket";
 import { LootItem } from "../../../Game/Loot";
