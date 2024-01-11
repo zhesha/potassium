@@ -37,7 +37,12 @@ export const lootMap: LootMap = {
         {
             name: 'health potion 20',
             hp: 20,
-            type: PocketItemType.potion,
+            type: PocketItemType.healthPotion,
+        },
+        {
+            name: 'mana potion 20',
+            mana: 20,
+            type: PocketItemType.manaPotion,
         }
     ],
     2: [
@@ -74,7 +79,7 @@ export const lootMap: LootMap = {
         {
             name: 'health potion 100',
             hp: 100,
-            type: PocketItemType.potion,
+            type: PocketItemType.healthPotion,
         }
     ],
     3: [
@@ -111,7 +116,7 @@ export const lootMap: LootMap = {
         {
             name: 'health potion 200',
             hp: 200,
-            type: PocketItemType.potion,
+            type: PocketItemType.healthPotion,
         }
     ],
     4: [
@@ -148,7 +153,7 @@ export const lootMap: LootMap = {
         {
             name: 'health potion 300',
             hp: 300,
-            type: PocketItemType.potion,
+            type: PocketItemType.healthPotion,
         }
     ],
     5: [
@@ -185,7 +190,7 @@ export const lootMap: LootMap = {
         {
             name: 'health potion 500',
             hp: 500,
-            type: PocketItemType.potion,
+            type: PocketItemType.healthPotion,
         }
     ],
 };

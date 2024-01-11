@@ -40,8 +40,11 @@ export interface LootMap {
 }
 
 export function itemUseHandler (item: LootItem) {
-    if (item.type === PocketItemType.potion) {
-        game.player.heal(item.hp);
+    if (item.type === PocketItemType.healthPotion) {
+        game.player.heal(item.hp!);
+        game.player.pocket.remove(item);
+    } else if (item.type === PocketItemType.manaPotion) {
+        game.player.addMana(item.mana!);
         game.player.pocket.remove(item);
     }
 }

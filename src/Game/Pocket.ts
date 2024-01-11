@@ -1,10 +1,12 @@
 export enum PocketItemType {
-    potion
+    healthPotion,
+    manaPotion
 }
 
 export interface PocketItem {
     name: string
-    hp: number
+    hp?: number
+    mana?: number
     type: PocketItemType
 }
 

@@ -46,6 +46,8 @@ export interface Player {
     onSkillsChange(handler: () => void): void
     restart(): void
     isHitSuccess(): boolean
+    addMana(value: number): void
+    getMaxMana(): number
 }
 
 const levelMultiplier = 50;
@@ -163,10 +165,20 @@ export function createPlayer (): Player {
         restart () {
             this.attackTimer = 0;
             this.hp = this.getMaxHp();
-            this.mana = 100;
+            this.mana = this.getMaxMana();
         },
         isHitSuccess() {
             return this.hitProbability.generate();
+        },
+        addMana(value: number) {
+            if (this.mana + value > this.getMaxMana()) {
+                this.mana = this.getMaxMana();
+            } else {
+                this.mana += value;
+            }
+        },
+        getMaxMana () {
+            return 100;
         }
     }
 }

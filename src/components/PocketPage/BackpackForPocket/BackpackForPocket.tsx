@@ -28,7 +28,7 @@ interface BackpackForPocketItemProps {
 }
 
 function BackpackForPocketItem ({item, select}: BackpackForPocketItemProps) {
-    if (item.type !== PocketItemType.potion) {
+    if (item.type !== PocketItemType.healthPotion) {
         return null;
     }
     return <div
