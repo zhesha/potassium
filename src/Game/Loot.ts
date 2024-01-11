@@ -1,9 +1,9 @@
 import { game } from "./Game";
 import { InventoryItem } from "./Inventory";
-import { PocketItem, PocketItemType } from "./Pocket";
+import { InstantItem, PocketItem, PocketItemType } from "./Pocket";
 import { lootMap } from "./lootMap";
 
-export type LootItem = InventoryItem | PocketItem;
+export type LootItem = InventoryItem | PocketItem | InstantItem;
 
 interface LootLists {
     1: Array<number>,

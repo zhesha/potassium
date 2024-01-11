@@ -12,8 +12,6 @@
 + fix enemy disapear on screen change
 + add game play loop
 - config first 100 monsters
-    hp 3 / dmg 2 / speed 2000
-    healing
     money
     additional exp
     all loot in list

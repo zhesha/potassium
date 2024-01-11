@@ -1,6 +1,6 @@
 import { InventoryType } from "./Inventory";
 import { LootMap } from "./Loot";
-import { PocketItemType } from "./Pocket";
+import { InstantItemType, PocketItemType } from "./Pocket";
 
 export const lootMap: LootMap = {
     1: [
@@ -43,6 +43,11 @@ export const lootMap: LootMap = {
             name: 'mana potion 20',
             mana: 20,
             type: PocketItemType.manaPotion,
+        },
+        {
+            name: 'healing 20',
+            hp: 20,
+            type: InstantItemType.healing,
         }
     ],
     2: [

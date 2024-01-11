@@ -3,7 +3,7 @@ import './Backpack.scss';
 import { game } from "../../../Game/Game";
 import { InventoryType } from "../../../Game/Inventory";
 import { SelectedAct } from "../InventoryPage";
-import { PocketItemType } from "../../../Game/Pocket";
+import { InstantItemType, PocketItemType } from "../../../Game/Pocket";
 import { LootItem } from "../../../Game/Loot";
 
 interface BackpackProps {
@@ -37,7 +37,7 @@ function BackpackItem ({item, select}: BackpackItemProps) {
     return <div onClick={() => select(item, act)} className='backpackItem'>{item.name}</div>
 }
 
-function inventoryTypeToAct (type: InventoryType | PocketItemType) {
+function inventoryTypeToAct (type: InventoryType | PocketItemType | InstantItemType) {
     if (type === InventoryType.weapon) {
         return SelectedAct.useWeapon
     } else if (type === InventoryType.gloves) {

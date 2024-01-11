@@ -2,6 +2,7 @@ import { InfoData } from "../components/GamePage/Info/Info";
 import { Enemy, createEnemy } from "./Enemy";
 import { Loot, loot } from "./Loot";
 import { Player, createPlayer } from "./Player";
+import { InstantItemType } from "./Pocket";
 import { randomizer } from "./randomizer";
 
 enum GameState {
@@ -182,7 +183,11 @@ export const game: Game = {
     },
     generateLoot () {
         const item = this.loot.generate();
-        this.player.inventory.backpack.add(item);
+        if (item.type === InstantItemType.healing) {
+            this.player.heal(item.hp!);
+        } else {
+            this.player.inventory.backpack.add(item);
+        }
         this.showLootHandler(item.name);
     },
     getInfo(): InfoData {

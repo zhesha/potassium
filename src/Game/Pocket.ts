@@ -3,11 +3,22 @@ export enum PocketItemType {
     manaPotion
 }
 
+export enum InstantItemType {
+    healing
+}
+
 export interface PocketItem {
     name: string
     hp?: number
     mana?: number
     type: PocketItemType
+}
+
+export interface InstantItem {
+    name: string
+    hp?: number
+    mana?: number
+    type: InstantItemType
 }
 
 interface PocketSaveData {
