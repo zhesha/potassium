@@ -12,7 +12,6 @@
 + fix enemy disapear on screen change
 + add game play loop
 - config first 100 monsters
-    additional exp
     all loot in list
 - add NPC
 - add timeout for skills

@@ -53,6 +53,11 @@ export const lootMap: LootMap = {
             name: 'money 10',
             money: 10,
             type: InstantItemType.money,
+        },
+        {
+            name: 'experience 10',
+            experience: 10,
+            type: InstantItemType.experience,
         }
     ],
     2: [

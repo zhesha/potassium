@@ -2,6 +2,7 @@ export interface Enemy {
     name: string,
     hp: number,
     dmg: number,
+    experience: number,
     movingTimer: number,
     attackTimer: number,
     doDamage: (dmg: number) => void,
@@ -22,6 +23,7 @@ interface EnemyConfig {
     name: string,
     hp: number,
     dmg: number,
+    experience: number,
     attackTimeout: number
 }
 
@@ -34,18 +36,21 @@ const enemyTypes: EnemyTypes = {
         name: 'snail',
         hp: 3,
         dmg: 2,
+        experience: 10,
         attackTimeout: 2000,
     },
     rat: {
         name: 'rat',
         hp: 3,
         dmg: 2,
+        experience: 10,
         attackTimeout: 900,
     },
     woolf: {
         name: 'woolf',
         hp: 8,
         dmg: 2,
+        experience: 10,
         attackTimeout: 800,
     },
 };
@@ -67,6 +72,7 @@ function createConcreteEnemy(config: EnemyConfig): Enemy {
         name: config.name,
         hp: config.hp,
         dmg: config.dmg,
+        experience: config.experience,
         movingTimer: 0,
         attackTimer: 0,
         doDamage (dmg: number) {

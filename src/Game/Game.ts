@@ -168,12 +168,12 @@ export const game: Game = {
         this.infoChangeHandler = handler
     },
     killEnemy: function () {
+        this.addExperience(this.enemy!.experience);
         this.enemy = createEnemy(this.distance);
         this.gameState = GameState.moving;
         this.isRun = false;
         this.enemyKilledInRun += 1;
         this.generateLoot();
-        this.addExperience(10);
         this.enemyProgressHandlers();
         this.infoChangeHandler();
         this.save();
@@ -183,11 +183,16 @@ export const game: Game = {
     },
     generateLoot () {
         const item = this.loot.generate();
+        console.log(item);
+        console.log(item.type);
         if (item.type === InstantItemType.healing) {
             this.player.heal(item.hp!);
         } else if (item.type === InstantItemType.money) {
             this.player.money += item.money!;
+        } else if (item.type === InstantItemType.experience) {
+            this.player.addExperience(item.experience!);
         } else {
+            console.log('1111');
             this.player.inventory.backpack.add(item);
         }
         this.showLootHandler(item.name);
