@@ -185,6 +185,8 @@ export const game: Game = {
         const item = this.loot.generate();
         if (item.type === InstantItemType.healing) {
             this.player.heal(item.hp!);
+        } else if (item.type === InstantItemType.money) {
+            this.player.money += item.money!;
         } else {
             this.player.inventory.backpack.add(item);
         }
@@ -196,6 +198,7 @@ export const game: Game = {
             hp: this.player.hp,
             maxHp: this.player.getMaxHp(),
             mana: this.player.mana,
+            money: this.player.money,
             enemyKilled: this.enemyKilledInRun,
         }
     },

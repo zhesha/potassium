@@ -48,6 +48,11 @@ export const lootMap: LootMap = {
             name: 'healing 20',
             hp: 20,
             type: InstantItemType.healing,
+        },
+        {
+            name: 'money 10',
+            money: 10,
+            type: InstantItemType.money,
         }
     ],
     2: [

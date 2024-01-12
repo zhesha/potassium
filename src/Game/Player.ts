@@ -13,6 +13,8 @@ interface CharData {
 export interface Player {
     attackTimer: number,
     hp: number,
+    _money: number
+    money: number
     _mana: number,
     mana: number,
     getMaxHp(): number,
@@ -62,6 +64,14 @@ export function createPlayer (): Player {
         },
         set mana(val: number) {
             this._mana = val;
+            game.infoChangeHandler();
+        },
+        _money: 0,
+        get money() {
+            return this._money;
+        },
+        set money(val: number) {
+            this._money = val;
             game.infoChangeHandler();
         },
         experience: 0,

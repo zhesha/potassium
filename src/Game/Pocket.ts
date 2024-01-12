@@ -4,7 +4,8 @@ export enum PocketItemType {
 }
 
 export enum InstantItemType {
-    healing
+    healing,
+    money
 }
 
 export interface PocketItem {
@@ -18,6 +19,7 @@ export interface InstantItem {
     name: string
     hp?: number
     mana?: number
+    money?: number
     type: InstantItemType
 }
 

@@ -7,6 +7,7 @@ export interface InfoData {
     hp: number
     maxHp: number
     mana: number
+    money: number
     enemyKilled: number
 }
 
@@ -22,5 +23,6 @@ export function Info() {
         <div>Enemy killed: {info.enemyKilled}</div>
         <div>HP: {info.hp}/{info.maxHp}</div>
         <div>Mana: {info.mana}</div>
+        <div>Money: {info.money}</div>
     </div>
 }
