@@ -1,6 +1,6 @@
 import { game } from "./Game";
-import { InventoryItem } from "./Inventory";
-import { InstantItem, PocketItem, PocketItemType } from "./Pocket";
+import { InventoryItem, PocketItemType } from "./Inventory";
+import { InstantItem, PocketItem } from "./Pocket";
 import { lootMap } from "./lootMap";
 
 export type LootItem = InventoryItem | PocketItem | InstantItem;

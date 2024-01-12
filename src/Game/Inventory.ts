@@ -2,21 +2,32 @@ import { Backpack, createBackpack } from "./Backpack"
 import { game } from "./Game";
 import { LootItem } from "./Loot";
 
+export enum PocketItemType {
+    healthPotion = 'healthPotion',
+    manaPotion = 'manaPotion'
+}
+
+export enum InstantItemType {
+    healing = 'healing',
+    money = 'money',
+    experience = 'experience'
+}
+
+export enum InventoryType {
+    weapon = 'weapon',
+    boots = 'boots',
+    gloves = 'gloves',
+    shield = 'shield',
+    armor = 'armor',
+    helmet = 'helmet',
+}
+
 export interface InventoryItemBase {
     name: string;
     type: InventoryType;
 }
 
 export type InventoryItem = Weapon | Boots | Gloves | Shield | Armor | Helmet;
-
-export enum InventoryType {
-    weapon,
-    boots,
-    gloves,
-    shield,
-    armor,
-    helmet,
-}
 
 export interface Weapon extends InventoryItemBase {
     dmg: number

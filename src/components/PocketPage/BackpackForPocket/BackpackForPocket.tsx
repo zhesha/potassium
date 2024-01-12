@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import { game } from "../../../Game/Game";
 import { PocketSelectedAct } from "../PocketPage";
-import { PocketItem, PocketItemType } from "../../../Game/Pocket";
+import { PocketItem } from "../../../Game/Pocket";
 import { LootItem } from "../../../Game/Loot";
 import './BackpackForPocket.scss';
+import { PocketItemType } from "../../../Game/Inventory";
 
 interface CurrentPocketProps {
     select (selectedItem: PocketItem, act: PocketSelectedAct): void

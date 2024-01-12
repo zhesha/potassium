@@ -1,6 +1,5 @@
-import { InventoryType } from "./Inventory";
+import { InstantItemType, InventoryType, PocketItemType } from "./Inventory";
 import { LootMap } from "./Loot";
-import { InstantItemType, PocketItemType } from "./Pocket";
 
 export const lootMap: LootMap = {
     1: [

@@ -1,9 +1,8 @@
 import React, { useState } from "react";
 import './Backpack.scss';
 import { game } from "../../../Game/Game";
-import { InventoryType } from "../../../Game/Inventory";
+import { InventoryType, InstantItemType, PocketItemType } from "../../../Game/Inventory";
 import { SelectedAct } from "../InventoryPage";
-import { InstantItemType, PocketItemType } from "../../../Game/Pocket";
 import { LootItem } from "../../../Game/Loot";
 
 interface BackpackProps {

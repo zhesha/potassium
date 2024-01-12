@@ -1,13 +1,4 @@
-export enum PocketItemType {
-    healthPotion,
-    manaPotion
-}
-
-export enum InstantItemType {
-    healing,
-    money,
-    experience
-}
+import { InstantItemType, PocketItemType } from "./Inventory"
 
 export interface PocketItem {
     name: string
