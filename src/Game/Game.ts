@@ -169,7 +169,7 @@ export const game: Game = {
     },
     killEnemy: function () {
         this.addExperience(this.enemy!.experience);
-        this.enemy = createEnemy(this.distance);
+        this.enemy = createEnemy(this.enemyKilledInRun);
         this.gameState = GameState.moving;
         this.isRun = false;
         this.enemyKilledInRun += 1;

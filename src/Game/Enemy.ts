@@ -55,13 +55,13 @@ const enemyTypes: EnemyTypes = {
     },
 };
 
-export function createEnemy (distance: number): Enemy {
+export function createEnemy (enemyKilledInRun: number): Enemy {
     let enemyType = enemyTypes.snail;
-    if (distance < 25) {
+    if (enemyKilledInRun < 10) {
         enemyType = enemyTypes.snail;
-    } else if (distance < 100) {
+    } else if (enemyKilledInRun < 20) {
         enemyType = enemyTypes.rat;
-    } else if (distance < 400) {
+    } else if (enemyKilledInRun < 100) {
         enemyType = enemyTypes.woolf;
     }
     return createConcreteEnemy(enemyType);

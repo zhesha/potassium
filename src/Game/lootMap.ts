@@ -9,6 +9,26 @@ export const lootMap: LootMap = {
             type: InventoryType.weapon
         },
         {
+            name: 'sword 4',
+            dmg: 4,
+            type: InventoryType.weapon
+        },
+        {
+            name: 'sword 6',
+            dmg: 6,
+            type: InventoryType.weapon
+        },
+        {
+            name: 'sword 8',
+            dmg: 8,
+            type: InventoryType.weapon
+        },
+        {
+            name: 'sword 10',
+            dmg: 10,
+            type: InventoryType.weapon
+        },
+        {
             name: 'boots 0.9',
             speed: 900,
             type: InventoryType.boots
