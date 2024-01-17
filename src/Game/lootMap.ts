@@ -29,8 +29,8 @@ export const lootMap: LootMap = {
             type: InventoryType.weapon
         },
         {
-            name: 'boots 0.9',
-            speed: 900,
+            name: 'boots 1.1',
+            rate: 1.1,
             type: InventoryType.boots
         },
         {
@@ -87,7 +87,7 @@ export const lootMap: LootMap = {
         },
         {
             name: 'boots 0.8',
-            speed: 800,
+            rate: 1.5,
             type: InventoryType.boots
         },
         {
@@ -124,7 +124,7 @@ export const lootMap: LootMap = {
         },
         {
             name: 'boots 0.7',
-            speed: 700,
+            rate: 2,
             type: InventoryType.boots
         },
         {
@@ -161,7 +161,7 @@ export const lootMap: LootMap = {
         },
         {
             name: 'boots 0.6',
-            speed: 600,
+            rate: 3,
             type: InventoryType.boots
         },
         {
@@ -198,7 +198,7 @@ export const lootMap: LootMap = {
         },
         {
             name: 'boots 0.5',
-            speed: 500,
+            rate: 5,
             type: InventoryType.boots
         },
         {

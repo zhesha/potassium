@@ -34,7 +34,7 @@ export interface Weapon extends InventoryItemBase {
 }
 
 export interface Boots extends InventoryItemBase {
-    speed: number
+    rate: number
 }
 
 export interface Gloves extends InventoryItemBase {
@@ -90,7 +90,7 @@ export function createInventory (): Inventory {
             return this._gloves;
         },
         set gloves(gloves: Gloves | undefined) {
-            game.player.hitProbability.changeProbability(gloves?.hitChance || 0);
+            game.player.hitProbability.changeProbability(gloves?.hitChance || 10);
             this._gloves = gloves;
         },
         boots: undefined,
@@ -102,7 +102,8 @@ export function createInventory (): Inventory {
             return this.weapon?.dmg || 1;
         },
         getSpeed () {
-            return this.boots?.speed || 1000;
+            const rate = this.boots?.rate || 1;
+            return Math.round(1000 / rate);
         },
         getHitChance () {
             return this.gloves?.hitChance || 10;
