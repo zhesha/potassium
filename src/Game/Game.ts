@@ -65,6 +65,7 @@ export const game: Game = {
             this.player.hp = savedData.hp || 100;
             this.player.experience = savedData.experience || 0;
             this.player.usedPoints = savedData.usedPoint || 0;
+            this.player.money = savedData.money || 0;
             this.enemyKilledInRun = savedData.enemyKilledInRun || 0;
             this.player.inventory.applySaveData(savedData.inventory);
             this.player.pocket.applySaveData(savedData.pocket);
@@ -210,6 +211,7 @@ export const game: Game = {
             // maxHp: this.player.getMaxHp(),
             experience: this.player.experience,
             usedPoint: this.player.usedPoints,
+            money: this.player.money,
             inventory: this.player.inventory.getSaveData(),
             pocket: this.player.pocket.getSaveData(),
             skillsList: this.player.skillsList.getSaveData(),

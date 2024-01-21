@@ -4,54 +4,14 @@ import { LootMap } from "./Loot";
 export const lootMap: LootMap = {
     1: [
         {
-            name: 'sword 2',
-            dmg: 2,
-            type: InventoryType.weapon
-        },
-        {
-            name: 'sword 4',
-            dmg: 4,
-            type: InventoryType.weapon
-        },
-        {
-            name: 'sword 6',
-            dmg: 6,
-            type: InventoryType.weapon
-        },
-        {
-            name: 'sword 8',
-            dmg: 8,
-            type: InventoryType.weapon
-        },
-        {
-            name: 'sword 10',
-            dmg: 10,
-            type: InventoryType.weapon
-        },
-        {
-            name: 'boots 1.1',
-            rate: 1.1,
-            type: InventoryType.boots
-        },
-        {
             name: 'gloves 20%',
             hitChance: 20,
             type: InventoryType.gloves
         },
         {
-            name: 'shield 10%',
-            blockChance: 10,
-            type: InventoryType.shield
-        },
-        {
-            name: 'armor 10%',
-            blockPercent: 10,
-            type: InventoryType.armor
-        },
-        {
-            name: 'helmet 1',
-            blockValue: 1,
-            type: InventoryType.helmet
+            name: 'money 10',
+            money: 10,
+            type: InstantItemType.money,
         },
         {
             name: 'health potion 20',
@@ -59,14 +19,114 @@ export const lootMap: LootMap = {
             type: PocketItemType.healthPotion,
         },
         {
+            name: 'boots 1.1',
+            rate: 1.1,
+            type: InventoryType.boots
+        },
+        {
+            name: 'money 10',
+            money: 10,
+            type: InstantItemType.money,
+        },
+        {
             name: 'mana potion 20',
             mana: 20,
             type: PocketItemType.manaPotion,
         },
         {
+            name: 'shield 1%',
+            blockChance: 1,
+            type: InventoryType.shield
+        },
+        {
             name: 'healing 20',
             hp: 20,
             type: InstantItemType.healing,
+        },
+        {
+            name: 'experience 10',
+            experience: 10,
+            type: InstantItemType.experience,
+        },
+        {
+            name: 'sword 2',
+            dmg: 2,
+            type: InventoryType.weapon
+        },
+        {
+            name: 'healing 20',
+            hp: 20,
+            type: InstantItemType.healing,
+        },
+        {
+            name: 'armor 1%',
+            blockPercent: 1,
+            type: InventoryType.armor
+        },
+        {
+            name: 'experience 10',
+            experience: 10,
+            type: InstantItemType.experience,
+        },
+        {
+            name: 'sword 4',
+            dmg: 4,
+            type: InventoryType.weapon
+        },
+        {
+            name: 'money 10',
+            money: 10,
+            type: InstantItemType.money,
+        },
+        {
+            name: 'armor 5%',
+            blockPercent: 5,
+            type: InventoryType.armor
+        },
+        {
+            name: 'healing 20',
+            hp: 20,
+            type: InstantItemType.healing,
+        },
+        {
+            name: 'helmet 1',
+            blockValue: 1,
+            type: InventoryType.helmet
+        },
+        {
+            name: 'shield 2%',
+            blockChance: 2,
+            type: InventoryType.shield
+        },
+        {
+            name: 'mana potion 20',
+            mana: 20,
+            type: PocketItemType.manaPotion,
+        },
+        {
+            name: 'experience 10',
+            experience: 10,
+            type: InstantItemType.experience,
+        },
+        {
+            name: 'sword 6',
+            dmg: 6,
+            type: InventoryType.weapon
+        },
+        {
+            name: 'healing 20',
+            hp: 20,
+            type: InstantItemType.healing,
+        },
+        {
+            name: 'gloves 25%',
+            hitChance: 25,
+            type: InventoryType.gloves
+        },
+        {
+            name: 'shield 4%',
+            blockChance: 4,
+            type: InventoryType.shield
         },
         {
             name: 'money 10',
@@ -77,7 +137,52 @@ export const lootMap: LootMap = {
             name: 'experience 10',
             experience: 10,
             type: InstantItemType.experience,
-        }
+        },
+        {
+            name: 'sword 8',
+            dmg: 8,
+            type: InventoryType.weapon
+        },
+        {
+            name: 'health potion 20',
+            hp: 20,
+            type: PocketItemType.healthPotion,
+        },
+        {
+            name: 'armor 10%',
+            blockPercent: 10,
+            type: InventoryType.armor
+        },
+        {
+            name: 'boots 1.5',
+            rate: 1.5,
+            type: InventoryType.boots
+        },
+        {
+            name: 'money 10',
+            money: 10,
+            type: InstantItemType.money,
+        },
+        {
+            name: 'helmet 2',
+            blockValue: 2,
+            type: InventoryType.helmet
+        },
+        {
+            name: 'healing 20',
+            hp: 20,
+            type: InstantItemType.healing,
+        },
+        {
+            name: 'experience 10',
+            experience: 10,
+            type: InstantItemType.experience,
+        },
+        {
+            name: 'sword 10',
+            dmg: 10,
+            type: InventoryType.weapon
+        },
     ],
     2: [
         {
