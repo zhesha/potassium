@@ -76,6 +76,7 @@ export function createSkills(): SkillsList {
             if (game.player.getCurrentLevel() - game.player.usedPoints - 1 > 0) {
                 this.list.push(index);
                 game.player.usedPoints += 1;
+                handleActivation(index);
                 game.player.charDataChangeHandler();
                 this.changeHandler();
             }
@@ -104,5 +105,13 @@ export function skillUseHandler (item: SkillTreeItem) {
     } else if (item.type === SkillType.fireball) {
         game.hitEnemy(10);
         game.player.mana -= item.manaCost;
+    }
+}
+
+function handleActivation(index: number) {
+    if (skillTreeList[index].type === SkillType.maxHp) {
+        const relativeHp = game.player.hp / (game.player.getMaxHp() - 100);
+        const newHp = Math.floor(relativeHp * game.player.getMaxHp());
+        game.player.heal(newHp - game.player.hp);
     }
 }

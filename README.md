@@ -12,8 +12,9 @@
 + fix enemy disapear on screen change
 + add game play loop
 - config first 100 monsters
+    fix fireball
+    where mana potion disapear? on play from a start
     all loot in list
-    трохи швидше себе посилювати
 - add NPC
 - add timeout for skills
 - add magic and rare weapons
@@ -272,14 +273,14 @@
     порядок луту:
         рукавиці 20%
         гроші
-        лікувальне зілля
         взуття 1.1/sec
-        гроші
-        зілля мани
-        щит 1%
         лікування
-        додатковий досвід
+        гроші
         зброя 2
+        зілля мани
+        лікувальне зілля
+        щит 1%
+        додатковий досвід
         лікування
         лати 1%
         додатковий досвід
@@ -306,6 +307,4 @@
         лікування
         додатковий досвід
         зброя 10-15
-    
-    
 

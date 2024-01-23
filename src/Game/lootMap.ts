@@ -14,29 +14,9 @@ export const lootMap: LootMap = {
             type: InstantItemType.money,
         },
         {
-            name: 'health potion 20',
-            hp: 20,
-            type: PocketItemType.healthPotion,
-        },
-        {
             name: 'boots 1.1',
             rate: 1.1,
             type: InventoryType.boots
-        },
-        {
-            name: 'money 10',
-            money: 10,
-            type: InstantItemType.money,
-        },
-        {
-            name: 'mana potion 20',
-            mana: 20,
-            type: PocketItemType.manaPotion,
-        },
-        {
-            name: 'shield 1%',
-            blockChance: 1,
-            type: InventoryType.shield
         },
         {
             name: 'healing 20',
@@ -44,14 +24,34 @@ export const lootMap: LootMap = {
             type: InstantItemType.healing,
         },
         {
-            name: 'experience 10',
-            experience: 10,
-            type: InstantItemType.experience,
+            name: 'money 10',
+            money: 10,
+            type: InstantItemType.money,
         },
         {
             name: 'sword 2',
             dmg: 2,
             type: InventoryType.weapon
+        },
+        {
+            name: 'mana potion 20',
+            mana: 20,
+            type: PocketItemType.manaPotion,
+        },
+        {
+            name: 'health potion 20',
+            hp: 20,
+            type: PocketItemType.healthPotion,
+        },
+        {
+            name: 'shield 1%',
+            blockChance: 1,
+            type: InventoryType.shield
+        },
+        {
+            name: 'experience 10',
+            experience: 10,
+            type: InstantItemType.experience,
         },
         {
             name: 'healing 20',
