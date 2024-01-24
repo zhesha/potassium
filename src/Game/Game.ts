@@ -32,8 +32,10 @@ interface Game {
     onEnemyProgress: (handler: () => void) => void,
     enemyReceiveDmgHandler: (currentHp: number) => void,
     onEnemyDmgReceive: (handler: (currentHp: number) => void) => void,
-    showLootHandler: (message: string) => void,
-    onShowLoot: (handler: (message: string) => void) => void,
+    lootMessage?: string,
+    getLootMessage(): string | undefined,
+    showLootHandler: () => void,
+    onShowLoot: (handler: () => void) => void,
     infoChangeHandler: () => void,
     onInfoChange: (handler: () => void) => void,
     hitEnemy (dmg: number): void,
@@ -159,8 +161,12 @@ export const game: Game = {
     onEnemyDmgReceive(handler: (currentHp: number) => void) {
         this.enemyReceiveDmgHandler = handler;
     },
-    showLootHandler: (message: string) => { },
-    onShowLoot(handler: (message: string) => void) {
+    lootMessage: undefined,
+    getLootMessage() {
+        return this.lootMessage;
+    },
+    showLootHandler: () => { },
+    onShowLoot(handler: () => void) {
         this.showLootHandler = handler;
     },
     infoChangeHandler () {},
@@ -192,7 +198,8 @@ export const game: Game = {
         } else {
             this.player.inventory.backpack.add(item);
         }
-        this.showLootHandler(item.name);
+        this.lootMessage = item.name;
+        this.showLootHandler();
     },
     getInfo(): InfoData {
         return {

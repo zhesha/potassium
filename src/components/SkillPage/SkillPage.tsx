@@ -27,13 +27,27 @@ export function SkillPage ({ setPage }: SkillPageProps) {
         <div className="pocket-items">
             <div>Pocket Items:</div>
             <div>
-                {pocketItems.map((skill, index) => <div className="skillItem" key={index} onClick={() => itemUseHandler(skill)}>{skill.name}</div>)}
+                {pocketItems.map((skill, index) => <div
+                    className="skillItem"
+                    key={index}
+                    onClick={() => {
+                        setPage(Pages.game)
+                        itemUseHandler(skill)
+                    }}>{skill.name}</div>
+                )}
             </div>
         </div>
         <div className="skills">
             <div>Skills:</div>
             <div>
-                {skills.map((skill, index) => <div className="skillItem" key={index} onClick={() => skillUseHandler(skill)}>{skill.name}</div>)}
+                {skills.map((skill, index) => <div
+                    className="skillItem"
+                    key={index}
+                    onClick={() => {
+                        setPage(Pages.game)
+                        skillUseHandler(skill)
+                    }}>{skill.name}</div>
+                )}
             </div>
         </div>
     </div>

@@ -11,11 +11,11 @@ interface GameProps {
 }
 
 export function GamePage ({setPage}: GameProps) {
-    const [lootMessage, setLootMessage] = useState<string | null>(null);
+    const [lootMessage, setLootMessage] = useState<string | undefined>(game.getLootMessage());
     const [gameOverMessage, setGameOverMessage] = useState<string | null>(null);
 
-    game.onShowLoot(function (message: string) {
-        setLootMessage(message);
+    game.onShowLoot(function () {
+        setLootMessage(game.getLootMessage());
     });
 
     game.onGameOver(function () {
@@ -31,7 +31,10 @@ export function GamePage ({setPage}: GameProps) {
             toPocket={() => setPage(Pages.pocket)}
         />
         <Info/>
-        {lootMessage && <Modal close={() => setLootMessage(null)} message={lootMessage}/>}
+        {lootMessage && <Modal close={() => {
+            game.lootMessage = undefined
+            setLootMessage(undefined);
+        }} message={lootMessage}/>}
         {gameOverMessage && <Modal
             close={() => {
                 setGameOverMessage(null);

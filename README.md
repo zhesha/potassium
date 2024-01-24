@@ -12,7 +12,7 @@
 + fix enemy disapear on screen change
 + add game play loop
 - config first 100 monsters
-    fix fireball
+    save mana
     where mana potion disapear? on play from a start
     all loot in list
 - add NPC
