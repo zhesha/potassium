@@ -66,6 +66,7 @@ export const game: Game = {
             this.distance = savedData.distance || 0;
             this.player.hp = savedData.hp || 100;
             this.player.experience = savedData.experience || 0;
+            this.player.mana = savedData.mana || 0;
             this.player.usedPoints = savedData.usedPoint || 0;
             this.player.money = savedData.money || 0;
             this.enemyKilledInRun = savedData.enemyKilledInRun || 0;
@@ -219,6 +220,7 @@ export const game: Game = {
             experience: this.player.experience,
             usedPoint: this.player.usedPoints,
             money: this.player.money,
+            mana: this.player.mana,
             inventory: this.player.inventory.getSaveData(),
             pocket: this.player.pocket.getSaveData(),
             skillsList: this.player.skillsList.getSaveData(),
