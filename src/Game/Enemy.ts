@@ -36,7 +36,7 @@ const enemyTypes: EnemyTypes = {
         name: 'snail',
         hp: 3,
         dmg: 2,
-        experience: 10,
+        experience: 5,
         attackTimeout: 2000,
     },
     rat: {
@@ -57,7 +57,7 @@ const enemyTypes: EnemyTypes = {
 
 export function createEnemy (enemyKilledInRun: number): Enemy {
     let enemyType = enemyTypes.snail;
-    if (enemyKilledInRun < 10) {
+    if (enemyKilledInRun < 20) {
         enemyType = enemyTypes.snail;
     } else if (enemyKilledInRun < 20) {
         enemyType = enemyTypes.rat;

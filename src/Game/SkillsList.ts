@@ -19,7 +19,7 @@ export const skillTreeList: Array<SkillTreeItem> = [
     {
         name: 'Fireball',
         type: SkillType.fireball,
-        manaCost: 10,
+        manaCost: 20,
     }
 ];
 
@@ -103,7 +103,7 @@ export function skillUseHandler (item: SkillTreeItem) {
         game.player.heal(10);
         game.player.mana -= item.manaCost;
     } else if (item.type === SkillType.fireball) {
-        game.hitEnemy(10);
+        game.hitEnemy(5);
         game.player.mana -= item.manaCost;
     }
 }

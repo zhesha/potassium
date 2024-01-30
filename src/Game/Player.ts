@@ -52,7 +52,7 @@ export interface Player {
     getMaxMana(): number
 }
 
-const levelMultiplier = 50;
+const levelMultiplier = 100;
 
 export function createPlayer (): Player {
     return {
