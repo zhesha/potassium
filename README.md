@@ -16,6 +16,7 @@
     + 10
     + 10-20
     20-50
+        next enemy
         magic items
         2 - 9
     50-75
