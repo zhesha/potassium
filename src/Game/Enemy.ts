@@ -41,10 +41,10 @@ const enemyTypes: EnemyTypes = {
     },
     rat: {
         name: 'rat',
-        hp: 3,
-        dmg: 2,
+        hp: 10,
+        dmg: 4,
         experience: 10,
-        attackTimeout: 900,
+        attackTimeout: 1600,
     },
     woolf: {
         name: 'woolf',
@@ -57,12 +57,13 @@ const enemyTypes: EnemyTypes = {
 
 export function createEnemy (enemyKilledInRun: number): Enemy {
     let enemyType = enemyTypes.snail;
-    if (enemyKilledInRun < 20) {
-        enemyType = enemyTypes.snail;
-    } else if (enemyKilledInRun < 20) {
-        enemyType = enemyTypes.rat;
-    } else if (enemyKilledInRun < 100) {
+    console.log(enemyKilledInRun);
+    if (enemyKilledInRun > 100) {
         enemyType = enemyTypes.woolf;
+    } else if (enemyKilledInRun >= 20) {
+        enemyType = enemyTypes.rat;
+    } else if (enemyKilledInRun > 0) {
+        enemyType = enemyTypes.snail;
     }
     return createConcreteEnemy(enemyType);
 }

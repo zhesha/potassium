@@ -213,7 +213,7 @@ export const lootMap: LootMap = {
 
         {
             // Magic
-            name: 'armor 10%',
+            name: 'armor 10% M',
             blockPercent: 10,
             type: InventoryType.armor
         },

@@ -148,7 +148,7 @@ export const game: Game = {
         this.lastTimeStamp = 0;
         if (this.gameState === GameState.start) {
             this.gameState = GameState.moving;
-            this.enemy = createEnemy(0);
+            this.enemy = createEnemy(this.enemyKilledInRun);
         }
     },
     runReleased() {
