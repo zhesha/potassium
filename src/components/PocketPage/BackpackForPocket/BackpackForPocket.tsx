@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 import { game } from "../../../Game/Game";
 import { PocketSelectedAct } from "../PocketPage";
-import { PocketItem } from "../../../Game/Pocket";
+import { PocketLoot } from "../../../Game/Pocket";
 import { LootItem } from "../../../Game/Loot";
 import './BackpackForPocket.scss';
 import { PocketItemType } from "../../../Game/Inventory";
 
 interface CurrentPocketProps {
-    select (selectedItem: PocketItem, act: PocketSelectedAct): void
+    select (selectedItem: PocketLoot, act: PocketSelectedAct): void
 }
 
 export function BackpackForPocket ({select}: CurrentPocketProps) {
@@ -25,7 +25,7 @@ export function BackpackForPocket ({select}: CurrentPocketProps) {
 
 interface BackpackForPocketItemProps {
     item: LootItem
-    select(selectedItem: PocketItem, act: PocketSelectedAct): void
+    select(selectedItem: PocketLoot, act: PocketSelectedAct): void
 }
 
 function BackpackForPocketItem ({item, select}: BackpackForPocketItemProps) {

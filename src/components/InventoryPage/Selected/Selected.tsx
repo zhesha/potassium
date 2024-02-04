@@ -1,8 +1,8 @@
 import React from "react";
 import './Selected.scss';
-import { Armor, Boots, Gloves, Helmet, InventoryItem, Shield, Weapon } from "../../../Game/Inventory";
 import { SelectedAct } from "../InventoryPage";
 import { game } from "../../../Game/Game";
+import { InventoryArmor, InventoryBoots, InventoryGloves, InventoryHelmet, InventoryItem, InventoryShield, InventoryWeapon } from "../../../Game/Loot";
 
 interface SelectedProps {
     setSelected (item: InventoryItem | null): void
@@ -46,37 +46,37 @@ export function Selected ({setSelected, act, selected}: SelectedProps) {
             if (game.player.inventory.weapon) {
                 game.player.inventory.backpack.add(game.player.inventory.weapon);
             }
-            game.player.inventory.weapon = selected as Weapon;
+            game.player.inventory.weapon = selected as InventoryWeapon;
             game.player.inventory.backpack.remove(selected);
         } else if (act === SelectedAct.useGloves) {
             if (game.player.inventory.gloves) {
                 game.player.inventory.backpack.add(game.player.inventory.gloves);
             }
-            game.player.inventory.gloves = selected as Gloves;
+            game.player.inventory.gloves = selected as InventoryGloves;
             game.player.inventory.backpack.remove(selected);
         } else if (act === SelectedAct.useBoots) {
             if (game.player.inventory.boots) {
                 game.player.inventory.backpack.add(game.player.inventory.boots);
             }
-            game.player.inventory.boots = selected as Boots;
+            game.player.inventory.boots = selected as InventoryBoots;
             game.player.inventory.backpack.remove(selected);
         } else if (act === SelectedAct.useShield) {
             if (game.player.inventory.shield) {
                 game.player.inventory.backpack.add(game.player.inventory.shield);
             }
-            game.player.inventory.shield = selected as Shield;
+            game.player.inventory.shield = selected as InventoryShield;
             game.player.inventory.backpack.remove(selected);
         } else if (act === SelectedAct.useArmor) {
             if (game.player.inventory.armor) {
                 game.player.inventory.backpack.add(game.player.inventory.armor);
             }
-            game.player.inventory.armor = selected as Armor;
+            game.player.inventory.armor = selected as InventoryArmor;
             game.player.inventory.backpack.remove(selected);
         } else if (act === SelectedAct.useHelmet) {
             if (game.player.inventory.helmet) {
                 game.player.inventory.backpack.add(game.player.inventory.helmet);
             }
-            game.player.inventory.helmet = selected as Helmet;
+            game.player.inventory.helmet = selected as InventoryHelmet;
             game.player.inventory.backpack.remove(selected);
         }
         game.player.changeInventoryHandler();

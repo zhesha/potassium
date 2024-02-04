@@ -1,4 +1,4 @@
-import { InstantItemType, InventoryType, PocketItemType } from "./Inventory";
+import { InstantItemType, InventoryType, ItemMagicType, PocketItemType } from "./Inventory";
 import { LootMap } from "./Loot";
 
 export const lootMap: LootMap = {
@@ -210,12 +210,11 @@ export const lootMap: LootMap = {
             money: 50,
             type: InstantItemType.money,
         },
-
         {
-            // Magic
             name: 'armor 10% M',
             blockPercent: 10,
-            type: InventoryType.armor
+            type: InventoryType.armor,
+            magic: ItemMagicType.magic
         },
 
         {

@@ -1,19 +1,18 @@
-import { InventoryItem } from "./Inventory";
-import { LootItem } from "./Loot";
+import { RealItem } from "./Loot";
 
 export interface Backpack {
-    list: Array<LootItem>,
-    add (item: LootItem): void;
-    remove (item: LootItem): void;
+    list: Array<RealItem>,
+    add (item: RealItem): void;
+    remove (item: RealItem): void;
 }
 
 export function createBackpack (): Backpack {
     return {
         list: [],
-        add (item: LootItem) {
+        add (item: RealItem) {
             this.list.push(item);
         },
-        remove (item: LootItem) {
+        remove (item: RealItem) {
             const index = this.list.indexOf(item);
             if (index !== -1) {
                 this.list.splice(index, 1);

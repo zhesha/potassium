@@ -1,7 +1,7 @@
 import { InfoData } from "../components/GamePage/Info/Info";
 import { Enemy, createEnemy } from "./Enemy";
 import { InstantItemType } from "./Inventory";
-import { Loot, loot } from "./Loot";
+import { Loot, getRealItemFromLoot, loot } from "./Loot";
 import { Player, createPlayer } from "./Player";
 import { randomizer } from "./randomizer";
 
@@ -197,7 +197,10 @@ export const game: Game = {
         } else if (item.type === InstantItemType.experience) {
             this.player.addExperience(item.experience!);
         } else {
-            this.player.inventory.backpack.add(item);
+            const realItem = getRealItemFromLoot(item);
+            if (realItem) {
+                this.player.inventory.backpack.add(realItem);
+            }
         }
         this.lootMessage = item.name;
         this.showLootHandler();

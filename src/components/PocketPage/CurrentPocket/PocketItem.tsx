@@ -1,6 +1,6 @@
 import React from "react";
 import { PocketSelectedAct } from "../PocketPage";
-import { PocketItem as PocketItemType } from "../../../Game/Pocket";
+import { PocketLoot as PocketItemType } from "../../../Game/Pocket";
 
 interface PocketItemProps {
     item: PocketItemType

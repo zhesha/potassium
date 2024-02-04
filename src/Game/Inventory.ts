@@ -1,6 +1,6 @@
 import { Backpack, createBackpack } from "./Backpack"
 import { game } from "./Game";
-import { LootItem } from "./Loot";
+import { InventoryArmor, InventoryBoots, InventoryGloves, InventoryHelmet, InventoryShield, InventoryWeapon, RealItem } from "./Loot";
 
 export enum PocketItemType {
     healthPotion = 'healthPotion',
@@ -22,55 +22,62 @@ export enum InventoryType {
     helmet = 'helmet',
 }
 
-export interface InventoryItemBase {
-    name: string;
-    type: InventoryType;
+export enum ItemMagicType {
+    none,
+    magic,
+    rare,
 }
 
-export type InventoryItem = Weapon | Boots | Gloves | Shield | Armor | Helmet;
+export interface InventoryLootBase {
+    name: string;
+    type: InventoryType;
+    magic?: ItemMagicType
+}
 
-export interface Weapon extends InventoryItemBase {
+export type InventoryLoot = LootWeapon | LootBoots | LootGloves | LootShield | LootArmor | LootHelmet;
+
+export interface LootWeapon extends InventoryLootBase {
     dmg: number
 }
 
-export interface Boots extends InventoryItemBase {
+export interface LootBoots extends InventoryLootBase {
     rate: number
 }
 
-export interface Gloves extends InventoryItemBase {
+export interface LootGloves extends InventoryLootBase {
     hitChance: number
 }
 
-export interface Shield extends InventoryItemBase {
+export interface LootShield extends InventoryLootBase {
     blockChance: number
 }
 
-export interface Armor extends InventoryItemBase {
+export interface LootArmor extends InventoryLootBase {
     blockPercent: number
 }
 
-export interface Helmet extends InventoryItemBase {
+export interface LootHelmet extends InventoryLootBase {
     blockValue: number
 }
 
 interface InventorySaveData {
-    weapon?: Weapon,
-    gloves?: Gloves,
-    boots?: Boots,
-    shield?: Shield,
-    armor?: Armor,
-    helmet?: Helmet,
-    backpack: Array<LootItem>,
+    weapon?: InventoryWeapon,
+    gloves?: InventoryGloves,
+    boots?: InventoryBoots,
+    shield?: InventoryShield,
+    armor?: InventoryArmor,
+    helmet?: InventoryHelmet,
+    backpack: Array<RealItem>,
 }
 
 export interface Inventory {
-    weapon?: Weapon,
-    _gloves?: Gloves,
-    gloves?: Gloves,
-    boots?: Boots,
-    shield?: Shield,
-    armor?: Armor,
-    helmet?: Helmet,
+    weapon?: InventoryWeapon,
+    _gloves?: InventoryGloves,
+    gloves?: InventoryGloves,
+    boots?: InventoryBoots,
+    shield?: InventoryShield,
+    armor?: InventoryArmor,
+    helmet?: InventoryHelmet,
     backpack: Backpack,
     getDmg: () => number,
     getSpeed: () => number,
@@ -89,7 +96,7 @@ export function createInventory (): Inventory {
         get gloves() {
             return this._gloves;
         },
-        set gloves(gloves: Gloves | undefined) {
+        set gloves(gloves: InventoryGloves | undefined) {
             game.player.hitProbability.changeProbability(gloves?.hitChance || 10);
             this._gloves = gloves;
         },

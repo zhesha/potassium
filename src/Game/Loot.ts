@@ -1,9 +1,9 @@
 import { game } from "./Game";
-import { InventoryItem, PocketItemType } from "./Inventory";
-import { InstantItem, PocketItem } from "./Pocket";
+import { InventoryLoot, InventoryLootBase, InventoryType, PocketItemType } from "./Inventory";
+import { InstantItem as InstantLoot, PocketLoot } from "./Pocket";
 import { lootMap } from "./lootMap";
 
-export type LootItem = InventoryItem | PocketItem | InstantItem;
+export type LootItem = InventoryLoot | PocketLoot | InstantLoot;
 
 interface LootLists {
     1: Array<number>,
@@ -159,3 +159,85 @@ export const loot: Loot = {
 };
 
 loot.init();
+
+export type RealItem = InventoryItem | PocketItem;
+
+interface ItemEffect {
+
+}
+
+// export type InventoryItem = InventoryLoot & {
+//     effects: Array<ItemEffect>
+// }
+
+export type InventoryItemBase = InventoryLootBase & {
+    effects: Array<ItemEffect>
+}
+// export interface InventoryLootBase {
+//     name: string;
+//     type: InventoryType;
+//     magic?: ItemMagicType
+// }
+
+export type InventoryItem = InventoryWeapon | InventoryBoots | InventoryGloves | InventoryShield | InventoryArmor | InventoryHelmet;
+
+export interface InventoryWeapon extends InventoryItemBase {
+    dmg: number
+}
+
+export interface InventoryBoots extends InventoryItemBase {
+    rate: number
+}
+
+export interface InventoryGloves extends InventoryItemBase {
+    hitChance: number
+}
+
+export interface InventoryShield extends InventoryItemBase {
+    blockChance: number
+}
+
+export interface InventoryArmor extends InventoryItemBase {
+    blockPercent: number
+}
+
+export interface InventoryHelmet extends InventoryItemBase {
+    blockValue: number
+}
+
+export type PocketItem = PocketLoot;
+
+export function getRealItemFromLoot (lootItem: LootItem): RealItem | undefined {
+    if (isPocketItem(lootItem)) {
+        return convertPocketItem(lootItem);
+    } else if (isInventoryItem(lootItem)) {
+        return convertInventoryItem(lootItem);
+    }
+    return undefined;
+}
+
+function isPocketItem(lootItem: LootItem): lootItem is PocketLoot {
+    return lootItem.type === PocketItemType.healthPotion || lootItem.type === PocketItemType.manaPotion;
+}
+
+function isInventoryItem(lootItem: LootItem): lootItem is InventoryLoot {
+    return lootItem.type === InventoryType.armor ||
+        lootItem.type === InventoryType.boots ||
+        lootItem.type === InventoryType.gloves ||
+        lootItem.type === InventoryType.helmet ||
+        lootItem.type === InventoryType.shield ||
+        lootItem.type === InventoryType.weapon;
+}
+function convertPocketItem(lootItem: PocketLoot): PocketItem {
+    return {
+        ...lootItem
+    };
+}
+
+function convertInventoryItem(lootItem: InventoryLoot): InventoryItem {
+    return {
+        ...lootItem,
+        effects: [],
+    }
+}
+

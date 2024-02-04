@@ -3,9 +3,9 @@ import './Inventory.scss'
 import { Used } from "./Used/Used";
 import { Backpack } from "./Backpack/Backpack";
 import { Selected } from "./Selected/Selected";
-import { InventoryItem } from "../../Game/Inventory";
 import { Pages } from "../../App";
 import { CloseButton } from "../common/CloseButton/CloseButton";
+import { InventoryItem } from "../../Game/Loot";
 
 export enum SelectedAct {
     removeWeapon,

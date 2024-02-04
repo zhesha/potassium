@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { game } from "../../../Game/Game";
 import { PocketItem } from "./PocketItem";
 import { PocketSelectedAct } from "../PocketPage";
-import { PocketItem as PocketItemType } from "../../../Game/Pocket";
+import { PocketLoot as PocketItemType } from "../../../Game/Pocket";
 import './CurrentPocket.scss';
 
 interface CurrentPocketProps {

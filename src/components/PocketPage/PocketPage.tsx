@@ -5,7 +5,7 @@ import { BackpackForPocket } from "./BackpackForPocket/BackpackForPocket";
 import { SelectedPocket } from "./SelectedPocket/SelectedPocket";
 import { CloseButton } from "../common/CloseButton/CloseButton";
 import { Pages } from "../../App";
-import { PocketItem } from "../../Game/Pocket";
+import { PocketLoot } from "../../Game/Pocket";
 
 export enum PocketSelectedAct {
     remove,
@@ -17,10 +17,10 @@ interface PocketPageProps {
 }
 
 export function PocketPage ({ setPage }: PocketPageProps) {
-    const [selected, setSelected] = useState<PocketItem | null>(null)
+    const [selected, setSelected] = useState<PocketLoot | null>(null)
     const [selectedAct, setSelectedAct] = useState<PocketSelectedAct | null>(null)
 
-    function select (selectedItem: PocketItem | null, act: PocketSelectedAct | null) {
+    function select (selectedItem: PocketLoot | null, act: PocketSelectedAct | null) {
         setSelected(selectedItem);
         setSelectedAct(act);
     }

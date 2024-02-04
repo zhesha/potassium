@@ -1,11 +1,11 @@
 import React from "react";
 import { game } from "../../../Game/Game";
 import { PocketSelectedAct } from "../PocketPage";
-import { PocketItem } from "../../../Game/Pocket";
+import { PocketLoot } from "../../../Game/Pocket";
 
 interface SelectedProps {
-    select (selectedItem: PocketItem | null, act: PocketSelectedAct | null): void
-    selected: PocketItem
+    select (selectedItem: PocketLoot | null, act: PocketSelectedAct | null): void
+    selected: PocketLoot
     act: PocketSelectedAct | null
 }
 

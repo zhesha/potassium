@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import './Used.scss';
 import { game } from "../../../Game/Game";
-import { InventoryItem } from "../../../Game/Inventory";
+import { InventoryLoot } from "../../../Game/Inventory";
 import { SelectedAct } from "../InventoryPage";
 
 interface UsedProps {
-    select (item: InventoryItem, selectedAct: SelectedAct): void
+    select (item: InventoryLoot, selectedAct: SelectedAct): void
 }
 
 export function Used ({select}: UsedProps) {
@@ -26,10 +26,10 @@ export function Used ({select}: UsedProps) {
 }
 
 interface UsedItemProps {
-    item?: InventoryItem
+    item?: InventoryLoot
     title: string
     act: SelectedAct
-    select (item: InventoryItem, selectedAct: SelectedAct): void
+    select (item: InventoryLoot, selectedAct: SelectedAct): void
 }
 
 function UsedItem ({ item, title, act, select }: UsedItemProps) {
