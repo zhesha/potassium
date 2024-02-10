@@ -81,7 +81,7 @@ export function createPlayer (): Player {
         skillsList: createSkills(),
         hitProbability: createProbabilityDeck(10),
         getMaxHp() {
-            return 100 + this.skillsList.getMaxHp();
+            return 100 + this.skillsList.getMaxHp() + this.inventory.getMaxHp();
         },
         updateAttackTimer (delta: number) {
             this.attackTimer -= delta;
@@ -188,7 +188,7 @@ export function createPlayer (): Player {
             }
         },
         getMaxMana () {
-            return 100;
+            return 100 + this.inventory.getMaxMana();
         }
     }
 }

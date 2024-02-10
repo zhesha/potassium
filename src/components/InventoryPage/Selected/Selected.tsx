@@ -85,6 +85,7 @@ export function Selected ({setSelected, act, selected}: SelectedProps) {
     return <div className="selected-wrapper">
         <div className="selected-inner">
             {selected.name}
+            {selected.effects.map((effect, index) => <div key={index}>{effect.name}</div>)}
             {act !== null && <div onClick={() => {
                 doAct(act);
                 setSelected(null);

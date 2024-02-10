@@ -1,5 +1,5 @@
 import { game } from "./Game";
-import { InventoryLoot, InventoryLootBase, InventoryType, PocketItemType } from "./Inventory";
+import { InventoryLoot, InventoryLootBase, InventoryType, ItemMagicType, PocketItemType } from "./Inventory";
 import { InstantItem as InstantLoot, PocketLoot } from "./Pocket";
 import { lootMap } from "./lootMap";
 
@@ -162,22 +162,9 @@ loot.init();
 
 export type RealItem = InventoryItem | PocketItem;
 
-interface ItemEffect {
-
-}
-
-// export type InventoryItem = InventoryLoot & {
-//     effects: Array<ItemEffect>
-// }
-
 export type InventoryItemBase = InventoryLootBase & {
     effects: Array<ItemEffect>
 }
-// export interface InventoryLootBase {
-//     name: string;
-//     type: InventoryType;
-//     magic?: ItemMagicType
-// }
 
 export type InventoryItem = InventoryWeapon | InventoryBoots | InventoryGloves | InventoryShield | InventoryArmor | InventoryHelmet;
 
@@ -235,9 +222,49 @@ function convertPocketItem(lootItem: PocketLoot): PocketItem {
 }
 
 function convertInventoryItem(lootItem: InventoryLoot): InventoryItem {
+    let effects: Array<ItemEffect> = [];
+    if (lootItem.magic === ItemMagicType.magic) {
+        effects = generateRandomEffect(2);
+    }
+    if (lootItem.magic === ItemMagicType.rare) {
+        effects = generateRandomEffect(4);
+    }
     return {
         ...lootItem,
-        effects: [],
+        effects,
     }
 }
 
+export interface SimpleItemEffect {
+    hp?: number
+    mp?: number
+    dmg?: number
+}
+
+export interface ItemEffect extends SimpleItemEffect {
+    name: string
+}
+
+function generateRandomEffect (amount: number): Array<ItemEffect> {
+    const indexes: Array<number> = [];
+    for(let i = 0; i < effectsMap.length; i++) {
+        indexes.push(i);
+    }
+    indexes.sort(() => Math.random() - 0.5);
+    return indexes.slice(0, amount).map(index => effectsMap[index]);
+}
+
+const effectsMap: Array<ItemEffect> = [
+    {
+        name: 'more HP',
+        hp: 10,
+    },
+    {
+        name: 'more MP',
+        mp: 10,
+    },
+    {
+        name: 'more DMG',
+        dmg: 1,
+    },
+];

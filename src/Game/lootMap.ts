@@ -216,32 +216,28 @@ export const lootMap: LootMap = {
             type: InventoryType.armor,
             magic: ItemMagicType.magic
         },
-
         {
-            name: 'gloves 40%',
-            hitChance: 40,
-            type: InventoryType.gloves
+            name: 'weapon 10 M',
+            blockPercent: 10,
+            type: InventoryType.weapon,
+            magic: ItemMagicType.magic
         },
         {
-            name: 'shield 20%',
-            blockChance: 20,
-            type: InventoryType.shield
+            name: 'boots 2',
+            blockPercent: 2,
+            type: InventoryType.boots,
         },
         {
-            name: 'armor 20%',
-            blockPercent: 20,
-            type: InventoryType.armor
+            name: 'experience 50',
+            experience: 50,
+            type: InstantItemType.experience,
         },
         {
-            name: 'helmet 2',
-            blockValue: 2,
-            type: InventoryType.helmet
+            name: 'shield 4% M',
+            blockPercent: 4,
+            type: InventoryType.shield,
+            magic: ItemMagicType.magic
         },
-        {
-            name: 'health potion 100',
-            hp: 100,
-            type: PocketItemType.healthPotion,
-        }
     ],
     3: [
         {

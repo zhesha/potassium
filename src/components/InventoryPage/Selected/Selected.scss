@@ -11,7 +11,7 @@
 
 .selected-inner {
     width: 100px;
-    height: 100px;
+    min-height: 100px;
     background-color: brown;
     display: flex;
     flex-direction: column;
