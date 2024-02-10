@@ -48,19 +48,19 @@ const enemyTypes: EnemyTypes = {
     },
     woolf: {
         name: 'woolf',
-        hp: 8,
-        dmg: 2,
-        experience: 10,
-        attackTimeout: 800,
+        hp: 25,
+        dmg: 5,
+        experience: 20,
+        attackTimeout: 1000,
     },
 };
 
 export function createEnemy (enemyKilledInRun: number): Enemy {
     let enemyType = enemyTypes.snail;
     console.log(enemyKilledInRun);
-    if (enemyKilledInRun > 100) {
+    if (enemyKilledInRun > 40) {
         enemyType = enemyTypes.woolf;
-    } else if (enemyKilledInRun >= 20) {
+    } else if (enemyKilledInRun > 20) {
         enemyType = enemyTypes.rat;
     } else if (enemyKilledInRun > 0) {
         enemyType = enemyTypes.snail;

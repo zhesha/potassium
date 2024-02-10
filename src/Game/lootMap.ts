@@ -218,13 +218,13 @@ export const lootMap: LootMap = {
         },
         {
             name: 'weapon 10 M',
-            blockPercent: 10,
+            dmg: 10,
             type: InventoryType.weapon,
             magic: ItemMagicType.magic
         },
         {
             name: 'boots 2',
-            blockPercent: 2,
+            rate: 2,
             type: InventoryType.boots,
         },
         {
@@ -234,7 +234,7 @@ export const lootMap: LootMap = {
         },
         {
             name: 'shield 4% M',
-            blockPercent: 4,
+            blockChance: 4,
             type: InventoryType.shield,
             magic: ItemMagicType.magic
         },

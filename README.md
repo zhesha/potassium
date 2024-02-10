@@ -15,9 +15,9 @@
     think about exp and levels
     + 10
     + 10-20
-    20-50
-        2 - 9
+    + 20-50
     50-75
+        NPC
         2 - 15
         3 - 3
         4 - 1

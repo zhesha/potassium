@@ -14,7 +14,7 @@ export const skillTreeList: Array<SkillTreeItem> = [
     {
         name: 'Heal',
         type: SkillType.heal,
-        manaCost: 10,
+        manaCost: 20,
     },
     {
         name: 'Fireball',
