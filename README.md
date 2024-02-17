@@ -18,6 +18,7 @@
     + 20-50
     50-75
         NPC
+        skills
         2 - 15
         3 - 3
         4 - 1
@@ -27,7 +28,7 @@
         4 - 2
 - add NPC
 - add timeout for skills
-- add magic and rare weapons
++ add magic and rare weapons
 - add elemental attacks
 - add unique
 - add set

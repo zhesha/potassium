@@ -50,7 +50,7 @@ const enemyTypes: EnemyTypes = {
         name: 'woolf',
         hp: 25,
         dmg: 5,
-        experience: 20,
+        experience: 15,
         attackTimeout: 1000,
     },
 };
