@@ -30,6 +30,7 @@ export enum ItemMagicType {
 
 export interface InventoryLootBase {
     name: string;
+    price: number;
     type: InventoryType;
     magic?: ItemMagicType
 }

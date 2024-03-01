@@ -12,7 +12,6 @@
 + fix enemy disapear on screen change
 + add game play loop
 - config first 100 monsters
-    think about exp and levels
     + 10
     + 10-20
     + 20-50

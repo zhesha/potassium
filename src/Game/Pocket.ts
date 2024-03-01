@@ -2,6 +2,7 @@ import { InstantItemType, PocketItemType } from "./Inventory"
 
 export interface PocketLoot {
     name: string
+    price: number
     hp?: number
     mana?: number
     type: PocketItemType
