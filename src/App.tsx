@@ -5,6 +5,8 @@ import { SkillPage } from './components/SkillPage/SkillPage';
 import { CharacterPage } from './components/CharacterPage/CharacterPage';
 import { PocketPage } from './components/PocketPage/PocketPage';
 import { GamePage } from './components/GamePage/GamePage';
+import { NpcPage } from './components/NpcPage/NpcPage';
+import { game } from './Game/Game';
 
 export enum Pages {
     game,
@@ -12,10 +14,15 @@ export enum Pages {
     skill,
     character,
     pocket,
+    npc
 }
 
 function App() {
     const [page, setPage] = useState(Pages.game);
+
+    game.onReachNpc(() => {
+        setPage(Pages.npc);
+    });
 
     return (
         <div className="App">
@@ -34,6 +41,9 @@ function App() {
                 }
                 {page === Pages.pocket &&
                     <PocketPage setPage={setPage} />
+                }
+                {page === Pages.npc &&
+                    <NpcPage setPage={setPage} />
                 }
             </div>
         </div>
