@@ -1,3 +1,4 @@
+import { game } from "./Game";
 import { RealItem } from "./Loot";
 
 export interface Backpack {
@@ -11,12 +12,14 @@ export function createBackpack (): Backpack {
         list: [],
         add (item: RealItem) {
             this.list.push(item);
+            game.player.changeInventoryHandler();
         },
         remove (item: RealItem) {
             const index = this.list.indexOf(item);
             if (index !== -1) {
                 this.list.splice(index, 1);
             }
+            game.player.changeInventoryHandler();
         }
     };
 }

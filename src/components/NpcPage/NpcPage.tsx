@@ -3,6 +3,8 @@ import { Pages } from "../../App";
 import { CloseButton } from "../common/CloseButton/CloseButton";
 import { game } from "../../Game/Game";
 import './NpcPage.scss';
+import { SellNpc } from "./NpcViews/SellNpc/SellNpc";
+import { NpcType } from "../../Game/Npc";
 
 interface InventoryPageProps {
     setPage (page: Pages): void
@@ -22,6 +24,13 @@ export function NpcPage ({ setPage }: InventoryPageProps) {
 
     return <div className="npc-page">
         <CloseButton setPage={onClose} />
-        NPC
+        {getNpcViewForType(game.npc?.type)}
     </div>
+}
+
+function getNpcViewForType (type?: NpcType) {
+    if (type === NpcType.sell) {
+        return <SellNpc />
+    }
+    return null;
 }

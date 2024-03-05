@@ -1,4 +1,9 @@
+export enum NpcType {
+    sell,
+}
+
 export interface Npc {
+    type: NpcType
     name: string
     movingTimer: number,
     movingProgress (): number
@@ -11,6 +16,7 @@ const fullPass = 1;
 
 export function createNpc(): Npc {
     return {
+        type: NpcType.sell,
         name: 'Sell',
         movingTimer: 0,
         movingProgress () {
