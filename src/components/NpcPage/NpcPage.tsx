@@ -5,6 +5,7 @@ import { game } from "../../Game/Game";
 import './NpcPage.scss';
 import { SellNpc } from "./NpcViews/SellNpc/SellNpc";
 import { NpcType } from "../../Game/Npc";
+import { BuyEquipmentNpc } from "./NpcViews/BuyEquipmentNpc/BuyEquipmentNpc";
 
 interface InventoryPageProps {
     setPage (page: Pages): void
@@ -31,6 +32,8 @@ export function NpcPage ({ setPage }: InventoryPageProps) {
 function getNpcViewForType (type?: NpcType) {
     if (type === NpcType.sell) {
         return <SellNpc />
+    } else if (type === NpcType.buyEquipment) {
+        return <BuyEquipmentNpc />
     }
     return null;
 }

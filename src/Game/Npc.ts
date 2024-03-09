@@ -1,5 +1,6 @@
 export enum NpcType {
     sell,
+    buyEquipment
 }
 
 export interface Npc {
@@ -14,10 +15,31 @@ export interface Npc {
 const passTime = 2000;
 const fullPass = 1;
 
-export function createNpc(): Npc {
-    return {
+const npcInitIndexes = [1, 2];
+let npcIndexesList = [...npcInitIndexes];
+const npcConfigList = [
+    {
         type: NpcType.sell,
         name: 'Sell',
+    },
+    {
+        type: NpcType.buyEquipment,
+        name: 'Buy Equipment',
+    },
+];
+
+export function createNpc(): Npc {
+    if (npcIndexesList.length) {
+        npcIndexesList = [...npcInitIndexes];
+    }
+    const index = npcIndexesList.shift();
+    if (index === undefined) {
+        throw 'NPC generation error: can not get index';
+    }
+    const config = npcConfigList[index];
+    return {
+        type: config.type,
+        name: config.name,
         movingTimer: 0,
         movingProgress () {
             return fullPass * this.movingTimer / passTime;
@@ -28,5 +50,5 @@ export function createNpc(): Npc {
         changeTimer (delta: number) {
             this.movingTimer += delta;
         },
-    }
+    };
 }
