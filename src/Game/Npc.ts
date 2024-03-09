@@ -1,6 +1,7 @@
 export enum NpcType {
     sell,
-    buyEquipment
+    buyEquipment,
+    buyConsumables,
 }
 
 export interface Npc {
@@ -25,6 +26,10 @@ const npcConfigList = [
     {
         type: NpcType.buyEquipment,
         name: 'Buy Equipment',
+    },
+    {
+        type: NpcType.buyConsumables,
+        name: 'Buy Consumables',
     },
 ];
 
