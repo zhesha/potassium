@@ -2,7 +2,6 @@ import { game } from "../../../../Game/Game";
 import { PocketItemType } from "../../../../Game/Inventory";
 import { LootItem, getRealItemFromLoot } from "../../../../Game/Loot";
 import { PocketLoot } from "../../../../Game/Pocket";
-import { lootMap } from "../../../../Game/lootMap";
 
 import './BuyConsumablesNpc.scss'
 

@@ -17,6 +17,7 @@
     + 20-50
     50-75
         NPC
+            what prise for upgrade?
         skills
         2 - 15
         3 - 3

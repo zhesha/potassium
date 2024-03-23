@@ -2,6 +2,7 @@ export enum NpcType {
     sell,
     buyEquipment,
     buyConsumables,
+    BaseUpgradeNpc,
 }
 
 export interface Npc {
@@ -16,7 +17,7 @@ export interface Npc {
 const passTime = 2000;
 const fullPass = 1;
 
-const npcInitIndexes = [1, 2];
+const npcInitIndexes = [0, 1, 2, 3];
 let npcIndexesList = [...npcInitIndexes];
 const npcConfigList = [
     {
@@ -31,15 +32,19 @@ const npcConfigList = [
         type: NpcType.buyConsumables,
         name: 'Buy Consumables',
     },
+    {
+        type: NpcType.BaseUpgradeNpc,
+        name: 'Base Upgrade',
+    },
 ];
 
 export function createNpc(): Npc {
-    if (npcIndexesList.length) {
+    if (npcIndexesList.length === 0) {
         npcIndexesList = [...npcInitIndexes];
     }
     const index = npcIndexesList.shift();
     if (index === undefined) {
-        throw 'NPC generation error: can not get index';
+        throw new Error('NPC generation error: can not get index');
     }
     const config = npcConfigList[index];
     return {

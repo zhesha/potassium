@@ -7,6 +7,8 @@ export const lootMap: LootMap = {
             name: 'gloves 20%',
             hitChance: 20,
             price: 5,
+            baseValueStep: 1,
+            baseValueMax: 25,
             type: InventoryType.gloves
         },
         {
@@ -18,6 +20,8 @@ export const lootMap: LootMap = {
             name: 'sword 2',
             dmg: 2,
             price: 2,
+            baseValueStep: 1,
+            baseValueMax: 4,
             type: InventoryType.weapon
         },
         {
@@ -29,6 +33,8 @@ export const lootMap: LootMap = {
             name: 'armor 1%',
             blockPercent: 1,
             price: 3,
+            baseValueStep: 1,
+            baseValueMax: 5,
             type: InventoryType.armor
         },
         {
@@ -46,6 +52,8 @@ export const lootMap: LootMap = {
             name: 'boots 1.1',
             rate: 1.1,
             price: 5,
+            baseValueStep: 0.1,
+            baseValueMax: 1.5,
             type: InventoryType.boots
         },
         {
@@ -63,6 +71,8 @@ export const lootMap: LootMap = {
             name: 'shield 1%',
             blockChance: 1,
             price: 3,
+            baseValueStep: 1,
+            baseValueMax: 2,
             type: InventoryType.shield
         },
         {
@@ -79,6 +89,8 @@ export const lootMap: LootMap = {
             name: 'gloves 25%',
             hitChance: 25,
             price: 50,
+            baseValueStep: 1,
+            baseValueMax: 35,
             type: InventoryType.gloves
         },
         {
@@ -90,6 +102,8 @@ export const lootMap: LootMap = {
             name: 'sword 4',
             dmg: 4,
             price: 4,
+            baseValueStep: 1,
+            baseValueMax: 6,
             type: InventoryType.weapon
         },
         {
@@ -101,12 +115,16 @@ export const lootMap: LootMap = {
             name: 'shield 2%',
             blockChance: 2,
             price: 8,
+            baseValueStep: 1,
+            baseValueMax: 4,
             type: InventoryType.shield
         },
         {
             name: 'helmet 1',
             blockValue: 1,
             price: 5,
+            baseValueStep: 1,
+            baseValueMax: 2,
             type: InventoryType.helmet
         },
         {
@@ -124,6 +142,8 @@ export const lootMap: LootMap = {
             name: 'armor 5%',
             blockPercent: 5,
             price: 8,
+            baseValueStep: 1,
+            baseValueMax: 10,
             type: InventoryType.armor
         },
         {
@@ -135,12 +155,16 @@ export const lootMap: LootMap = {
             name: 'sword 6',
             dmg: 6,
             price: 6,
+            baseValueStep: 1,
+            baseValueMax: 8,
             type: InventoryType.weapon
         },
         {
             name: 'shield 4%',
             blockChance: 4,
             price: 30,
+            baseValueStep: 1,
+            baseValueMax: 7,
             type: InventoryType.shield
         },
         {
@@ -157,12 +181,16 @@ export const lootMap: LootMap = {
             name: 'sword 8',
             dmg: 8,
             price: 10,
+            baseValueStep: 1,
+            baseValueMax: 10,
             type: InventoryType.weapon
         },
         {
             name: 'armor 10%',
             blockPercent: 10,
             price: 30,
+            baseValueStep: 1,
+            baseValueMax: 15,
             type: InventoryType.armor
         },
         {
@@ -175,12 +203,16 @@ export const lootMap: LootMap = {
             name: 'boots 1.5',
             rate: 1.5,
             price: 50,
+            baseValueStep: 0.1,
+            baseValueMax: 2,
             type: InventoryType.boots
         },
         {
             name: 'sword 10',
             dmg: 10,
             price: 20,
+            baseValueStep: 1,
+            baseValueMax: 15,
             type: InventoryType.weapon
         },
         {
@@ -192,6 +224,8 @@ export const lootMap: LootMap = {
             name: 'helmet 2',
             blockValue: 2,
             price: 50,
+            baseValueStep: 1,
+            baseValueMax: 5,
             type: InventoryType.helmet
         },
         {
@@ -215,6 +249,8 @@ export const lootMap: LootMap = {
             name: 'gloves 35%',
             hitChance: 35,
             price: 100,
+            baseValueStep: 1,
+            baseValueMax: 50,
             type: InventoryType.gloves
         },
         {
@@ -237,6 +273,8 @@ export const lootMap: LootMap = {
             name: 'armor 10% M',
             blockPercent: 10,
             price: 50,
+            baseValueStep: 1,
+            baseValueMax: 15,
             type: InventoryType.armor,
             magic: ItemMagicType.magic
         },
@@ -244,6 +282,8 @@ export const lootMap: LootMap = {
             name: 'weapon 10 M',
             dmg: 10,
             price: 33,
+            baseValueStep: 1,
+            baseValueMax: 15,
             type: InventoryType.weapon,
             magic: ItemMagicType.magic
         },
@@ -251,6 +291,8 @@ export const lootMap: LootMap = {
             name: 'boots 2',
             rate: 2,
             price: 500,
+            baseValueStep: 0.1,
+            baseValueMax: 3,
             type: InventoryType.boots,
         },
         {
@@ -262,6 +304,8 @@ export const lootMap: LootMap = {
             name: 'shield 4% M',
             blockChance: 4,
             price: 50,
+            baseValueStep: 1,
+            baseValueMax: 7,
             type: InventoryType.shield,
             magic: ItemMagicType.magic
         },
@@ -271,6 +315,8 @@ export const lootMap: LootMap = {
             name: 'sword 4',
             dmg: 4,
             price: 1,
+            baseValueStep: 1,
+            baseValueMax: 25,
             type: InventoryType.weapon
         },
     ],
@@ -279,6 +325,8 @@ export const lootMap: LootMap = {
             name: 'sword 5',
             dmg: 5,
             price: 1,
+            baseValueStep: 1,
+            baseValueMax: 25,
             type: InventoryType.weapon
         },
     ],
@@ -287,6 +335,8 @@ export const lootMap: LootMap = {
             name: 'sword 6',
             dmg: 6,
             price: 1,
+            baseValueStep: 1,
+            baseValueMax: 25,
             type: InventoryType.weapon
         },
     ],

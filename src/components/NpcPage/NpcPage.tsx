@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { Pages } from "../../App";
 import { CloseButton } from "../common/CloseButton/CloseButton";
 import { game } from "../../Game/Game";
@@ -6,6 +6,8 @@ import './NpcPage.scss';
 import { SellNpc } from "./NpcViews/SellNpc/SellNpc";
 import { NpcType } from "../../Game/Npc";
 import { BuyEquipmentNpc } from "./NpcViews/BuyEquipmentNpc/BuyEquipmentNpc";
+import { BuyConsumablesNpc } from "./NpcViews/BuyConsumablesNpc/BuyConsumablesNpc";
+import { BaseUpgradeNpc } from "./NpcViews/BaseUpgradeNpc/BaseUpgradeNpc";
 
 interface InventoryPageProps {
     setPage (page: Pages): void
@@ -16,7 +18,7 @@ export function NpcPage ({ setPage }: InventoryPageProps) {
         if(!game.npc) {
             setPage(Pages.game);
         }
-    }, []);
+    }, [setPage]);
 
     function onClose (page: Pages) {
         setPage(page)
@@ -34,6 +36,10 @@ function getNpcViewForType (type?: NpcType) {
         return <SellNpc />
     } else if (type === NpcType.buyEquipment) {
         return <BuyEquipmentNpc />
+    } else if (type === NpcType.buyConsumables) {
+        return <BuyConsumablesNpc />
+    } else if (type === NpcType.BaseUpgradeNpc) {
+        return <BaseUpgradeNpc />
     }
     return null;
 }

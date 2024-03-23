@@ -32,6 +32,8 @@ export interface InventoryLootBase {
     name: string;
     price: number;
     type: InventoryType;
+    baseValueStep: number;
+    baseValueMax: number;
     magic?: ItemMagicType
 }
 

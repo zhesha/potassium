@@ -207,7 +207,7 @@ function isPocketItem(lootItem: LootItem): lootItem is PocketLoot {
     return lootItem.type === PocketItemType.healthPotion || lootItem.type === PocketItemType.manaPotion;
 }
 
-function isInventoryItem(lootItem: LootItem): lootItem is InventoryLoot {
+export function isInventoryItem(lootItem: LootItem): lootItem is InventoryLoot {
     return lootItem.type === InventoryType.armor ||
         lootItem.type === InventoryType.boots ||
         lootItem.type === InventoryType.gloves ||
@@ -215,6 +215,25 @@ function isInventoryItem(lootItem: LootItem): lootItem is InventoryLoot {
         lootItem.type === InventoryType.shield ||
         lootItem.type === InventoryType.weapon;
 }
+export function isWeapon(lootItem: LootItem): lootItem is InventoryWeapon {
+    return lootItem.type === InventoryType.weapon;
+}
+export function isArmor(lootItem: LootItem): lootItem is InventoryArmor {
+    return lootItem.type === InventoryType.armor;
+}
+export function isShield(lootItem: LootItem): lootItem is InventoryShield {
+    return lootItem.type === InventoryType.shield;
+}
+export function isBoots(lootItem: LootItem): lootItem is InventoryBoots {
+    return lootItem.type === InventoryType.boots;
+}
+export function isGloves(lootItem: LootItem): lootItem is InventoryGloves {
+    return lootItem.type === InventoryType.gloves;
+}
+export function isHelmet(lootItem: LootItem): lootItem is InventoryHelmet {
+    return lootItem.type === InventoryType.helmet;
+}
+
 function convertPocketItem(lootItem: PocketLoot): PocketItem {
     return {
         ...lootItem
