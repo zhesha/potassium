@@ -3,6 +3,7 @@ export enum NpcType {
     buyEquipment,
     buyConsumables,
     BaseUpgradeNpc,
+    CraftPotionNpc,
 }
 
 export interface Npc {
@@ -17,7 +18,7 @@ export interface Npc {
 const passTime = 2000;
 const fullPass = 1;
 
-const npcInitIndexes = [0, 1, 2, 3];
+const npcInitIndexes = [0, 1, 2, 3, 4];
 let npcIndexesList = [...npcInitIndexes];
 const npcConfigList = [
     {
@@ -35,6 +36,10 @@ const npcConfigList = [
     {
         type: NpcType.BaseUpgradeNpc,
         name: 'Base Upgrade',
+    },
+    {
+        type: NpcType.CraftPotionNpc,
+        name: 'Craft Potion',
     },
 ];
 

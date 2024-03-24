@@ -8,6 +8,7 @@ import { NpcType } from "../../Game/Npc";
 import { BuyEquipmentNpc } from "./NpcViews/BuyEquipmentNpc/BuyEquipmentNpc";
 import { BuyConsumablesNpc } from "./NpcViews/BuyConsumablesNpc/BuyConsumablesNpc";
 import { BaseUpgradeNpc } from "./NpcViews/BaseUpgradeNpc/BaseUpgradeNpc";
+import { CraftPotionNpc } from "./NpcViews/CraftPotionNpc/CraftPotionNpc";
 
 interface InventoryPageProps {
     setPage (page: Pages): void
@@ -40,6 +41,8 @@ function getNpcViewForType (type?: NpcType) {
         return <BuyConsumablesNpc />
     } else if (type === NpcType.BaseUpgradeNpc) {
         return <BaseUpgradeNpc />
+    } else if (type === NpcType.CraftPotionNpc) {
+        return <CraftPotionNpc />
     }
     return null;
 }
