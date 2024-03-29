@@ -16,9 +16,11 @@
     + 10-20
     + 20-50
     50-75
-        NPC
-            what prise for upgrade?
         skills
+            create stages for skill
+            create all skills
+            create list of skills that need to be implemented
+        put all loot to map
         2 - 15
         3 - 3
         4 - 1
@@ -26,7 +28,8 @@
         2 - 22
         3 - 6
         4 - 2
-- add NPC
+- add NPC(5-10)
+    what prise for upgrade?
 - add timeout for skills
 + add magic and rare weapons
 - add elemental attacks

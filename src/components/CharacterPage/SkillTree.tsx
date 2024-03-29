@@ -1,31 +1,31 @@
 import React, { useState } from "react";
 import './SkillTree.scss';
-import { skillTreeLayers, skillTreeList } from "../../Game/SkillsList";
+import { ActiveSkill, skillTreeLayers, skillTreeList } from "../../Game/SkillsList";
 import { game } from "../../Game/Game";
 
 export function SkillTree () {
-    const [activatedIndexes, setActivatedIndexes] = useState(game.player.skillsList.getIndexes());
+    const [activatedData, setActivatedData] = useState(game.player.skillsList.getActiveSkills());
 
     game.player.skillsList.onChange(() => {
-        setActivatedIndexes(game.player.skillsList.getIndexes());
+        setActivatedData(game.player.skillsList.getActiveSkills());
     });
 
     return <div className="skill-tree">
-        {skillTreeLayers.layers.map((layer, index) => <SkillLayer layer={layer} key={index} activatedIndexes={activatedIndexes}/>)}
+        {skillTreeLayers.layers.map((layer, index) => <SkillLayer layer={layer} key={index} activatedData={activatedData}/>)}
     </div>
 }
 
-function SkillLayer ({layer, activatedIndexes}: {layer: Array<number>, activatedIndexes: Array<number>}) {
-    return <div className="skill-layer">{layer.map(index => <SkillTreeItemComponent index={index} key={index} activatedIndexes={activatedIndexes} />)}</div>;
+function SkillLayer ({layer, activatedData}: {layer: Array<number>, activatedData: Array<ActiveSkill>}) {
+    return <div className="skill-layer">{layer.map(index => <SkillTreeItemComponent index={index} key={index} activatedData={activatedData} />)}</div>;
 }
 
-function SkillTreeItemComponent({index, activatedIndexes}: {index: number, activatedIndexes: Array<number>}) {
+function SkillTreeItemComponent({index, activatedData}: {index: number, activatedData: Array<ActiveSkill>}) {
     const item = skillTreeList[index];
-    const activated = activatedIndexes.includes(index);
+    const activated = activatedData.find(item => item.index === index);
     return <div
         className={"skill-tree-item" + (activated ? ' skill-tree-activated' : '') }
         onClick={() => game.player.skillsList.activateSkill(index)}
     >
-        {item.name}
+        {item.name} ({activated?.level || '0'})
     </div>;
 }

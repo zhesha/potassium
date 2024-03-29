@@ -40,13 +40,18 @@ export interface SkillTreeItem {
 }
 
 interface SkillsListSaveData {
-    list: Array<number>
+    list: Array<ActiveSkill>
+}
+
+export interface ActiveSkill {
+    index: number
+    level: number
 }
 
 export interface SkillsList {
-    list: Array<number>
+    list: Array<ActiveSkill>
     getList(): Array<SkillTreeItem>;
-    getIndexes(): Array<number>;
+    getActiveSkills(): Array<ActiveSkill>;
     getSaveData (): SkillsListSaveData;
     applySaveData(data: SkillsListSaveData): void
     activateSkill(index: number): void
@@ -59,9 +64,9 @@ export function createSkills(): SkillsList {
     return {
         list: [],
         getList() {
-            return this.list.map(index => skillTreeList[index]).filter(item => item.type !== SkillType.maxHp);
+            return this.list.map(item => skillTreeList[item.index]).filter(item => item.type !== SkillType.maxHp);
         },
-        getIndexes() {
+        getActiveSkills() {
             return [...this.list];
         },
         getSaveData () {
@@ -74,7 +79,10 @@ export function createSkills(): SkillsList {
         },
         activateSkill(index: number) {
             if (game.player.getCurrentLevel() - game.player.usedPoints - 1 > 0) {
-                this.list.push(index);
+                this.list.push({
+                    index: index,
+                    level: 1,
+                });
                 game.player.usedPoints += 1;
                 handleActivation(index);
                 game.player.charDataChangeHandler();
@@ -82,7 +90,7 @@ export function createSkills(): SkillsList {
             }
         },
         getMaxHp () {
-            const hpUp = this.list.find(index => skillTreeList[index].type === SkillType.maxHp);
+            const hpUp = this.list.find(item => skillTreeList[item.index].type === SkillType.maxHp);
             if (hpUp !== undefined) {
                 return 100;
             }
