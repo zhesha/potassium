@@ -2,7 +2,7 @@ import { game } from "./Game";
 import { Inventory, createInventory } from "./Inventory";
 import { Pocket, createPocket, PocketLoot } from "./Pocket";
 import { ProbabilityGenerator, createProbabilityDeck } from "./Probability";
-import { SkillTreeItem, SkillsList, createSkills } from "./SkillsList";
+import { SkillItem, SkillTreeItem, SkillsList, createSkills } from "./SkillsList";
 
 interface CharData {
     experience: string
@@ -33,7 +33,7 @@ export interface Player {
     isAlive: () => boolean,
     getDmg: () => number,
     getBlockChance: () => number,
-    getSkills (): Array<SkillTreeItem>;
+    getSkills (): Array<SkillItem>;
     getPocketItems (): Array<PocketLoot>;
     getCharData (): CharData;
     addExperience (value: number): void,

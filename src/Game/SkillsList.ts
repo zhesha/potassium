@@ -1,31 +1,123 @@
 import { game } from "./Game";
 
 export enum SkillType {
-    maxHp,
     heal,
-    fireball
+    maxHp,
+    maxMp,
+    fireball,
+    iceBeam,
+    waterCanon,
+    economy,
+    fastLearner,
+    regenHp,
+    regenMp,
+    curse,
+    fireBless,
+    iceBless,
+    waterBless,
+    skeleton,
+    tameBeast,
+    spirit,
+    flare,
+    enhancement,
+    werewolf,
 }
 
 export const skillTreeList: Array<SkillTreeItem> = [
+    {
+        name: 'Heal',
+        type: SkillType.heal,
+    },
     {
         name: 'More HP',
         type: SkillType.maxHp,
     },
     {
-        name: 'Heal',
-        type: SkillType.heal,
-        manaCost: 20,
+        name: 'More MP',
+        type: SkillType.maxMp,
     },
     {
         name: 'Fireball',
         type: SkillType.fireball,
-        manaCost: 20,
+    },
+    {
+        name: 'Ice Beam',
+        type: SkillType.iceBeam,
+    },
+    {
+        name: 'Water Canon',
+        type: SkillType.waterCanon,
+    },
+    {
+        name: 'Economy',
+        type: SkillType.economy,
+    },
+    {
+        name: 'Fast Learner',
+        type: SkillType.fastLearner,
+    },
+    {
+        name: 'Regen HP',
+        type: SkillType.regenHp,
+    },
+    {
+        name: 'Regen MP',
+        type: SkillType.regenMp,
+    },
+    {
+        name: 'Curse',
+        type: SkillType.curse,
+    },
+    {
+        name: 'Fire Bless',
+        type: SkillType.fireBless,
+    },
+    {
+        name: 'Ice Bless',
+        type: SkillType.iceBless,
+    },
+    {
+        name: 'Water Bless',
+        type: SkillType.waterBless,
+    },
+    {
+        name: 'Skeleton',
+        type: SkillType.skeleton,
+    },
+    {
+        name: 'Tame Beast',
+        type: SkillType.tameBeast,
+    },
+    {
+        name: 'Spirit',
+        type: SkillType.spirit,
+    },
+    {
+        name: 'Flare',
+        type: SkillType.flare,
+    },
+    {
+        name: 'Enhancement',
+        type: SkillType.enhancement,
+    },
+    {
+        name: 'Werewolf',
+        type: SkillType.werewolf,
     }
 ];
 
 export const skillTreeLayers: SkillTreeLayers = {
     layers: [
-        [0, 1, 2]
+        [0],
+        [1, 2],
+        [3, 4, 5],
+        [6, 7],
+        [8, 9],
+        [10],
+        [11, 12, 13],
+        [14, 15, 16],
+        [17],
+        [18, 19]
     ]
 };
 
@@ -36,7 +128,10 @@ export interface  SkillTreeLayers {
 export interface SkillTreeItem {
     name: string
     type: SkillType
-    manaCost?: number
+}
+
+export interface SkillItem extends SkillTreeItem {
+    level: number
 }
 
 interface SkillsListSaveData {
@@ -50,7 +145,7 @@ export interface ActiveSkill {
 
 export interface SkillsList {
     list: Array<ActiveSkill>
-    getList(): Array<SkillTreeItem>;
+    getList(): Array<SkillItem>;
     getActiveSkills(): Array<ActiveSkill>;
     getSaveData (): SkillsListSaveData;
     applySaveData(data: SkillsListSaveData): void
@@ -64,7 +159,11 @@ export function createSkills(): SkillsList {
     return {
         list: [],
         getList() {
-            return this.list.map(item => skillTreeList[item.index]).filter(item => item.type !== SkillType.maxHp);
+            // TODO getList
+            return this.list.map(item => ({
+                ...skillTreeList[item.index],
+                level: item.level,
+            })).filter(item => item.type !== SkillType.maxHp);
         },
         getActiveSkills() {
             return [...this.list];
@@ -92,7 +191,8 @@ export function createSkills(): SkillsList {
         getMaxHp () {
             const hpUp = this.list.find(item => skillTreeList[item.index].type === SkillType.maxHp);
             if (hpUp !== undefined) {
-                return 100;
+                const amount = [100, 200, 400, 600, 900, 1400, 1900]
+                return amount[hpUp.level - 1];
             }
             return 0;
         },
@@ -103,16 +203,20 @@ export function createSkills(): SkillsList {
     };
 }
 
-export function skillUseHandler (item: SkillTreeItem) {
-    if (!item.manaCost || game.player.mana < item.manaCost) {
+export function skillUseHandler (item: SkillItem) {
+    const manaCost = getMana(item);
+    if (!manaCost || game.player.mana < manaCost) {
         return;
     }
     if (item.type === SkillType.heal) {
-        game.player.heal(10);
-        game.player.mana -= item.manaCost;
+        const healAmount = [20, 50, 100, 150, 200, 300, 500]
+        game.player.heal(healAmount[item.level - 1]);
+        game.player.mana -= manaCost;
     } else if (item.type === SkillType.fireball) {
+        const dmgAmount = [5, 20, 75, 150, 300, 500, 750]
+        game.player.heal(dmgAmount[item.level - 1]);
         game.hitEnemy(5);
-        game.player.mana -= item.manaCost;
+        game.player.mana -= manaCost;
     }
 }
 
@@ -121,5 +225,50 @@ function handleActivation(index: number) {
         const relativeHp = game.player.hp / (game.player.getMaxHp() - 100);
         const newHp = Math.floor(relativeHp * game.player.getMaxHp());
         game.player.heal(newHp - game.player.hp);
+    }
+}
+
+function getMana (item: SkillItem) {
+    const costs = {
+        heal: [20, 40, 50, 70, 100, 150, 200],
+        fireball: [20, 40, 50, 70, 100, 150, 200],
+        iceBeam: [20, 40, 50, 70, 100, 150, 200],
+        waterCanon: [20, 40, 50, 70, 100, 150, 200],
+        curse: [10, 20, 30, 40, 50, 75, 100],
+        fireBless: [20, 40, 60, 80, 100, 150, 200],
+        iceBless: [20, 40, 60, 80, 100, 150, 200],
+        waterBless: [20, 40, 60, 80, 100, 150, 200],
+        skeleton: [50, 75, 100, 150, 200, 250, 300],
+        tameBeast: [50, 75, 100, 150, 200, 250, 300],
+        spirit: [50, 75, 100, 150, 200, 250, 300],
+        flare: [50, 75, 100, 150, 200, 250, 300],
+        werewolf: [150, 200, 250, 300, 400, 500, 600],
+    };
+    if (item.type === SkillType.heal) {
+        return costs.heal[item.level - 1];
+    } else if (item.type === SkillType.fireball) {
+        return costs.fireball[item.level - 1];
+    } else if (item.type === SkillType.iceBeam) {
+        return costs.iceBeam[item.level - 1];
+    } else if (item.type === SkillType.waterCanon) {
+        return costs.waterCanon[item.level - 1];
+    } else if (item.type === SkillType.curse) {
+        return costs.curse[item.level - 1];
+    } else if (item.type === SkillType.fireBless) {
+        return costs.fireBless[item.level - 1];
+    } else if (item.type === SkillType.iceBless) {
+        return costs.iceBless[item.level - 1];
+    } else if (item.type === SkillType.waterBless) {
+        return costs.waterBless[item.level - 1];
+    } else if (item.type === SkillType.skeleton) {
+        return costs.skeleton[item.level - 1];
+    } else if (item.type === SkillType.tameBeast) {
+        return costs.tameBeast[item.level - 1];
+    } else if (item.type === SkillType.spirit) {
+        return costs.spirit[item.level - 1];
+    } else if (item.type === SkillType.flare) {
+        return costs.flare[item.level - 1];
+    } else if (item.type === SkillType.werewolf) {
+        return costs.werewolf[item.level - 1];
     }
 }

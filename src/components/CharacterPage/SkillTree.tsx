@@ -10,8 +10,16 @@ export function SkillTree () {
         setActivatedData(game.player.skillsList.getActiveSkills());
     });
 
+    const layers = [];
+    for (let layer of skillTreeLayers.layers) {
+        layers.push(layer);
+        if (activatedData.filter(x => layer.includes(x.index)).length === 0) {
+            break;
+        }
+    }
+
     return <div className="skill-tree">
-        {skillTreeLayers.layers.map((layer, index) => <SkillLayer layer={layer} key={index} activatedData={activatedData}/>)}
+        {layers.map((layer, index) => <SkillLayer layer={layer} key={index} activatedData={activatedData}/>)}
     </div>
 }
 

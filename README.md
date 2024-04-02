@@ -17,8 +17,6 @@
     + 20-50
     50-75
         skills
-            create stages for skill
-            create all skills
             create list of skills that need to be implemented
         put all loot to map
         2 - 15
@@ -30,6 +28,7 @@
         4 - 2
 - add NPC(5-10)
     what prise for upgrade?
+// TODO getList
 - add timeout for skills
 + add magic and rare weapons
 - add elemental attacks
