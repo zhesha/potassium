@@ -16,9 +16,6 @@
     + 10-20
     + 20-50
     50-75
-        skills
-            create list of skills that need to be implemented
-        put all loot to map
         2 - 15
         3 - 3
         4 - 1
@@ -28,9 +25,13 @@
         4 - 2
 - add NPC(5-10)
     what prise for upgrade?
+- add magic scrolls
+need to create all skills logic(3 done)
+need to create effects for items
 // TODO getList
 - add timeout for skills
 + add magic and rare weapons
+    add effects
 - add elemental attacks
 - add unique
 - add set
