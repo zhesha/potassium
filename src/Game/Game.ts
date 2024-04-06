@@ -6,7 +6,7 @@ import { Npc, createNpc } from "./Npc";
 import { Player, createPlayer } from "./Player";
 import { randomizer } from "./randomizer";
 
-const npcRate = 2;
+const npcRate = 20;
 
 enum GameState {
     start,
@@ -26,6 +26,7 @@ interface Game {
     enemy: Enemy | null,
     npc: Npc | null,
     loot: Loot,
+    npcIndexesList: Array<number>,
     distance: number,
     init(): void,
     tick: (timeStamp: number) => void,
@@ -71,6 +72,7 @@ export const game: Game = {
     enemy: null,
     npc: null,
     loot,
+    npcIndexesList: [],
     distance: 0,
     init() {
         const savedDataStr = localStorage.getItem('data');
@@ -87,6 +89,7 @@ export const game: Game = {
             this.player.pocket.applySaveData(savedData.pocket);
             this.player.skillsList.applySaveData(savedData.skillsList);
             this.loot.applySavedData(savedData.loot);
+            this.npcIndexesList = savedData.npcIndexesList;
         }
     },
     tick(timeStamp: number) {
@@ -277,6 +280,7 @@ export const game: Game = {
             pocket: this.player.pocket.getSaveData(),
             skillsList: this.player.skillsList.getSaveData(),
             loot: this.loot.getSavedData(),
+            npcIndexesList: this.npcIndexesList,
             enemyKilledInRun: this.enemyKilledInRun,
         };
         localStorage.setItem('data', JSON.stringify(savedData));
@@ -297,6 +301,7 @@ export const game: Game = {
         this.enemyKilledInRun = 0;
         this.distance = 0;
         this.gameState = GameState.start;
+        this.npcIndexesList = [];
         this.player.restart();
         this.enemyProgressHandlers();
         this.infoChangeHandler();

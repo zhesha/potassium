@@ -2,7 +2,7 @@ import { game } from "./Game";
 import { Inventory, createInventory } from "./Inventory";
 import { Pocket, createPocket, PocketLoot } from "./Pocket";
 import { ProbabilityGenerator, createProbabilityDeck } from "./Probability";
-import { SkillItem, SkillTreeItem, SkillsList, createSkills } from "./SkillsList";
+import { SkillItem, SkillsList, createSkills } from "./SkillsList";
 
 interface CharData {
     experience: string

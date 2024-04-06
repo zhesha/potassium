@@ -16,13 +16,7 @@
     + 10-20
     + 20-50
     50-75
-        2 - 15
-        3 - 3
-        4 - 1
-    75-100
-        2 - 22
-        3 - 6
-        4 - 2
+        finish effects
 - add NPC(5-10)
     what prise for upgrade?
 - add magic scrolls

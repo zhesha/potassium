@@ -1,3 +1,5 @@
+import { game } from "./Game";
+
 export enum NpcType {
     sell,
     buyEquipment,
@@ -19,7 +21,6 @@ const passTime = 2000;
 const fullPass = 1;
 
 const npcInitIndexes = [0, 1, 2, 3, 4];
-let npcIndexesList = [...npcInitIndexes];
 const npcConfigList = [
     {
         type: NpcType.sell,
@@ -44,10 +45,10 @@ const npcConfigList = [
 ];
 
 export function createNpc(): Npc {
-    if (npcIndexesList.length === 0) {
-        npcIndexesList = [...npcInitIndexes];
+    if (game.npcIndexesList.length === 0) {
+        game.npcIndexesList = [...npcInitIndexes];
     }
-    const index = npcIndexesList.shift();
+    const index = game.npcIndexesList.shift();
     if (index === undefined) {
         throw new Error('NPC generation error: can not get index');
     }
