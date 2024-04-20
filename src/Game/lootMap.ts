@@ -9,7 +9,8 @@ export const lootMap: LootMap = {
             price: 5,
             baseValueStep: 1,
             baseValueMax: 25,
-            type: InventoryType.gloves
+            type: InventoryType.gloves,
+            baseLevel: 1,
         },
         {
             name: 'money 10',
@@ -22,7 +23,8 @@ export const lootMap: LootMap = {
             price: 2,
             baseValueStep: 1,
             baseValueMax: 4,
-            type: InventoryType.weapon
+            type: InventoryType.weapon,
+            baseLevel: 1,
         },
         {
             name: 'healing 20',
@@ -35,7 +37,8 @@ export const lootMap: LootMap = {
             price: 3,
             baseValueStep: 1,
             baseValueMax: 5,
-            type: InventoryType.armor
+            type: InventoryType.armor,
+            baseLevel: 1,
         },
         {
             name: 'money 10',
@@ -54,7 +57,8 @@ export const lootMap: LootMap = {
             price: 5,
             baseValueStep: 0.1,
             baseValueMax: 1.5,
-            type: InventoryType.boots
+            type: InventoryType.boots,
+            baseLevel: 1,
         },
         {
             name: 'experience 10',
@@ -73,7 +77,8 @@ export const lootMap: LootMap = {
             price: 3,
             baseValueStep: 1,
             baseValueMax: 2,
-            type: InventoryType.shield
+            type: InventoryType.shield,
+            baseLevel: 1,
         },
         {
             name: 'healing 20',
@@ -91,7 +96,8 @@ export const lootMap: LootMap = {
             price: 50,
             baseValueStep: 1,
             baseValueMax: 35,
-            type: InventoryType.gloves
+            type: InventoryType.gloves,
+            baseLevel: 2,
         },
         {
             name: 'money 10',
@@ -104,7 +110,8 @@ export const lootMap: LootMap = {
             price: 4,
             baseValueStep: 1,
             baseValueMax: 6,
-            type: InventoryType.weapon
+            type: InventoryType.weapon,
+            baseLevel: 2,
         },
         {
             name: 'healing 20',
@@ -117,7 +124,8 @@ export const lootMap: LootMap = {
             price: 8,
             baseValueStep: 1,
             baseValueMax: 4,
-            type: InventoryType.shield
+            type: InventoryType.shield,
+            baseLevel: 2,
         },
         {
             name: 'helmet 1',
@@ -125,7 +133,8 @@ export const lootMap: LootMap = {
             price: 5,
             baseValueStep: 1,
             baseValueMax: 2,
-            type: InventoryType.helmet
+            type: InventoryType.helmet,
+            baseLevel: 1,
         },
         {
             name: 'mana potion 20',
@@ -144,7 +153,8 @@ export const lootMap: LootMap = {
             price: 8,
             baseValueStep: 1,
             baseValueMax: 10,
-            type: InventoryType.armor
+            type: InventoryType.armor,
+            baseLevel: 2,
         },
         {
             name: 'healing 20',
@@ -157,7 +167,8 @@ export const lootMap: LootMap = {
             price: 6,
             baseValueStep: 1,
             baseValueMax: 8,
-            type: InventoryType.weapon
+            type: InventoryType.weapon,
+            baseLevel: 3,
         },
         {
             name: 'shield 4%',
@@ -165,7 +176,8 @@ export const lootMap: LootMap = {
             price: 30,
             baseValueStep: 1,
             baseValueMax: 7,
-            type: InventoryType.shield
+            type: InventoryType.shield,
+            baseLevel: 3,
         },
         {
             name: 'money 10',
@@ -183,7 +195,8 @@ export const lootMap: LootMap = {
             price: 10,
             baseValueStep: 1,
             baseValueMax: 10,
-            type: InventoryType.weapon
+            type: InventoryType.weapon,
+            baseLevel: 4,
         },
         {
             name: 'armor 10%',
@@ -191,7 +204,8 @@ export const lootMap: LootMap = {
             price: 30,
             baseValueStep: 1,
             baseValueMax: 15,
-            type: InventoryType.armor
+            type: InventoryType.armor,
+            baseLevel: 3,
         },
         {
             name: 'health potion 20',
@@ -205,7 +219,8 @@ export const lootMap: LootMap = {
             price: 50,
             baseValueStep: 0.1,
             baseValueMax: 2,
-            type: InventoryType.boots
+            type: InventoryType.boots,
+            baseLevel: 2,
         },
         {
             name: 'sword 10',
@@ -213,7 +228,8 @@ export const lootMap: LootMap = {
             price: 20,
             baseValueStep: 1,
             baseValueMax: 15,
-            type: InventoryType.weapon
+            type: InventoryType.weapon,
+            baseLevel: 5,
         },
         {
             name: 'money 10',
@@ -226,7 +242,8 @@ export const lootMap: LootMap = {
             price: 50,
             baseValueStep: 1,
             baseValueMax: 5,
-            type: InventoryType.helmet
+            type: InventoryType.helmet,
+            baseLevel: 2,
         },
         {
             name: 'experience 10',
@@ -251,7 +268,8 @@ export const lootMap: LootMap = {
             price: 500,
             baseValueStep: 1,
             baseValueMax: 50,
-            type: InventoryType.gloves
+            type: InventoryType.gloves,
+            baseLevel: 3,
         },
         {
             name: 'experience 50',
@@ -276,7 +294,8 @@ export const lootMap: LootMap = {
             baseValueStep: 1,
             baseValueMax: 15,
             type: InventoryType.armor,
-            magic: ItemMagicType.magic
+            magic: ItemMagicType.magic,
+            baseLevel: 3,
         },
         {
             name: 'weapon 10 M',
@@ -285,7 +304,8 @@ export const lootMap: LootMap = {
             baseValueStep: 1,
             baseValueMax: 15,
             type: InventoryType.weapon,
-            magic: ItemMagicType.magic
+            magic: ItemMagicType.magic,
+            baseLevel: 5,
         },
         {
             name: 'boots 2',
@@ -294,6 +314,7 @@ export const lootMap: LootMap = {
             baseValueStep: 0.1,
             baseValueMax: 3,
             type: InventoryType.boots,
+            baseLevel: 3,
         },
         {
             name: 'experience 50',
@@ -307,7 +328,8 @@ export const lootMap: LootMap = {
             baseValueStep: 1,
             baseValueMax: 7,
             type: InventoryType.shield,
-            magic: ItemMagicType.magic
+            magic: ItemMagicType.magic,
+            baseLevel: 3,
         },
         {
             name: 'weapon 15',
@@ -316,6 +338,7 @@ export const lootMap: LootMap = {
             baseValueStep: 1,
             baseValueMax: 20,
             type: InventoryType.weapon,
+            baseLevel: 6,
         },
         {
             name: 'experience 50',
@@ -323,13 +346,14 @@ export const lootMap: LootMap = {
             type: InstantItemType.experience,
         },
         {
-            name: 'helmet 2',
+            name: 'helmet 2 M',
             blockValue: 2,
             price: 100,
             baseValueStep: 1,
             baseValueMax: 5,
             type: InventoryType.helmet,
-            magic: ItemMagicType.magic
+            magic: ItemMagicType.magic,
+            baseLevel: 2,
         },
         {
             name: 'healing 50',
@@ -349,6 +373,7 @@ export const lootMap: LootMap = {
             baseValueStep: 1,
             baseValueMax: 20,
             type: InventoryType.armor,
+            baseLevel: 4,
         },
         {
             name: 'money 50',
@@ -362,6 +387,7 @@ export const lootMap: LootMap = {
             baseValueStep: 1,
             baseValueMax: 10,
             type: InventoryType.shield,
+            baseLevel: 4,
         },
         {
             name: 'weapon 20',
@@ -370,6 +396,7 @@ export const lootMap: LootMap = {
             baseValueStep: 1,
             baseValueMax: 25,
             type: InventoryType.weapon,
+            baseLevel: 7,
         },
         {
             name: 'gloves 25% M',
@@ -378,7 +405,8 @@ export const lootMap: LootMap = {
             baseValueStep: 1,
             baseValueMax: 35,
             type: InventoryType.gloves,
-            magic: ItemMagicType.magic
+            magic: ItemMagicType.magic,
+            baseLevel: 2,
         },
         {
             name: 'weapon 15 M',
@@ -387,7 +415,8 @@ export const lootMap: LootMap = {
             baseValueStep: 1,
             baseValueMax: 20,
             type: InventoryType.weapon,
-            magic: ItemMagicType.magic
+            magic: ItemMagicType.magic,
+            baseLevel: 6,
         },
         {
             name: 'money 50',
@@ -401,7 +430,8 @@ export const lootMap: LootMap = {
             baseValueStep: 1,
             baseValueMax: 20,
             type: InventoryType.armor,
-            magic: ItemMagicType.magic
+            magic: ItemMagicType.magic,
+            baseLevel: 4,
         },
         {
             name: 'health potion 50',
@@ -416,6 +446,7 @@ export const lootMap: LootMap = {
             baseValueStep: 1,
             baseValueMax: 15,
             type: InventoryType.shield,
+            baseLevel: 5,
         },
         {
             name: 'experience 50',
@@ -429,6 +460,7 @@ export const lootMap: LootMap = {
             baseValueStep: 1,
             baseValueMax: 10,
             type: InventoryType.helmet,
+            baseLevel: 3,
         },
         {
             name: 'weapon 20 M',
@@ -437,7 +469,8 @@ export const lootMap: LootMap = {
             baseValueStep: 1,
             baseValueMax: 25,
             type: InventoryType.weapon,
-            magic: ItemMagicType.magic
+            magic: ItemMagicType.magic,
+            baseLevel: 7,
         },
         {
             name: 'armor 20%',
@@ -446,6 +479,7 @@ export const lootMap: LootMap = {
             baseValueStep: 1,
             baseValueMax: 30,
             type: InventoryType.armor,
+            baseLevel: 5,
         },
         {
             name: 'mana potion 50',
@@ -460,7 +494,8 @@ export const lootMap: LootMap = {
             baseValueStep: 0.1,
             baseValueMax: 2,
             type: InventoryType.boots,
-            magic: ItemMagicType.magic
+            magic: ItemMagicType.magic,
+            baseLevel: 2,
         },
         {
             name: 'healing 50',
@@ -479,7 +514,8 @@ export const lootMap: LootMap = {
             baseValueStep: 1,
             baseValueMax: 10,
             type: InventoryType.shield,
-            magic: ItemMagicType.magic
+            magic: ItemMagicType.magic,
+            baseLevel: 4,
         },
         {
             name: 'experience 50',
@@ -493,6 +529,7 @@ export const lootMap: LootMap = {
             baseValueStep: 1,
             baseValueMax: 30,
             type: InventoryType.weapon,
+            baseLevel: 8,
         },
     ],
     3: [
@@ -510,7 +547,8 @@ export const lootMap: LootMap = {
             baseValueStep: 1,
             baseValueMax: 50,
             type: InventoryType.gloves,
-            magic: ItemMagicType.magic
+            magic: ItemMagicType.magic,
+            baseLevel: 3,
         },
         // рубін
         {
@@ -527,7 +565,8 @@ export const lootMap: LootMap = {
             baseValueStep: 1,
             baseValueMax: 30,
             type: InventoryType.armor,
-            magic: ItemMagicType.magic
+            magic: ItemMagicType.magic,
+            baseLevel: 5,
         },
         // шкода холодом 50
         {
@@ -537,7 +576,8 @@ export const lootMap: LootMap = {
             baseValueStep: 0.1,
             baseValueMax: 3,
             type: InventoryType.boots,
-            magic: ItemMagicType.magic
+            magic: ItemMagicType.magic,
+            baseLevel: 3,
         },
         {
             name: 'health potion 100',
@@ -552,7 +592,8 @@ export const lootMap: LootMap = {
             baseValueStep: 1,
             baseValueMax: 30,
             type: InventoryType.weapon,
-            magic: ItemMagicType.magic
+            magic: ItemMagicType.magic,
+            baseLevel: 8,
         },
         // діамант
         {
@@ -562,6 +603,7 @@ export const lootMap: LootMap = {
             baseValueStep: 1,
             baseValueMax: 40,
             type: InventoryType.armor,
+            baseLevel: 6,
         },
         // шкода водою 50
         {
@@ -571,6 +613,7 @@ export const lootMap: LootMap = {
             baseValueStep: 2,
             baseValueMax: 40,
             type: InventoryType.weapon,
+            baseLevel: 9,
         },
         {
             name: 'shield 10% M',
@@ -579,7 +622,8 @@ export const lootMap: LootMap = {
             baseValueStep: 1,
             baseValueMax: 15,
             type: InventoryType.shield,
-            magic: ItemMagicType.magic
+            magic: ItemMagicType.magic,
+            baseLevel: 5,
         },
         // сапфір
         {
@@ -589,6 +633,7 @@ export const lootMap: LootMap = {
             baseValueStep: 1,
             baseValueMax: 70,
             type: InventoryType.gloves,
+            baseLevel: 4,
         },
         {
             name: 'weapon 30 M',
@@ -597,7 +642,8 @@ export const lootMap: LootMap = {
             baseValueStep: 2,
             baseValueMax: 40,
             type: InventoryType.weapon,
-            magic: ItemMagicType.magic
+            magic: ItemMagicType.magic,
+            baseLevel: 9,
         },
         {
             name: 'mana potion 100',
@@ -612,7 +658,8 @@ export const lootMap: LootMap = {
             baseValueStep: 1,
             baseValueMax: 10,
             type: InventoryType.helmet,
-            magic: ItemMagicType.magic
+            magic: ItemMagicType.magic,
+            baseLevel: 3,
         },
         {
             name: 'shield 15%',
@@ -621,6 +668,7 @@ export const lootMap: LootMap = {
             baseValueStep: 1,
             baseValueMax: 20,
             type: InventoryType.shield,
+            baseLevel: 6,
         },
         {
             name: 'health potion 100',
@@ -635,6 +683,7 @@ export const lootMap: LootMap = {
             baseValueStep: 1,
             baseValueMax: 50,
             type: InventoryType.weapon,
+            baseLevel: 10,
         },
         {
             name: 'armor 30% M',
@@ -643,7 +692,8 @@ export const lootMap: LootMap = {
             baseValueStep: 1,
             baseValueMax: 40,
             type: InventoryType.armor,
-            magic: ItemMagicType.magic
+            magic: ItemMagicType.magic,
+            baseLevel: 6,
         },
         {
             name: 'weapon 40 M',
@@ -652,7 +702,8 @@ export const lootMap: LootMap = {
             baseValueStep: 1,
             baseValueMax: 50,
             type: InventoryType.weapon,
-            magic: ItemMagicType.magic
+            magic: ItemMagicType.magic,
+            baseLevel: 10,
         },
         // руна1
         {
@@ -662,7 +713,8 @@ export const lootMap: LootMap = {
             baseValueStep: 1,
             baseValueMax: 20,
             type: InventoryType.shield,
-            magic: ItemMagicType.magic
+            magic: ItemMagicType.magic,
+            baseLevel: 6,
         },
         {
             name: 'boots 3',
@@ -671,6 +723,7 @@ export const lootMap: LootMap = {
             baseValueStep: 0.1,
             baseValueMax: 5,
             type: InventoryType.boots,
+            baseLevel: 4,
         },
         {
             name: 'weapon 50',
@@ -679,6 +732,7 @@ export const lootMap: LootMap = {
             baseValueStep: 1,
             baseValueMax: 60,
             type: InventoryType.weapon,
+            baseLevel: 11,
         },
         {
             name: 'armor 40%',
@@ -687,6 +741,7 @@ export const lootMap: LootMap = {
             baseValueStep: 1,
             baseValueMax: 50,
             type: InventoryType.armor,
+            baseLevel: 7,
         },
         {
             name: 'mana potion 100',
@@ -701,7 +756,8 @@ export const lootMap: LootMap = {
             baseValueStep: 1,
             baseValueMax: 60,
             type: InventoryType.weapon,
-            magic: ItemMagicType.magic
+            magic: ItemMagicType.magic,
+            baseLevel: 11,
         },
         {
             name: 'shield 20%',
@@ -710,6 +766,7 @@ export const lootMap: LootMap = {
             baseValueStep: 1,
             baseValueMax: 30,
             type: InventoryType.shield,
+            baseLevel: 7,
         },
         {
             name: 'weapon 60',
@@ -718,6 +775,7 @@ export const lootMap: LootMap = {
             baseValueStep: 2,
             baseValueMax: 80,
             type: InventoryType.weapon,
+            baseLevel: 12,
         },
         {
             name: 'helmet 10',
@@ -726,6 +784,7 @@ export const lootMap: LootMap = {
             baseValueStep: 1,
             baseValueMax: 20,
             type: InventoryType.helmet,
+            baseLevel: 4,
         },
     ],
     4: [
@@ -742,7 +801,8 @@ export const lootMap: LootMap = {
             baseValueStep: 1,
             baseValueMax: 50,
             type: InventoryType.gloves,
-            magic: ItemMagicType.rare
+            magic: ItemMagicType.rare,
+            baseLevel: 3,
         },
         {
             name: 'boots 2 R',
@@ -751,7 +811,8 @@ export const lootMap: LootMap = {
             baseValueStep: 0.1,
             baseValueMax: 3,
             type: InventoryType.boots,
-            magic: ItemMagicType.rare
+            magic: ItemMagicType.rare,
+            baseLevel: 3,
         },
         {
             name: 'weapon 30 R',
@@ -760,7 +821,8 @@ export const lootMap: LootMap = {
             baseValueStep: 2,
             baseValueMax: 40,
             type: InventoryType.weapon,
-            magic: ItemMagicType.rare
+            magic: ItemMagicType.rare,
+            baseLevel: 9,
         },
         // баф вогнем 100
         {
@@ -770,7 +832,8 @@ export const lootMap: LootMap = {
             baseValueStep: 1,
             baseValueMax: 30,
             type: InventoryType.armor,
-            magic: ItemMagicType.rare
+            magic: ItemMagicType.rare,
+            baseLevel: 5,
         },
         {
             name: 'weapon 40 R',
@@ -779,7 +842,8 @@ export const lootMap: LootMap = {
             baseValueStep: 1,
             baseValueMax: 50,
             type: InventoryType.weapon,
-            magic: ItemMagicType.rare
+            magic: ItemMagicType.rare,
+            baseLevel: 10,
         },
         {
             name: 'shield 10% R',
@@ -788,7 +852,8 @@ export const lootMap: LootMap = {
             baseValueStep: 1,
             baseValueMax: 15,
             type: InventoryType.shield,
-            magic: ItemMagicType.rare
+            magic: ItemMagicType.rare,
+            baseLevel: 5,
         },
         // баф холодем 100
         {
@@ -798,7 +863,8 @@ export const lootMap: LootMap = {
             baseValueStep: 1,
             baseValueMax: 40,
             type: InventoryType.armor,
-            magic: ItemMagicType.rare
+            magic: ItemMagicType.rare,
+            baseLevel: 6,
         },
         {
             name: 'weapon 50 R',
@@ -807,7 +873,8 @@ export const lootMap: LootMap = {
             baseValueStep: 1,
             baseValueMax: 60,
             type: InventoryType.weapon,
-            magic: ItemMagicType.rare
+            magic: ItemMagicType.rare,
+            baseLevel: 11,
         },
         {
             name: 'gloves 50% M',
@@ -816,7 +883,8 @@ export const lootMap: LootMap = {
             baseValueStep: 1,
             baseValueMax: 70,
             type: InventoryType.gloves,
-            magic: ItemMagicType.magic
+            magic: ItemMagicType.magic,
+            baseLevel: 4,
         },
         // баф водою 100
         {
@@ -826,7 +894,8 @@ export const lootMap: LootMap = {
             baseValueStep: 2,
             baseValueMax: 80,
             type: InventoryType.weapon,
-            magic: ItemMagicType.magic
+            magic: ItemMagicType.magic,
+            baseLevel: 12,
         },
         {
             name: 'shield 15% R',
@@ -835,7 +904,8 @@ export const lootMap: LootMap = {
             baseValueStep: 1,
             baseValueMax: 20,
             type: InventoryType.shield,
-            magic: ItemMagicType.rare
+            magic: ItemMagicType.rare,
+            baseLevel: 6,
         },
         {
             name: 'boots 3 M',
@@ -844,7 +914,8 @@ export const lootMap: LootMap = {
             baseValueStep: 0.1,
             baseValueMax: 5,
             type: InventoryType.boots,
-            magic: ItemMagicType.magic
+            magic: ItemMagicType.magic,
+            baseLevel: 4,
         },
         {
             name: 'weapon 60 R',
@@ -853,7 +924,8 @@ export const lootMap: LootMap = {
             baseValueStep: 2,
             baseValueMax: 80,
             type: InventoryType.weapon,
-            magic: ItemMagicType.rare
+            magic: ItemMagicType.rare,
+            baseLevel: 12,
         },
         {
             name: 'armor 40% M',
@@ -862,7 +934,8 @@ export const lootMap: LootMap = {
             baseValueStep: 1,
             baseValueMax: 50,
             type: InventoryType.armor,
-            magic: ItemMagicType.magic
+            magic: ItemMagicType.magic,
+            baseLevel: 7,
         },
         {
             name: 'health potion 150',
@@ -877,6 +950,7 @@ export const lootMap: LootMap = {
             baseValueStep: 2,
             baseValueMax: 100,
             type: InventoryType.weapon,
+            baseLevel: 13,
         },
         {
             name: 'helmet 5 R',
@@ -885,7 +959,8 @@ export const lootMap: LootMap = {
             baseValueStep: 1,
             baseValueMax: 10,
             type: InventoryType.helmet,
-            magic: ItemMagicType.rare
+            magic: ItemMagicType.rare,
+            baseLevel: 3,
         },
         {
             name: 'weapon 80 M',
@@ -894,7 +969,8 @@ export const lootMap: LootMap = {
             baseValueStep: 2,
             baseValueMax: 100,
             type: InventoryType.weapon,
-            magic: ItemMagicType.magic
+            magic: ItemMagicType.magic,
+            baseLevel: 13,
         },
         {
             name: 'shield 20% M',
@@ -903,7 +979,8 @@ export const lootMap: LootMap = {
             baseValueStep: 1,
             baseValueMax: 30,
             type: InventoryType.shield,
-            magic: ItemMagicType.magic
+            magic: ItemMagicType.magic,
+            baseLevel: 7,
         },
         {
             name: 'gloves 70%',
@@ -911,7 +988,8 @@ export const lootMap: LootMap = {
             price: 50000,
             baseValueStep: 1,
             baseValueMax: 90,
-            type: InventoryType.gloves
+            type: InventoryType.gloves,
+            baseLevel: 5,
         },
         // руна2
         {
@@ -921,6 +999,7 @@ export const lootMap: LootMap = {
             baseValueStep: 1,
             baseValueMax: 60,
             type: InventoryType.armor,
+            baseLevel: 8,
         },
         {
             name: 'weapon 100',
@@ -929,6 +1008,7 @@ export const lootMap: LootMap = {
             baseValueStep: 1,
             baseValueMax: 120,
             type: InventoryType.weapon,
+            baseLevel: 14,
         },
         {
             name: 'boots 5',
@@ -937,6 +1017,7 @@ export const lootMap: LootMap = {
             baseValueStep: 0.1,
             baseValueMax: 8,
             type: InventoryType.boots,
+            baseLevel: 5,
         },
         {
             name: 'shield 30%',
@@ -945,6 +1026,7 @@ export const lootMap: LootMap = {
             baseValueStep: 1,
             baseValueMax: 40,
             type: InventoryType.shield,
+            baseLevel: 8,
         },
         {
             name: 'helmet 10 M',
@@ -953,7 +1035,8 @@ export const lootMap: LootMap = {
             baseValueStep: 1,
             baseValueMax: 20,
             type: InventoryType.helmet,
-            magic: ItemMagicType.magic
+            magic: ItemMagicType.magic,
+            baseLevel: 4,
         },
         {
             name: 'weapon 100 M',
@@ -962,7 +1045,8 @@ export const lootMap: LootMap = {
             baseValueStep: 1,
             baseValueMax: 120,
             type: InventoryType.weapon,
-            magic: ItemMagicType.magic
+            magic: ItemMagicType.magic,
+            baseLevel: 14,
         },
         {
             name: 'armor 60%',
@@ -971,6 +1055,7 @@ export const lootMap: LootMap = {
             baseValueStep: 1,
             baseValueMax: 70,
             type: InventoryType.armor,
+            baseLevel: 9,
         },
         {
             name: 'weapon 120',
@@ -979,6 +1064,7 @@ export const lootMap: LootMap = {
             baseValueStep: 2,
             baseValueMax: 160,
             type: InventoryType.weapon,
+            baseLevel: 15,
         },
         {
             name: 'shield 40%',
@@ -987,6 +1073,7 @@ export const lootMap: LootMap = {
             baseValueStep: 1,
             baseValueMax: 60,
             type: InventoryType.shield,
+            baseLevel: 9,
         },
         {
             name: 'weapon 160',
@@ -995,6 +1082,7 @@ export const lootMap: LootMap = {
             baseValueStep: 2,
             baseValueMax: 200,
             type: InventoryType.weapon,
+            baseLevel: 16,
         },
         {
             name: 'helmet 20',
@@ -1003,6 +1091,7 @@ export const lootMap: LootMap = {
             baseValueStep: 1,
             baseValueMax: 50,
             type: InventoryType.helmet,
+            baseLevel: 5,
         },
     ],
     5: [
@@ -1014,7 +1103,8 @@ export const lootMap: LootMap = {
             baseValueStep: 1,
             baseValueMax: 70,
             type: InventoryType.gloves,
-            magic: ItemMagicType.rare
+            magic: ItemMagicType.rare,
+            baseLevel: 4,
         },
         {
             name: 'weapon 80 R',
@@ -1023,7 +1113,8 @@ export const lootMap: LootMap = {
             baseValueStep: 2,
             baseValueMax: 100,
             type: InventoryType.weapon,
-            magic: ItemMagicType.rare
+            magic: ItemMagicType.rare,
+            baseLevel: 13,
         },
         {
             name: 'boots 3 R',
@@ -1032,7 +1123,8 @@ export const lootMap: LootMap = {
             baseValueStep: 0.1,
             baseValueMax: 5,
             type: InventoryType.boots,
-            magic: ItemMagicType.rare
+            magic: ItemMagicType.rare,
+            baseLevel: 4,
         },
         {
             name: 'weapon 100 R',
@@ -1041,7 +1133,8 @@ export const lootMap: LootMap = {
             baseValueStep: 1,
             baseValueMax: 120,
             type: InventoryType.weapon,
-            magic: ItemMagicType.rare
+            magic: ItemMagicType.rare,
+            baseLevel: 14,
         },
         {
             name: 'armor 40% R',
@@ -1050,7 +1143,8 @@ export const lootMap: LootMap = {
             baseValueStep: 1,
             baseValueMax: 50,
             type: InventoryType.armor,
-            magic: ItemMagicType.rare
+            magic: ItemMagicType.rare,
+            baseLevel: 7,
         },
         {
             name: 'weapon 120 M',
@@ -1059,7 +1153,8 @@ export const lootMap: LootMap = {
             baseValueStep: 2,
             baseValueMax: 160,
             type: InventoryType.weapon,
-            magic: ItemMagicType.magic
+            magic: ItemMagicType.magic,
+            baseLevel: 15,
         },
         {
             name: 'shield 20% R',
@@ -1068,7 +1163,8 @@ export const lootMap: LootMap = {
             baseValueStep: 1,
             baseValueMax: 30,
             type: InventoryType.shield,
-            magic: ItemMagicType.rare
+            magic: ItemMagicType.rare,
+            baseLevel: 7,
         },
         {
             name: 'weapon 120 R',
@@ -1077,7 +1173,8 @@ export const lootMap: LootMap = {
             baseValueStep: 2,
             baseValueMax: 160,
             type: InventoryType.weapon,
-            magic: ItemMagicType.rare
+            magic: ItemMagicType.rare,
+            baseLevel: 15,
         },
         {
             name: 'armor 50% M',
@@ -1086,7 +1183,8 @@ export const lootMap: LootMap = {
             baseValueStep: 1,
             baseValueMax: 60,
             type: InventoryType.armor,
-            magic: ItemMagicType.magic
+            magic: ItemMagicType.magic,
+            baseLevel: 8,
         },
         {
             name: 'shield 30% M',
@@ -1095,7 +1193,8 @@ export const lootMap: LootMap = {
             baseValueStep: 1,
             baseValueMax: 40,
             type: InventoryType.shield,
-            magic: ItemMagicType.magic
+            magic: ItemMagicType.magic,
+            baseLevel: 8,
         },
         {
             name: 'weapon 160 M',
@@ -1104,7 +1203,8 @@ export const lootMap: LootMap = {
             baseValueStep: 2,
             baseValueMax: 200,
             type: InventoryType.weapon,
-            magic: ItemMagicType.magic
+            magic: ItemMagicType.magic,
+            baseLevel: 16,
         },
         {
             name: 'gloves 70% M',
@@ -1113,7 +1213,8 @@ export const lootMap: LootMap = {
             baseValueStep: 1,
             baseValueMax: 90,
             type: InventoryType.gloves,
-            magic: ItemMagicType.magic
+            magic: ItemMagicType.magic,
+            baseLevel: 5,
         },
         {
             name: 'helmet 10 R',
@@ -1122,7 +1223,8 @@ export const lootMap: LootMap = {
             baseValueStep: 1,
             baseValueMax: 20,
             type: InventoryType.helmet,
-            magic: ItemMagicType.rare
+            magic: ItemMagicType.rare,
+            baseLevel: 4,
         },
         {
             name: 'weapon 160 R',
@@ -1131,7 +1233,8 @@ export const lootMap: LootMap = {
             baseValueStep: 2,
             baseValueMax: 200,
             type: InventoryType.weapon,
-            magic: ItemMagicType.rare
+            magic: ItemMagicType.rare,
+            baseLevel: 16,
         },
         {
             name: 'boots 5 M',
@@ -1140,7 +1243,8 @@ export const lootMap: LootMap = {
             baseValueStep: 0.1,
             baseValueMax: 8,
             type: InventoryType.boots,
-            magic: ItemMagicType.magic
+            magic: ItemMagicType.magic,
+            baseLevel: 5,
         },
         {
             name: 'shield 30% R',
@@ -1149,7 +1253,8 @@ export const lootMap: LootMap = {
             baseValueStep: 1,
             baseValueMax: 40,
             type: InventoryType.shield,
-            magic: ItemMagicType.rare
+            magic: ItemMagicType.rare,
+            baseLevel: 8,
         },
         {
             name: 'weapon 200',
@@ -1158,6 +1263,7 @@ export const lootMap: LootMap = {
             baseValueStep: 2,
             baseValueMax: 250,
             type: InventoryType.weapon,
+            baseLevel: 17,
         },
         {
             name: 'armor 50% R',
@@ -1166,7 +1272,8 @@ export const lootMap: LootMap = {
             baseValueStep: 1,
             baseValueMax: 60,
             type: InventoryType.armor,
-            magic: ItemMagicType.rare
+            magic: ItemMagicType.rare,
+            baseLevel: 8,
         },
         {
             name: 'weapon 200 M',
@@ -1175,7 +1282,8 @@ export const lootMap: LootMap = {
             baseValueStep: 2,
             baseValueMax: 250,
             type: InventoryType.weapon,
-            magic: ItemMagicType.magic
+            magic: ItemMagicType.magic,
+            baseLevel: 17,
         },
         {
             name: 'shield 40% M',
@@ -1184,7 +1292,8 @@ export const lootMap: LootMap = {
             baseValueStep: 1,
             baseValueMax: 60,
             type: InventoryType.shield,
-            magic: ItemMagicType.magic
+            magic: ItemMagicType.magic,
+            baseLevel: 9,
         },
         {
             name: 'armor 60% M',
@@ -1193,7 +1302,8 @@ export const lootMap: LootMap = {
             baseValueStep: 1,
             baseValueMax: 70,
             type: InventoryType.armor,
-            magic: ItemMagicType.magic
+            magic: ItemMagicType.magic,
+            baseLevel: 9,
         },
         {
             name: 'weapon 200 R',
@@ -1202,7 +1312,8 @@ export const lootMap: LootMap = {
             baseValueStep: 2,
             baseValueMax: 250,
             type: InventoryType.weapon,
-            magic: ItemMagicType.rare
+            magic: ItemMagicType.rare,
+            baseLevel: 17,
         },
         {
             name: 'gloves 70% R',
@@ -1211,7 +1322,8 @@ export const lootMap: LootMap = {
             baseValueStep: 1,
             baseValueMax: 90,
             type: InventoryType.gloves,
-            magic: ItemMagicType.rare
+            magic: ItemMagicType.rare,
+            baseLevel: 5,
         },
         {
             name: 'weapon 250',
@@ -1220,6 +1332,7 @@ export const lootMap: LootMap = {
             baseValueStep: 2,
             baseValueMax: 300,
             type: InventoryType.weapon,
+            baseLevel: 18,
         },
         {
             name: 'boots 5 R',
@@ -1228,7 +1341,8 @@ export const lootMap: LootMap = {
             baseValueStep: 0.1,
             baseValueMax: 8,
             type: InventoryType.boots,
-            magic: ItemMagicType.rare
+            magic: ItemMagicType.rare,
+            baseLevel: 5,
         },
         {
             name: 'helmet 20 M',
@@ -1237,7 +1351,8 @@ export const lootMap: LootMap = {
             baseValueStep: 1,
             baseValueMax: 50,
             type: InventoryType.helmet,
-            magic: ItemMagicType.magic
+            magic: ItemMagicType.magic,
+            baseLevel: 5,
         },
         {
             name: 'shield 60%',
@@ -1246,6 +1361,7 @@ export const lootMap: LootMap = {
             baseValueStep: 1,
             baseValueMax: 80,
             type: InventoryType.shield,
+            baseLevel: 10,
         },
         {
             name: 'weapon 250 M',
@@ -1254,7 +1370,8 @@ export const lootMap: LootMap = {
             baseValueStep: 2,
             baseValueMax: 300,
             type: InventoryType.weapon,
-            magic: ItemMagicType.magic
+            magic: ItemMagicType.magic,
+            baseLevel: 18,
         },
         {
             name: 'armor 70%',
@@ -1263,6 +1380,7 @@ export const lootMap: LootMap = {
             baseValueStep: 1,
             baseValueMax: 90,
             type: InventoryType.armor,
+            baseLevel: 10,
         },
         {
             name: 'helmet 20 R',
@@ -1271,7 +1389,8 @@ export const lootMap: LootMap = {
             baseValueStep: 1,
             baseValueMax: 50,
             type: InventoryType.helmet,
-            magic: ItemMagicType.rare
+            magic: ItemMagicType.rare,
+            baseLevel: 5,
         },
         {
             name: 'weapon 300',
@@ -1280,6 +1399,7 @@ export const lootMap: LootMap = {
             baseValueStep: 2,
             baseValueMax: 400,
             type: InventoryType.weapon,
+            baseLevel: 19,
         },
         // ключ
         {
@@ -1289,7 +1409,8 @@ export const lootMap: LootMap = {
             baseValueStep: 1,
             baseValueMax: 80,
             type: InventoryType.shield,
-            magic: ItemMagicType.magic
+            magic: ItemMagicType.magic,
+            baseLevel: 10,
         },
         {
             name: 'armor 70% M',
@@ -1298,7 +1419,8 @@ export const lootMap: LootMap = {
             baseValueStep: 1,
             baseValueMax: 90,
             type: InventoryType.armor,
-            magic: ItemMagicType.magic
+            magic: ItemMagicType.magic,
+            baseLevel: 10,
         },
         {
             name: 'weapon 400',
@@ -1307,6 +1429,7 @@ export const lootMap: LootMap = {
             baseValueStep: 2,
             baseValueMax: 500,
             type: InventoryType.weapon,
+            baseLevel: 20,
         },
     ],
 };

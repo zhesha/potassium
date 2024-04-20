@@ -15,17 +15,17 @@
     + 10
     + 10-20
     + 20-50
-    50-75
+    50-100
         finish effects
+            create returnDmg logic
+        add mobs
 - add NPC(5-10)
     what prise for upgrade?
 - add magic scrolls
 need to create all skills logic(3 done)
-need to create effects for items
+need to create all effects for items
 // TODO getList
 - add timeout for skills
-+ add magic and rare weapons
-    add effects
 - add elemental attacks
 - add unique
 - add set

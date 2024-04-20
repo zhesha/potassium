@@ -1,3 +1,4 @@
+import { EffectType, generateRandomEffect } from "./Effects";
 import { game } from "./Game";
 import { InventoryLoot, InventoryLootBase, InventoryType, ItemMagicType, PocketItemType } from "./Inventory";
 import { InstantItem as InstantLoot, PocketLoot } from "./Pocket";
@@ -241,13 +242,8 @@ function convertPocketItem(lootItem: PocketLoot): PocketItem {
 }
 
 function convertInventoryItem(lootItem: InventoryLoot): InventoryItem {
-    let effects: Array<ItemEffect> = [];
-    if (lootItem.magic === ItemMagicType.magic) {
-        effects = generateRandomEffect(2);
-    }
-    if (lootItem.magic === ItemMagicType.rare) {
-        effects = generateRandomEffect(4);
-    }
+    let effects = generateRandomEffect(lootItem);
+    console.log(effects);
     return {
         ...lootItem,
         effects,
@@ -261,29 +257,10 @@ export interface SimpleItemEffect {
 }
 
 export interface ItemEffect extends SimpleItemEffect {
-    name: string
+    name: string,
+    type: EffectType,
+    baseValue: number,
+    extraValue: number,
+    maxExtra: number,
+    extraStep: number,
 }
-
-function generateRandomEffect (amount: number): Array<ItemEffect> {
-    const indexes: Array<number> = [];
-    for(let i = 0; i < effectsMap.length; i++) {
-        indexes.push(i);
-    }
-    indexes.sort(() => Math.random() - 0.5);
-    return indexes.slice(0, amount).map(index => effectsMap[index]);
-}
-
-const effectsMap: Array<ItemEffect> = [
-    {
-        name: 'more HP',
-        hp: 10,
-    },
-    {
-        name: 'more MP',
-        mp: 10,
-    },
-    {
-        name: 'more DMG',
-        dmg: 1,
-    },
-];

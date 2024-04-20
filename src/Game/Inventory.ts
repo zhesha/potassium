@@ -1,4 +1,5 @@
 import { Backpack, createBackpack } from "./Backpack"
+import { EffectType } from "./Effects";
 import { game } from "./Game";
 import { InventoryArmor, InventoryBoots, InventoryGloves, InventoryHelmet, InventoryItem, InventoryShield, InventoryWeapon, RealItem, SimpleItemEffect } from "./Loot";
 
@@ -34,6 +35,7 @@ export interface InventoryLootBase {
     type: InventoryType;
     baseValueStep: number;
     baseValueMax: number;
+    baseLevel: number;
     magic?: ItemMagicType
 }
 
@@ -82,11 +84,11 @@ export interface Inventory {
     armor?: InventoryArmor,
     helmet?: InventoryHelmet,
     backpack: Backpack,
-    getSimpleExtra(key: keyof SimpleItemEffect): number,
+    getSimpleExtra(effectType: EffectType): number,
     getMaxHp(): number,
     getMaxMana(): number,
     getExtraDmg(): number,
-    getExtraFor(item: InventoryItem | undefined, key: keyof SimpleItemEffect): number,
+    getExtraFor(item: InventoryItem | undefined, effectType: EffectType): number,
     getDmg: () => number,
     getSpeed: () => number,
     getHitChance: () => number,
@@ -114,27 +116,32 @@ export function createInventory (): Inventory {
         helmet: undefined,
         backpack: createBackpack(),
         getExtraDmg() {
-            return this.getSimpleExtra('dmg');
+            return this.getSimpleExtra(EffectType.extraDmg);
         },
         getMaxMana() {
-            return this.getSimpleExtra('mp');
+            return this.getSimpleExtra(EffectType.extraMp);
         },
         getMaxHp() {
-            return this.getSimpleExtra('hp');
+            return this.getSimpleExtra(EffectType.extraHp);
         },
-        getSimpleExtra(key: keyof SimpleItemEffect) {
+        getSimpleExtra(effectType: EffectType) {
             let extra = 0;
-            extra += this.getExtraFor(this.weapon, key);
-            extra += this.getExtraFor(this.gloves, key);
-            extra += this.getExtraFor(this.boots, key);
-            extra += this.getExtraFor(this.armor, key);
-            extra += this.getExtraFor(this.helmet, key);
-            extra += this.getExtraFor(this.shield, key);
+            extra += this.getExtraFor(this.weapon, effectType);
+            extra += this.getExtraFor(this.gloves, effectType);
+            extra += this.getExtraFor(this.boots, effectType);
+            extra += this.getExtraFor(this.armor, effectType);
+            extra += this.getExtraFor(this.helmet, effectType);
+            extra += this.getExtraFor(this.shield, effectType);
             return extra;
         },
-        getExtraFor(item: InventoryItem | undefined, key: keyof SimpleItemEffect) {
+        getExtraFor(item: InventoryItem | undefined, effectType: EffectType) {
             if (item && item.effects) {
-                return item.effects.reduce((memo, effect) => memo + (effect[key] || 0), 0);
+                return item.effects.reduce((memo, effect) => {
+                    if (effect.type === effectType) {
+                        return memo + effect.baseValue + effect.extraValue;
+                    }
+                    return memo;
+                }, 0);
             }
             return 0;
         },
