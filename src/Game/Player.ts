@@ -1,5 +1,7 @@
+import { EffectType } from "./Effects";
 import { game } from "./Game";
 import { Inventory, createInventory } from "./Inventory";
+import { InventoryItemBase, ItemEffect } from "./Loot";
 import { Pocket, createPocket, PocketLoot } from "./Pocket";
 import { ProbabilityGenerator, createProbabilityDeck } from "./Probability";
 import { SkillItem, SkillsList, createSkills } from "./SkillsList";
@@ -50,6 +52,8 @@ export interface Player {
     isHitSuccess(): boolean
     addMana(value: number): void
     getMaxMana(): number
+    getReturnDmg(): number
+    getEffectsValueFromItem(effectType: EffectType, item?: InventoryItemBase): number
 }
 
 const levelMultiplier = 100;
@@ -189,6 +193,20 @@ export function createPlayer (): Player {
         },
         getMaxMana () {
             return 100 + this.inventory.getMaxMana();
+        },
+        getReturnDmg() {
+            return this.getEffectsValueFromItem(EffectType.returnDmg, this.inventory.weapon) +
+                this.getEffectsValueFromItem(EffectType.returnDmg, this.inventory.armor) +
+                this.getEffectsValueFromItem(EffectType.returnDmg, this.inventory.shield) +
+                this.getEffectsValueFromItem(EffectType.returnDmg, this.inventory.gloves) +
+                this.getEffectsValueFromItem(EffectType.returnDmg, this.inventory.boots) +
+                this.getEffectsValueFromItem(EffectType.returnDmg, this.inventory.helmet);
+        },
+        getEffectsValueFromItem(effectType: EffectType, item?: InventoryItemBase) {
+            if (!item) {
+                return 0;
+            }
+            return item.effects.filter(effect => effect.type === effectType).reduce((memo, effect) => memo + effect.baseValue + effect.extraValue, 0);
         }
     }
 }

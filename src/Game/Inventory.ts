@@ -1,7 +1,7 @@
 import { Backpack, createBackpack } from "./Backpack"
 import { EffectType } from "./Effects";
 import { game } from "./Game";
-import { InventoryArmor, InventoryBoots, InventoryGloves, InventoryHelmet, InventoryItem, InventoryShield, InventoryWeapon, RealItem, SimpleItemEffect } from "./Loot";
+import { InventoryArmor, InventoryBoots, InventoryGloves, InventoryHelmet, InventoryItem, InventoryShield, InventoryWeapon, RealItem } from "./Loot";
 
 export enum PocketItemType {
     healthPotion = 'healthPotion',

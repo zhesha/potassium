@@ -1,6 +1,6 @@
 import { EffectType, generateRandomEffect } from "./Effects";
 import { game } from "./Game";
-import { InventoryLoot, InventoryLootBase, InventoryType, ItemMagicType, PocketItemType } from "./Inventory";
+import { InventoryLoot, InventoryLootBase, InventoryType, PocketItemType } from "./Inventory";
 import { InstantItem as InstantLoot, PocketLoot } from "./Pocket";
 import { lootMap } from "./lootMap";
 
@@ -243,7 +243,6 @@ function convertPocketItem(lootItem: PocketLoot): PocketItem {
 
 function convertInventoryItem(lootItem: InventoryLoot): InventoryItem {
     let effects = generateRandomEffect(lootItem);
-    console.log(effects);
     return {
         ...lootItem,
         effects,

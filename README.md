@@ -16,27 +16,24 @@
     + 10-20
     + 20-50
     50-100
-        finish effects
-            create returnDmg logic
         add mobs
 - add NPC(5-10)
     what prise for upgrade?
+- add timeout for skills
+- add elemental attacks
 - add magic scrolls
 need to create all skills logic(3 done)
 need to create all effects for items
 // TODO getList
-- add timeout for skills
-- add elemental attacks
-- add unique
-- add set
 - add jewels
 - add rune
+- config first 1000 monsters
+- add unique
+- add set
 - add superset
 - add runeword
 - add rune spell
-- config first 1000 monsters
 - add all loot
-- add all skills
 - add all monsters
 - polish balance
 - polish presentation

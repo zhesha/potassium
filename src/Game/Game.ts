@@ -174,8 +174,11 @@ export const game: Game = {
             this.enemy?.resetAttackTimer();
             if (!randomizer.isSuccess(this.player.getBlockChance())) {
                 this.player?.doDamage(this.enemy?.dmg);
+                const returnDmg = this.player?.getReturnDmg();
                 if (!this.player?.isAlive()) {
                     game.gameOverHandler();
+                } else if (returnDmg) {
+                    this.hitEnemy(returnDmg);
                 }
             } else {
                 console.log('block');
