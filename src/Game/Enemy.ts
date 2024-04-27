@@ -1,3 +1,5 @@
+import { rand } from "./rand";
+
 export interface Enemy {
     name: string,
     hp: number,
@@ -48,24 +50,104 @@ const enemyTypes: EnemyTypes = {
     },
     woolf: {
         name: 'woolf',
-        hp: 25,
-        dmg: 5,
+        hp: 35,
+        dmg: 6,
         experience: 15,
-        attackTimeout: 1000,
+        attackTimeout: 1400,
+    },
+    larva: {
+        name: 'larva',
+        hp: 70,
+        dmg: 7,
+        experience: 20,
+        attackTimeout: 1500,
+    },
+    skeleton: {
+        name: 'skeleton',
+        hp: 100,
+        dmg: 8,
+        experience: 25,
+        attackTimeout: 1200,
+    },
+    boss1: {
+        name: 'boss',
+        hp: 250,
+        dmg: 10,
+        experience: 100,
+        attackTimeout: 1200,
     },
 };
 
 export function createEnemy (enemyKilledInRun: number): Enemy {
     let enemyType = enemyTypes.snail;
     console.log(enemyKilledInRun);
-    if (enemyKilledInRun >= 40) {
-        enemyType = enemyTypes.woolf;
+    if (enemyKilledInRun === 100) {
+        enemyType = enemyTypes.boss1;
+    } else if (enemyKilledInRun >= 80) {
+        enemyType = generateEnemyType([
+            {
+                chance: 60,
+                config: enemyTypes.skeleton,
+            },
+            {
+                chance: 30,
+                config: enemyTypes.larva,
+            },
+            {
+                chance: 10,
+                config: enemyTypes.woolf,
+            },
+        ]);
+    } else if (enemyKilledInRun >= 60) {
+        enemyType = generateEnemyType([
+            {
+                chance: 40,
+                config: enemyTypes.larva,
+            },
+            {
+                chance: 40,
+                config: enemyTypes.woolf,
+            },
+            {
+                chance: 20,
+                config: enemyTypes.rat,
+            },
+        ]);
+    } else if (enemyKilledInRun >= 40) {
+        enemyType = generateEnemyType([
+            {
+                chance: 60,
+                config: enemyTypes.woolf,
+            },
+            {
+                chance: 40,
+                config: enemyTypes.rat,
+            },
+        ]);
     } else if (enemyKilledInRun >= 20) {
         enemyType = enemyTypes.rat;
     } else if (enemyKilledInRun > 0) {
         enemyType = enemyTypes.snail;
     }
     return createConcreteEnemy(enemyType);
+}
+
+interface EnemyGeneratorConfig {
+    chance: number
+    config: EnemyConfig
+}
+
+function generateEnemyType(config: Array<EnemyGeneratorConfig>) {
+    const max = config.reduce((memo, c) => memo + c.chance, 0);
+    const chance = rand.randInRange(0, max);
+    let all = 0;
+    for(let c of config) {
+        all += c.chance;
+        if (chance < all) {
+            return c.config;
+        }
+    }
+    return config[0].config;
 }
 
 function createConcreteEnemy(config: EnemyConfig): Enemy {

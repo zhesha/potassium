@@ -11,18 +11,15 @@
 + add some skills to skill-tree
 + fix enemy disapear on screen change
 + add game play loop
-- config first 100 monsters
-    + 10
-    + 10-20
-    + 20-50
-    50-100
-        add mobs
-- add NPC(5-10)
-    what prise for upgrade?
++ config first 100 monsters
+- mana become NaN
+- need to create all skills logic(3 done)
+    check skills levels
 - add timeout for skills
+- add NPC(5-10)
+    what price for upgrade?
 - add elemental attacks
 - add magic scrolls
-need to create all skills logic(3 done)
 need to create all effects for items
 // TODO getList
 - add jewels
