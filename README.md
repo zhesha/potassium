@@ -12,8 +12,19 @@
 + fix enemy disapear on screen change
 + add game play loop
 + config first 100 monsters
++ check skills levels
 - need to create all skills logic(3 done)
-    check skills levels
+- remove pocket
+- make game pretty
+    make it horizontal
+    show HP, MP, money, enemy killed
+    move three buttons
+    show hero sprite
+    show attack
+    add enemy sprites
+    add enemy attack
+    add floating numbers
+    add notification on levelup
 - add timeout for skills
 - add NPC(5-10)
     what price for upgrade?

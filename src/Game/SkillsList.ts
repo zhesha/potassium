@@ -178,10 +178,15 @@ export function createSkills(): SkillsList {
         },
         activateSkill(index: number) {
             if (game.player.getCurrentLevel() - game.player.usedPoints - 1 > 0) {
-                this.list.push({
-                    index: index,
-                    level: 1,
-                });
+                const item = this.list.find(item => item.index === index);
+                if (item) {
+                    item.level += 1;
+                } else {
+                    this.list.push({
+                        index: index,
+                        level: 1,
+                    });
+                }
                 game.player.usedPoints += 1;
                 handleActivation(index);
                 game.player.charDataChangeHandler();
