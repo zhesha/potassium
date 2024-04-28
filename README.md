@@ -12,7 +12,6 @@
 + fix enemy disapear on screen change
 + add game play loop
 + config first 100 monsters
-- mana become NaN
 - need to create all skills logic(3 done)
     check skills levels
 - add timeout for skills

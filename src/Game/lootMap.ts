@@ -362,7 +362,7 @@ export const lootMap: LootMap = {
         },
         {
             name: 'mana potion 50',
-            hp: 50,
+            mana: 50,
             price: 50,
             type: PocketItemType.manaPotion,
         },
@@ -483,7 +483,7 @@ export const lootMap: LootMap = {
         },
         {
             name: 'mana potion 50',
-            hp: 50,
+            mana: 50,
             price: 50,
             type: PocketItemType.manaPotion,
         },
@@ -553,7 +553,7 @@ export const lootMap: LootMap = {
         // рубін
         {
             name: 'mana potion 100',
-            hp: 100,
+            mana: 100,
             price: 100,
             type: PocketItemType.manaPotion,
         },
@@ -647,7 +647,7 @@ export const lootMap: LootMap = {
         },
         {
             name: 'mana potion 100',
-            hp: 100,
+            mana: 100,
             price: 100,
             type: PocketItemType.manaPotion,
         },
@@ -745,7 +745,7 @@ export const lootMap: LootMap = {
         },
         {
             name: 'mana potion 100',
-            hp: 100,
+            mana: 100,
             price: 100,
             type: PocketItemType.manaPotion,
         },
