@@ -1,7 +1,7 @@
 import { InfoData } from "../components/GamePage/Info/Info";
 import { Enemy, createEnemy } from "./Enemy";
 import { InstantItemType } from "./Inventory";
-import { Loot, getRealItemFromLoot, loot } from "./Loot";
+import { Loot, LootItem, getRealItemFromLoot, loot } from "./Loot";
 import { Npc, createNpc } from "./Npc";
 import { Player, createPlayer } from "./Player";
 import { randomizer } from "./randomizer";
@@ -43,8 +43,8 @@ interface Game {
     onNpcProgress: (handler: () => void) => void,
     enemyReceiveDmgHandler: (currentHp: number) => void,
     onEnemyDmgReceive: (handler: (currentHp: number) => void) => void,
-    lootMessage?: string,
-    getLootMessage(): string | undefined,
+    lootMessage?: Array<LootItem>,
+    getLootMessage(): Array<LootItem> | undefined,
     showLootHandler: () => void,
     onShowLoot: (handler: () => void) => void,
     infoChangeHandler: () => void,
@@ -60,6 +60,7 @@ interface Game {
     reachNpcHandler: () => void,
     onReachNpc(handler: () => void): void
     restart(): void
+    acceptLoot(item: LootItem): void
 }
 
 export const game: Game = {
@@ -242,7 +243,16 @@ export const game: Game = {
         this.player.addExperience(value);
     },
     generateLoot () {
-        const item = this.loot.generate();
+        const lootNumber = game.player.skillsList.getLootNumber();
+        const items = []
+        for (let i = 0; i < lootNumber; i++) {
+            items.push(this.loot.generate());
+        }
+        
+        this.lootMessage = items;
+        this.showLootHandler();
+    },
+    acceptLoot(item: LootItem) {
         if (item.type === InstantItemType.healing) {
             this.player.heal(item.hp!);
         } else if (item.type === InstantItemType.money) {
@@ -255,7 +265,7 @@ export const game: Game = {
                 this.player.inventory.backpack.add(realItem);
             }
         }
-        this.lootMessage = item.name;
+        this.lootMessage = undefined;
         this.showLootHandler();
     },
     needCreateNpc () {

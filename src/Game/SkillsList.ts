@@ -7,6 +7,7 @@ export enum SkillType {
     fireball,
     iceBeam,
     waterCanon,
+
     economy,
     fastLearner,
     regenHp,
@@ -153,17 +154,17 @@ export interface SkillsList {
     getMaxHp(): number
     changeHandler: () => void,
     onChange(handler: () => void): void
+    getLootNumber(): number
 }
 
 export function createSkills(): SkillsList {
     return {
         list: [],
         getList() {
-            // TODO getList
             return this.list.map(item => ({
                 ...skillTreeList[item.index],
                 level: item.level,
-            })).filter(item => item.type !== SkillType.maxHp);
+            })).filter(item => !isSkillPassive(item.type));
         },
         getActiveSkills() {
             return [...this.list];
@@ -201,6 +202,21 @@ export function createSkills(): SkillsList {
             }
             return 0;
         },
+        getLootNumber () {
+            const economy = this.list.find(item => skillTreeList[item.index].type === SkillType.economy);
+            if (economy !== undefined) {
+                if (economy.level === 1) {
+                    return 2;
+                } else if (economy.level === 3) {
+                    return 3;
+                } else if (economy.level === 5) {
+                    return 4;
+                } else if (economy.level === 7) {
+                    return 5;
+                }
+            }
+            return 1;
+        },
         changeHandler: () => {},
         onChange(handler: () => void) {
             this.changeHandler = handler;
@@ -219,18 +235,25 @@ export function skillUseHandler (item: SkillItem) {
         game.player.mana -= manaCost;
     } else if (item.type === SkillType.fireball) {
         const dmgAmount = [5, 20, 75, 150, 300, 500, 750]
-        game.player.heal(dmgAmount[item.level - 1]);
-        game.hitEnemy(5);
+        game.hitEnemy(dmgAmount[item.level - 1]);
+        game.player.mana -= manaCost;
+    } else if (item.type === SkillType.iceBeam) {
+        const dmgAmount = [5, 20, 75, 150, 300, 500, 750]
+        game.hitEnemy(dmgAmount[item.level - 1]);
+        game.player.mana -= manaCost;
+    } else if (item.type === SkillType.waterCanon) {
+        const dmgAmount = [5, 20, 75, 150, 300, 500, 750]
+        game.hitEnemy(dmgAmount[item.level - 1]);
         game.player.mana -= manaCost;
     }
 }
 
 function handleActivation(index: number) {
-    if (skillTreeList[index].type === SkillType.maxHp) {
-        const relativeHp = game.player.hp / (game.player.getMaxHp() - 100);
-        const newHp = Math.floor(relativeHp * game.player.getMaxHp());
-        game.player.heal(newHp - game.player.hp);
-    }
+    // if (skillTreeList[index].type === SkillType.maxHp) {
+    //     const relativeHp = game.player.hp / (game.player.getMaxHp() - 100);
+    //     const newHp = Math.floor(relativeHp * game.player.getMaxHp());
+    //     game.player.heal(newHp - game.player.hp);
+    // }
 }
 
 function getMana (item: SkillItem) {
@@ -276,4 +299,18 @@ function getMana (item: SkillItem) {
     } else if (item.type === SkillType.werewolf) {
         return costs.werewolf[item.level - 1];
     }
+}
+
+function isSkillPassive (itemType: SkillType) {
+    const passiveList = [
+        SkillType.maxHp,
+        SkillType.maxMp,
+        SkillType.economy,
+        SkillType.fastLearner,
+        SkillType.regenHp,
+        SkillType.regenMp,
+        SkillType.enhancement,
+    ];
+
+    return passiveList.includes(itemType);
 }
