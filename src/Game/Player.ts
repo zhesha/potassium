@@ -4,7 +4,7 @@ import { Inventory, createInventory } from "./Inventory";
 import { InventoryItemBase, ItemEffect } from "./Loot";
 import { Pocket, createPocket, PocketLoot } from "./Pocket";
 import { ProbabilityGenerator, createProbabilityDeck } from "./Probability";
-import { SkillItem, SkillsList, createSkills } from "./SkillsList";
+import { SkillItem, SkillType, SkillsList, createSkills } from "./SkillsList";
 
 interface CharData {
     experience: string
@@ -138,7 +138,13 @@ export function createPlayer (): Player {
             };
         },
         addExperience (value: number) {
-            this.experience += value;
+            const skill = this.skillsList.findSkillByType(SkillType.fastLearner);
+            let multiplier = 1;
+            if (skill) {
+                const m = [1.2, 1.4, 1.6, 1.8, 2, 2.5, 3];
+                multiplier = m[skill.level - 1];
+            }
+            this.experience += value * multiplier;
         },
         getCurrentLevel() {
             let level = 1;
