@@ -25,6 +25,7 @@
     add enemy attack
     add floating numbers
     add notification on levelup
+- when I will add NPC that can give magic stones for an item, I need to make "economy" skill level 6 handling
 - add timeout for skills
 - add NPC(5-10)
     what price for upgrade?

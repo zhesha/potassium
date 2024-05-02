@@ -155,6 +155,9 @@ export interface SkillsList {
     changeHandler: () => void,
     onChange(handler: () => void): void
     getLootNumber(): number
+    getSellDivider(): number
+    getBuyMultiplier(): number
+    findSkillByType(skillType: SkillType): ActiveSkill | undefined
 }
 
 export function createSkills(): SkillsList {
@@ -195,7 +198,7 @@ export function createSkills(): SkillsList {
             }
         },
         getMaxHp () {
-            const hpUp = this.list.find(item => skillTreeList[item.index].type === SkillType.maxHp);
+            const hpUp = this.findSkillByType(SkillType.maxHp);
             if (hpUp !== undefined) {
                 const amount = [100, 200, 400, 600, 900, 1400, 1900]
                 return amount[hpUp.level - 1];
@@ -203,16 +206,16 @@ export function createSkills(): SkillsList {
             return 0;
         },
         getLootNumber () {
-            const economy = this.list.find(item => skillTreeList[item.index].type === SkillType.economy);
+            const economy = this.findSkillByType(SkillType.economy);
             if (economy !== undefined) {
-                if (economy.level === 1) {
-                    return 2;
-                } else if (economy.level === 3) {
-                    return 3;
-                } else if (economy.level === 5) {
-                    return 4;
-                } else if (economy.level === 7) {
+                if (economy.level >= 6) {
                     return 5;
+                } else if (economy.level >= 4) {
+                    return 4;
+                } else if (economy.level >= 2) {
+                    return 3;
+                } else if (economy.level >= 1) {
+                    return 2;
                 }
             }
             return 1;
@@ -220,6 +223,23 @@ export function createSkills(): SkillsList {
         changeHandler: () => {},
         onChange(handler: () => void) {
             this.changeHandler = handler;
+        },
+        getSellDivider() {
+            const economy = this.findSkillByType(SkillType.economy);
+            if (economy !== undefined && economy.level >= 3) {
+                return 1
+            }
+            return 2;
+        },
+        getBuyMultiplier() {
+            const economy = this.findSkillByType(SkillType.economy);
+            if (economy !== undefined && economy.level >= 5) {
+                return 2
+            }
+            return 3;
+        },
+        findSkillByType(skillType: SkillType) {
+            return this.list.find(item => skillTreeList[item.index].type === skillType);
         }
     };
 }

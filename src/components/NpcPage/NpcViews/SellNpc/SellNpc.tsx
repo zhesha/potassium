@@ -21,7 +21,7 @@ export function SellNpc () {
 }
 
 function SellItem({item}: {item: RealItem}) {
-    const realPrice = Math.round(item.price / 2);
+    const realPrice = Math.round(item.price / game.player.skillsList.getSellDivider());
 
     function sell() {
         game.player.inventory.backpack.remove(item);

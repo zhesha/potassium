@@ -37,7 +37,7 @@ interface BuyItemProps {
 
 function BuyItem ({item}: BuyItemProps) {
     item = item as PocketLoot;
-    const realPrice = item.price * 3;
+    const realPrice = item.price * game.player.skillsList.getBuyMultiplier();
     function buy () {
         const realItem = getRealItemFromLoot(item);
         if (realItem && game.player.money >= realPrice) {
