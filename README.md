@@ -13,7 +13,7 @@
 + add game play loop
 + config first 100 monsters
 + check skills levels
-- need to create all skills logic(3 done)
++ need to create some skills logic
 - remove pocket
 - make game pretty
     make it horizontal
@@ -31,6 +31,7 @@
     what price for upgrade?
 - add elemental attacks
 - add magic scrolls
+- need to create all skills logic(10 done)
 need to create all effects for items
 // TODO getList
 - add jewels

@@ -26,6 +26,8 @@ export interface Player {
     pocket: Pocket,
     skillsList: SkillsList,
     hitProbability: ProbabilityGenerator,
+    restoreTimer: number,
+    tick(deltaTime: number): void,
     updateAttackTimer: (delta: number) => void,
     isAttack: () => boolean,
     resetAttackTimer: () => void,
@@ -84,6 +86,21 @@ export function createPlayer (): Player {
         pocket: createPocket(),
         skillsList: createSkills(),
         hitProbability: createProbabilityDeck(10),
+        restoreTimer: 0,
+        tick(deltaTime: number) {
+            this.restoreTimer -= deltaTime;
+            if (this.restoreTimer <= 0) {
+                this.restoreTimer = 1000;
+                const hpRestore = this.skillsList.getHpRestore()
+                const mpRestore = this.skillsList.getMpRestore()
+                if (hpRestore) {
+                    this.heal(hpRestore);
+                }
+                if (mpRestore) {
+                    this.addMana(mpRestore);
+                }
+            }
+        },
         getMaxHp() {
             return 100 + this.skillsList.getMaxHp() + this.inventory.getMaxHp();
         },

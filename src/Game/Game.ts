@@ -94,11 +94,12 @@ export const game: Game = {
         }
     },
     tick(timeStamp: number) {
+        const deltaTime = timeStamp - this.lastTimeStamp;
+        this.player.tick(deltaTime);
         if (this.isRun && this.lastTimeStamp === 0) {
             this.lastTimeStamp = timeStamp;
         }
         if (this.isRun) {
-            const deltaTime = timeStamp - this.lastTimeStamp;
             this.time += deltaTime;
             if (this.gameState === GameState.moving && this.enemy && !this.enemy.isArrive()) {
                 this.doMove(deltaTime);

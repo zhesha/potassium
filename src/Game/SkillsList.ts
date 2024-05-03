@@ -158,6 +158,8 @@ export interface SkillsList {
     getSellDivider(): number
     getBuyMultiplier(): number
     findSkillByType(skillType: SkillType): ActiveSkill | undefined
+    getHpRestore(): number
+    getMpRestore(): number
 }
 
 export function createSkills(): SkillsList {
@@ -240,7 +242,23 @@ export function createSkills(): SkillsList {
         },
         findSkillByType(skillType: SkillType) {
             return this.list.find(item => skillTreeList[item.index].type === skillType);
-        }
+        },
+        getHpRestore() {
+            const skill = this.findSkillByType(SkillType.regenHp);
+            if (skill) {
+                const times = [1, 2, 4, 7, 10, 15, 20];
+                return times[skill.level - 1];
+            }
+            return 0;
+        },
+        getMpRestore() {
+            const skill = this.findSkillByType(SkillType.regenMp)
+            if (skill) {
+                const times = [1, 2, 4, 7, 10, 15, 20];
+                return times[skill.level - 1];
+            }
+            return 0;
+        },
     };
 }
 
