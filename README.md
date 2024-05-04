@@ -14,7 +14,7 @@
 + config first 100 monsters
 + check skills levels
 + need to create some skills logic
-- remove pocket
++ remove pocket
 - make game pretty
     make it horizontal
     show HP, MP, money, enemy killed

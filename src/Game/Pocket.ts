@@ -1,4 +1,5 @@
 import { InstantItemType, PocketItemType } from "./Inventory"
+import { RealItem } from "./Loot"
 
 export interface PocketLoot {
     name: string
@@ -69,4 +70,8 @@ export function createPocket (): Pocket {
             this.list = data.list;
         }
     }
+}
+
+export function isConsumable (item: RealItem): item is PocketLoot {
+    return item.type === PocketItemType.healthPotion || item.type === PocketItemType.manaPotion;
 }

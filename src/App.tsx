@@ -3,7 +3,6 @@ import './App.scss';
 import { InventoryPage } from './components/InventoryPage/InventoryPage';
 import { SkillPage } from './components/SkillPage/SkillPage';
 import { CharacterPage } from './components/CharacterPage/CharacterPage';
-import { PocketPage } from './components/PocketPage/PocketPage';
 import { GamePage } from './components/GamePage/GamePage';
 import { NpcPage } from './components/NpcPage/NpcPage';
 import { game } from './Game/Game';
@@ -13,7 +12,6 @@ export enum Pages {
     inventory,
     skill,
     character,
-    pocket,
     npc
 }
 
@@ -38,9 +36,6 @@ function App() {
                 }
                 {page === Pages.character &&
                     <CharacterPage setPage={setPage} />
-                }
-                {page === Pages.pocket &&
-                    <PocketPage setPage={setPage} />
                 }
                 {page === Pages.npc &&
                     <NpcPage setPage={setPage} />

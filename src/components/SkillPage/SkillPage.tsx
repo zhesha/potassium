@@ -11,11 +11,11 @@ interface SkillPageProps {
 }
 
 export function SkillPage ({ setPage }: SkillPageProps) {
-    const [pocketItems, setPocketItems] = useState(game.player.getPocketItems());
+    const [pocketItems, setPocketItems] = useState(game.player.getConsumableItems());
     const [skills, setSkills] = useState(game.player.getSkills());
 
-    game.player.pocket.onChange(() => {
-        setPocketItems(game.player.getPocketItems());
+    game.player.onChangeInventory(() => {
+        setPocketItems(game.player.getConsumableItems());
     });
     
     game.player.onSkillsChange(() => {

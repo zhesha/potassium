@@ -30,7 +30,6 @@ export function GamePage ({setPage}: GameProps) {
             toInventory={() => setPage(Pages.inventory)}
             toSkill={() => setPage(Pages.skill)}
             toCharacter={() => setPage(Pages.character)}
-            toPocket={() => setPage(Pages.pocket)}
         />
         <Info/>
         {loot && <LootWindow close={() => {

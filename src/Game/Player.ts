@@ -1,8 +1,8 @@
 import { EffectType } from "./Effects";
 import { game } from "./Game";
 import { Inventory, createInventory } from "./Inventory";
-import { InventoryItemBase, ItemEffect } from "./Loot";
-import { Pocket, createPocket, PocketLoot } from "./Pocket";
+import { InventoryItemBase } from "./Loot";
+import { Pocket, createPocket, PocketLoot, isConsumable } from "./Pocket";
 import { ProbabilityGenerator, createProbabilityDeck } from "./Probability";
 import { SkillItem, SkillType, SkillsList, createSkills } from "./SkillsList";
 
@@ -39,6 +39,7 @@ export interface Player {
     getBlockChance: () => number,
     getSkills (): Array<SkillItem>;
     getPocketItems (): Array<PocketLoot>;
+    getConsumableItems (): Array<PocketLoot>;
     getCharData (): CharData;
     addExperience (value: number): void,
     getCurrentLevel(): number,
@@ -146,6 +147,9 @@ export function createPlayer (): Player {
         },
         getPocketItems () {
             return this.pocket.getList();
+        },
+        getConsumableItems () {
+            return this.inventory.backpack.list.filter(item => isConsumable(item)) as Array<PocketLoot>;
         },
         getCharData () {
             return {
