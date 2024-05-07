@@ -16,7 +16,7 @@
 + need to create some skills logic
 + remove pocket
 - make game pretty
-    make it horizontal
+    +make it horizontal
     show HP, MP, money, enemy killed
     move three buttons
     show hero sprite
@@ -25,15 +25,15 @@
     add enemy attack
     add floating numbers
     add notification on levelup
-- when I will add NPC that can give magic stones for an item, I need to make "economy" skill level 6 handling
+    fix background-position: 3933px;
 - add timeout for skills
 - add NPC(5-10)
     what price for upgrade?
+    - when I will add NPC that can give magic stones for an item, I need to make "economy" skill level 6 handling
 - add elemental attacks
 - add magic scrolls
 - need to create all skills logic(10 done)
-need to create all effects for items
-// TODO getList
+- need to create all effects for items
 - add jewels
 - add rune
 - config first 1000 monsters

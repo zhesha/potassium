@@ -1,0 +1,18 @@
+.action-button {
+    font-size: 40px;
+    color: #ffffffaa;
+    position: absolute;
+    right: 25vh;
+    top: 25vh;
+    height: 50vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50vh;
+    background-color: #ffffff55;
+    border-radius: 50%;
+    border: 5px solid #ffffffaa;
+    box-sizing: border-box;
+    cursor: pointer;
+    user-select: none;
+}
