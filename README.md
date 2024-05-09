@@ -17,7 +17,7 @@
 + remove pocket
 - make game pretty
     +make it horizontal
-    show HP, MP, money, enemy killed
+    +show HP, MP, money, enemy killed
     move three buttons
     show hero sprite
     show attack

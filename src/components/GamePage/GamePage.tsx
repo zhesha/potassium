@@ -38,8 +38,8 @@ export function GamePage ({setPage}: GameProps) {
             toInventory={() => setPage(Pages.inventory)}
             toSkill={() => setPage(Pages.skill)}
             toCharacter={() => setPage(Pages.character)}
-        />
-        <Info/> */}
+        /> */}
+        <Info/>
         {loot && <LootWindow close={() => {
             game.lootMessage = undefined
             setLoot(undefined);

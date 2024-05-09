@@ -1,7 +1,53 @@
 .info {
     flex-grow: 1;
     display: flex;
-    flex-direction: column;
+    width: 100%;
     align-items: flex-start;
+    justify-content: space-around;
     padding: 10px;
+    position: absolute;
+    bottom: 0;
+    box-sizing: border-box;
+    padding-bottom: 20px;
+}
+
+.info > div {
+    display: flex;
+}
+
+.hp-icon {
+    background: url(../../../img/hp.png) 100%;
+    background-size: cover;
+    height: 80px;
+    width: 80px;
+}
+
+.mana-icon {
+    background: url(../../../img/mana.png) 100%;
+    background-size: cover;
+    height: 80px;
+    width: 80px;
+}
+
+.money-icon {
+    background: url(../../../img/money.png) 100%;
+    background-size: cover;
+    height: 80px;
+    width: 80px;
+}
+
+.kill-icon {
+    background: url(../../../img/kills.png) 100%;
+    background-size: cover;
+    height: 80px;
+    width: 80px;
+}
+
+.info-text {
+    height: 80px;
+    display: flex;
+    align-items: center;
+    margin-left: 20px;
+    font-size: 28px;
+    font-weight: bold;
 }

@@ -278,6 +278,7 @@ export const game: Game = {
             hp: this.player.hp,
             maxHp: this.player.getMaxHp(),
             mana: this.player.mana,
+            maxMana: this.player.getMaxMana(),
             money: this.player.money,
             enemyKilled: this.enemyKilledInRun,
         }
