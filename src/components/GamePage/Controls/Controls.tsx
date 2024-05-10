@@ -10,9 +10,14 @@ interface ControlsProps {
 
 export function Controls({toInventory, toSkill, toCharacter}: ControlsProps) {
     return <div className="controls">
-        <div onMouseDown={() => game.runPressed()} onMouseUp={() => game.runReleased()} onMouseLeave={() => game.runReleased()}>Run</div>
-        <div onClick={() => toSkill()}>Skill</div>
-        <div onClick={() => toInventory()}>Inventory</div>
-        <div onClick={() => toCharacter()}>Character</div>
+        <div className="button-wrapper" onClick={() => toSkill()}>
+            <div className="skill" />
+        </div>
+        <div className="button-wrapper" onClick={() => toInventory()}>
+            <div className="inventory" />
+        </div>
+        <div className="button-wrapper" onClick={() => toCharacter()}>
+            <div className="character" />
+        </div>
     </div>
 }

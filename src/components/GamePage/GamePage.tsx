@@ -34,11 +34,11 @@ export function GamePage ({setPage}: GameProps) {
                 Run
         </div>
         <Field />
-        {/* <Controls
+        <Controls
             toInventory={() => setPage(Pages.inventory)}
             toSkill={() => setPage(Pages.skill)}
             toCharacter={() => setPage(Pages.character)}
-        /> */}
+        />
         <Info/>
         {loot && <LootWindow close={() => {
             game.lootMessage = undefined

@@ -1,7 +1,41 @@
 @import '../../../style-variables.scss';
 
 .controls {
-    flex-grow: 1;
-    border-bottom: 1px solid $border;
-    padding: 10px;
+    position: absolute;
+    top: 0;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    padding: 50px 50px;
+    box-sizing: border-box;
+
+    .button-wrapper {
+        padding: 20px;
+        background-color: #ffffff55;
+        border-radius: 50%;
+        border: 5px solid #ffffffaa;
+        cursor: pointer;
+    }
+
+    .skill {
+        height: 80px;
+        width: 80px;
+        background: url(../../../img/skill.png);
+        background-size: cover;
+    }
+
+    .inventory {
+        height: 80px;
+        width: 80px;
+        background: url(../../../img/backpack.png);
+        background-size: cover;
+    }
+
+    .character {
+        height: 80px;
+        width: 80px;
+        background: url(../../../img/char.png);
+        background-size: cover;
+    }
 }

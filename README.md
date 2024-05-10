@@ -18,7 +18,7 @@
 - make game pretty
     +make it horizontal
     +show HP, MP, money, enemy killed
-    move three buttons
+    +move three buttons
     show hero sprite
     show attack
     add enemy sprites
