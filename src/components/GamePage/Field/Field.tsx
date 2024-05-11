@@ -3,29 +3,62 @@ import './Field.scss';
 import { config } from '../../../config';
 import { game } from '../../../Game/Game';
 
+enum AttackStage {
+    idle,
+    start,
+    end
+}
+
 export function Field() {
     const [enemyProgress, setEnemyProgress] = useState(game.enemy?.movingProgress() || 0);
     const [npcProgress, setNpcProgress] = useState(game.npc?.movingProgress() || 0);
     const [bgPosition, setBgPosition] = useState(0);
+    const [isRunning, setIsRunning] = useState(false);
+    const [attackStage, setAttackStage] = useState(AttackStage.idle);
     
     game.onEnemyProgress(() => {
         const newProgress = game.enemy?.movingProgress() || 0;
         setBgPosition(bgPosition + 0.2);
         setEnemyProgress(newProgress);
+        setIsRunning(true);
     });
 
     game.onNpcProgress(() => {
         const newProgress = game.npc?.movingProgress() || 0;
         setBgPosition(bgPosition + 0.2);
         setNpcProgress(newProgress);
+        setIsRunning(true);
     });
+
+    game.onPlayerStop(() => {
+        setIsRunning(false);
+    });
+
+    game.onAttack(() => {
+        setAttackStage(AttackStage.start);
+        setTimeout(() => {
+            setAttackStage(AttackStage.end);
+            setTimeout(() => {
+                setAttackStage(AttackStage.idle);
+            }, 150);
+        }, 100);
+    });
+
+    let attackClass = '';
+    if (attackStage === AttackStage.idle) {
+        attackClass = 'idle';
+    } else if (attackStage === AttackStage.start) {
+        attackClass = 'attack-start';
+    } else if (attackStage === AttackStage.end) {
+        attackClass = 'attack-end';
+    }
 
     const passLength = config.fieldWidth - config.playerWidth - config.playerMargin;
     const enemyStartPosition = config.fieldWidth - (enemyProgress * passLength);
     const npcStartPosition = config.fieldWidth - (npcProgress * passLength);
 
     return <div className="field" style={{backgroundPosition: -bgPosition}}>
-        <div className="player">Hero</div>
+        <div className={"player " + (attackClass) + (isRunning ? ' run' : '')} />
         {game.enemy && <div className="enemy" style={{marginLeft: enemyStartPosition}}>{game.enemy?.name}</div>}
         {game.npc && <div className="npc" style={{marginLeft: npcStartPosition}}>{game.npc?.name}</div>}
     </div>

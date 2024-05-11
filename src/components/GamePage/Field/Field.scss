@@ -25,9 +25,29 @@
 .player {
     height: 150px;
     width: 150px;
-    background-color: blueviolet;
     margin-left: 260px;
     margin-top: 405px;
+}
+.idle {
+    background: url(../../../img/hero-idle.png);
+    background-size: cover;
+}
+.attack-start {
+    background: url(../../../img/hero-attack-1.png);
+    background-size: cover;
+}
+.attack-end {
+    background: url(../../../img/hero-attack-2.png);
+    background-size: cover;
+}
+.player.run {
+    animation: 0.25s linear 0s infinite alternate hero-run;
+}
+
+@keyframes hero-run {
+    from {
+        margin-top: 398px;
+    }
 }
 
 .enemy {

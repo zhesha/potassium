@@ -19,8 +19,8 @@
     +make it horizontal
     +show HP, MP, money, enemy killed
     +move three buttons
-    show hero sprite
-    show attack
+    +show hero sprite
+    +show attack
     add enemy sprites
     add enemy attack
     add floating numbers

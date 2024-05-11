@@ -59,6 +59,10 @@ interface Game {
     onGameOver(handler: () => void): void
     reachNpcHandler: () => void,
     onReachNpc(handler: () => void): void
+    playerStopHandler: () => void,
+    onPlayerStop(handler: () => void): void
+    attackHandler: () => void,
+    onAttack(handler: () => void): void
     restart(): void
     acceptLoot(item: LootItem): void
 }
@@ -127,6 +131,7 @@ export const game: Game = {
         if (this.enemy.isArrive()) {
             this.player.startAttackTimer();
             this.gameState = GameState.fighting;
+            this.playerStopHandler();
         }
     },
     doNpcMove(deltaTime: number) {
@@ -139,6 +144,7 @@ export const game: Game = {
             this.reachNpcHandler();
             this.isRun = false;
             this.gameState = GameState.npcMenu;
+            this.playerStopHandler();
         }
     },
     spawnEnemy () {
@@ -151,6 +157,7 @@ export const game: Game = {
     },
     doPlayerAttack(deltaTime: number) {
         if (this.player.isAttack()) {
+            this.attackHandler();
             this.player.resetAttackTimer();
             if (this.player.isHitSuccess()) {
                 this.hitEnemy(this.player.getDmg());
@@ -199,6 +206,7 @@ export const game: Game = {
     },
     runReleased() {
         this.isRun = false;
+        this.playerStopHandler();
     },
     enemyProgressHandlers: () => { },
     onEnemyProgress(handler: () => void) {
@@ -207,6 +215,14 @@ export const game: Game = {
     npcProgressHandlers: () => { },
     onNpcProgress(handler: () => void) {
         this.npcProgressHandlers = handler;
+    },
+    playerStopHandler: () => { },
+    onPlayerStop(handler: () => void) {
+        this.playerStopHandler = handler;
+    },
+    attackHandler: () => { },
+    onAttack(handler: () => void) {
+        this.attackHandler = handler;
     },
     enemyReceiveDmgHandler: (currentHp: number) => { },
     onEnemyDmgReceive(handler: (currentHp: number) => void) {
