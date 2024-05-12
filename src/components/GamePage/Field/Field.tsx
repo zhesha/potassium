@@ -18,14 +18,14 @@ export function Field() {
     
     game.onEnemyProgress(() => {
         const newProgress = game.enemy?.movingProgress() || 0;
-        setBgPosition(bgPosition + 0.2);
+        setBgPosition(bgPosition + 1);
         setEnemyProgress(newProgress);
         setIsRunning(true);
     });
 
     game.onNpcProgress(() => {
         const newProgress = game.npc?.movingProgress() || 0;
-        setBgPosition(bgPosition + 0.2);
+        setBgPosition(bgPosition + 1);
         setNpcProgress(newProgress);
         setIsRunning(true);
     });
@@ -53,13 +53,13 @@ export function Field() {
         attackClass = 'attack-end';
     }
 
-    const passLength = config.fieldWidth - config.playerWidth - config.playerMargin;
-    const enemyStartPosition = config.fieldWidth - (enemyProgress * passLength);
+    const passLength = window.innerWidth - config.playerWidth - config.playerMargin;
+    const enemyStartPosition = window.innerWidth - (enemyProgress * passLength);
     const npcStartPosition = config.fieldWidth - (npcProgress * passLength);
 
     return <div className="field" style={{backgroundPosition: -bgPosition}}>
         <div className={"player " + (attackClass) + (isRunning ? ' run' : '')} />
-        {game.enemy && <div className="enemy" style={{marginLeft: enemyStartPosition}}>{game.enemy?.name}</div>}
+        {game.enemy && <div className={"enemy "+game.enemy?.name} style={{marginLeft: enemyStartPosition}} />}
         {game.npc && <div className="npc" style={{marginLeft: npcStartPosition}}>{game.npc?.name}</div>}
     </div>
 }

@@ -21,8 +21,10 @@
     +move three buttons
     +show hero sprite
     +show attack
-    add enemy sprites
+    +add enemy sprites
     add enemy attack
+    add npc sprites
+    add boss sprite
     add floating numbers
     add notification on levelup
     fix background-position: 3933px;

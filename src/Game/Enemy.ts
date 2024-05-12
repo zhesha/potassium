@@ -48,15 +48,15 @@ const enemyTypes: EnemyTypes = {
         experience: 10,
         attackTimeout: 1600,
     },
-    woolf: {
-        name: 'woolf',
+    larva: {
+        name: 'larva',
         hp: 35,
         dmg: 6,
         experience: 15,
         attackTimeout: 1400,
     },
-    larva: {
-        name: 'larva',
+    woolf: {
+        name: 'woolf',
         hp: 70,
         dmg: 7,
         experience: 20,
@@ -69,8 +69,8 @@ const enemyTypes: EnemyTypes = {
         experience: 25,
         attackTimeout: 1200,
     },
-    boss1: {
-        name: 'boss',
+    bossSnake: {
+        name: 'bossSnake',
         hp: 250,
         dmg: 10,
         experience: 100,

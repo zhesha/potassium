@@ -1,6 +1,6 @@
 export const config = {
     fieldWidth: 500,
-    playerMargin: 10,
-    playerWidth: 100,
+    playerMargin: 260,
+    playerWidth: 150,
     enemyWidth: 50,
 }
