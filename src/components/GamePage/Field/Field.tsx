@@ -15,6 +15,7 @@ export function Field() {
     const [bgPosition, setBgPosition] = useState(0);
     const [isRunning, setIsRunning] = useState(false);
     const [attackStage, setAttackStage] = useState(AttackStage.idle);
+    const [isEnemyAttack, setEnemyAttack] = useState(false);
     
     game.onEnemyProgress(() => {
         const newProgress = game.enemy?.movingProgress() || 0;
@@ -44,6 +45,13 @@ export function Field() {
         }, 100);
     });
 
+    game.onEnemyAttack(() => {
+        setEnemyAttack(true);
+        setTimeout(() => {
+            setEnemyAttack(false);
+        }, 300);
+    });
+
     let attackClass = '';
     if (attackStage === AttackStage.idle) {
         attackClass = 'idle';
@@ -59,7 +67,8 @@ export function Field() {
 
     return <div className="field" style={{backgroundPosition: -bgPosition}}>
         <div className={"player " + (attackClass) + (isRunning ? ' run' : '')} />
-        {game.enemy && <div className={"enemy "+game.enemy?.name} style={{marginLeft: enemyStartPosition}} />}
+        {isEnemyAttack && <div className='enemy-attack' />}
+        {game.enemy && <div className={"enemy "+game.enemy?.name+(isEnemyAttack ? ' attacking' : '')} style={{left: enemyStartPosition}} />}
         {game.npc && <div className="npc" style={{marginLeft: npcStartPosition}}>{game.npc?.name}</div>}
     </div>
 }

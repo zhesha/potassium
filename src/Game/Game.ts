@@ -63,6 +63,8 @@ interface Game {
     onPlayerStop(handler: () => void): void
     attackHandler: () => void,
     onAttack(handler: () => void): void
+    enemyAttackHandler: () => void,
+    onEnemyAttack(handler: () => void): void
     restart(): void
     acceptLoot(item: LootItem): void
 }
@@ -179,7 +181,7 @@ export const game: Game = {
     },
     doEnemyAttack(deltaTime: number) {
         if (this.enemy?.isAttack()) {
-            console.log('enemy hit');
+            this.enemyAttackHandler();
             this.enemy?.resetAttackTimer();
             if (!randomizer.isSuccess(this.player.getBlockChance())) {
                 this.player?.doDamage(this.enemy?.dmg);
@@ -223,6 +225,10 @@ export const game: Game = {
     attackHandler: () => { },
     onAttack(handler: () => void) {
         this.attackHandler = handler;
+    },
+    enemyAttackHandler: () => { },
+    onEnemyAttack(handler: () => void) {
+        this.enemyAttackHandler = handler;
     },
     enemyReceiveDmgHandler: (currentHp: number) => { },
     onEnemyDmgReceive(handler: (currentHp: number) => void) {

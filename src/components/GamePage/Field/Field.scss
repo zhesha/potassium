@@ -50,6 +50,16 @@
     }
 }
 
+.enemy-attack {
+    height: 80px;
+    width: 80px;
+    background: url(../../../img/hit2.png);
+    background-size: contain;
+    position: absolute;
+    left: 300px;
+    top: 430px;
+}
+
 .enemy {
     height: 100px;
     width: 100px;
@@ -57,6 +67,9 @@
     // margin-top: 455px;
     top: 455px;
     // margin-top: -50px;
+}
+.enemy.attacking {
+    margin-left: -20px;
 }
 
 .enemy.snail {

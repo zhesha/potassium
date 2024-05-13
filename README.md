@@ -22,7 +22,7 @@
     +show hero sprite
     +show attack
     +add enemy sprites
-    add enemy attack
+    +add enemy attack
     add npc sprites
     add boss sprite
     add floating numbers
