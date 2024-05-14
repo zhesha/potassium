@@ -24,9 +24,11 @@
     +add enemy sprites
     +add enemy attack
     +add npc sprites
-    add boss sprite
+    +add boss sprite
     add floating numbers
     add notification on levelup
+    add notification on first item
+    fix menus
     fix background-position: 3933px;
 - add timeout for skills
 - add NPC(5-10)

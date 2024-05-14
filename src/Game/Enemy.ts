@@ -82,7 +82,7 @@ export function createEnemy (enemyKilledInRun: number): Enemy {
     let enemyType = enemyTypes.snail;
     console.log(enemyKilledInRun);
     if (enemyKilledInRun === 100) {
-        enemyType = enemyTypes.boss1;
+        enemyType = enemyTypes.bossSnake;
     } else if (enemyKilledInRun >= 80) {
         enemyType = generateEnemyType([
             {
