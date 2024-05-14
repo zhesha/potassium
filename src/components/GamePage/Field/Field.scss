@@ -100,9 +100,10 @@
 }
 
 .npc {
-    height: 50px;
-    width: 50px;
-    background-color: green;
-    position: relative;
-    margin-top: -50px;
+    height: 100px;
+    width: 100px;
+    position: absolute;
+    top: 455px;
+    background: url(../../../img/npc/npc.png);
+    background-size: cover;
 }

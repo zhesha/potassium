@@ -63,12 +63,12 @@ export function Field() {
 
     const passLength = window.innerWidth - config.playerWidth - config.playerMargin;
     const enemyStartPosition = window.innerWidth - (enemyProgress * passLength);
-    const npcStartPosition = config.fieldWidth - (npcProgress * passLength);
+    const npcStartPosition = window.innerWidth - (npcProgress * passLength);
 
     return <div className="field" style={{backgroundPosition: -bgPosition}}>
         <div className={"player " + (attackClass) + (isRunning ? ' run' : '')} />
         {isEnemyAttack && <div className='enemy-attack' />}
         {game.enemy && <div className={"enemy "+game.enemy?.name+(isEnemyAttack ? ' attacking' : '')} style={{left: enemyStartPosition}} />}
-        {game.npc && <div className="npc" style={{marginLeft: npcStartPosition}}>{game.npc?.name}</div>}
+        {game.npc && <div className="npc" style={{marginLeft: npcStartPosition}} />}
     </div>
 }
