@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import './Field.scss';
-import { config } from '../../../config';
 import { game } from '../../../Game/Game';
 
 enum AttackStage {
@@ -61,7 +60,9 @@ export function Field() {
         attackClass = 'attack-end';
     }
 
-    const passLength = window.innerWidth - config.playerWidth - config.playerMargin;
+    const playerWidth = window.innerHeight * 0.22;
+    const playerMargin = window.innerHeight * 0.39;
+    const passLength = window.innerWidth - playerWidth - playerMargin;
     const enemyStartPosition = window.innerWidth - (enemyProgress * passLength);
     const npcStartPosition = window.innerWidth - (npcProgress * passLength);
 

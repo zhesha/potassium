@@ -15,39 +15,47 @@
     display: flex;
 }
 
+$icon-size: 6vw;
+
 .hp-icon {
     background: url(../../../img/hp.png) 100%;
     background-size: cover;
-    height: 80px;
-    width: 80px;
+    height: $icon-size;
+    width: $icon-size;
 }
 
 .mana-icon {
     background: url(../../../img/mana.png) 100%;
     background-size: cover;
-    height: 80px;
-    width: 80px;
+    height: $icon-size;
+    width: $icon-size;
 }
 
 .money-icon {
     background: url(../../../img/money.png) 100%;
     background-size: cover;
-    height: 80px;
-    width: 80px;
+    height: $icon-size;
+    width: $icon-size;
 }
 
 .kill-icon {
     background: url(../../../img/kills.png) 100%;
     background-size: cover;
-    height: 80px;
-    width: 80px;
+    height: $icon-size;
+    width: $icon-size;
 }
 
 .info-text {
-    height: 80px;
+    // height: 80px;
     display: flex;
     align-items: center;
     margin-left: 20px;
     font-size: 28px;
     font-weight: bold;
+}
+
+@media screen and (max-width: 1024px) {
+    .info-text {
+        font-size: 20px;
+    }
 }

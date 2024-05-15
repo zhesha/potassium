@@ -23,10 +23,10 @@
 //   }
 
 .player {
-    height: 150px;
-    width: 150px;
-    margin-left: 260px;
-    margin-top: 405px;
+    height: 22vh;
+    width: 22vh;
+    margin-left: 39vh;
+    margin-top: 39vh;
 }
 .idle {
     background: url(../../../img/hero-idle.png);
@@ -46,26 +46,29 @@
 
 @keyframes hero-run {
     from {
-        margin-top: 398px;
+        margin-top: 38vh;
     }
 }
 
 .enemy-attack {
-    height: 80px;
-    width: 80px;
+    height: 9vh;
+    width: 9vh;
     background: url(../../../img/hit2.png);
     background-size: contain;
     position: absolute;
-    left: 300px;
-    top: 430px;
+    left: 46vh;
+    top: 45vh;
 }
 
 .enemy {
-    height: 100px;
-    width: 100px;
+    height: 16vh;
+    width: 16vh;
+    top: 45vh;
+    // height: 100px;
+    // width: 100px;
     position: absolute;
     // margin-top: 455px;
-    top: 455px;
+    // top: 455px;
     // margin-top: -50px;
 }
 .enemy.attacking {

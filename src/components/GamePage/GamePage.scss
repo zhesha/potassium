@@ -2,10 +2,12 @@
     font-size: 40px;
     color: #ffffffaa;
     position: absolute;
-    right: 30vh;
+    right: 10vw;
     top: 30vh;
     height: 40vh;
+    max-height: 30vw;
     width: 40vh;
+    max-width: 30vw;
     display: flex;
     align-items: center;
     justify-content: center;

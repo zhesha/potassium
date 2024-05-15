@@ -25,10 +25,12 @@
     +add enemy attack
     +add npc sprites
     +add boss sprite
+    +fix it for smaller screen size
     add floating numbers
     add notification on levelup
     add notification on first item
     fix menus
+    improve run button
     fix background-position: 3933px;
 - add timeout for skills
 - add NPC(5-10)

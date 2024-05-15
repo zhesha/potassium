@@ -7,34 +7,38 @@
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-    padding: 50px 50px;
+    padding: 2vw 3vw 10vw;
     box-sizing: border-box;
 
+    $button-padding: 3vh;
+
     .button-wrapper {
-        padding: 20px;
+        padding: $button-padding;
         background-color: #ffffff55;
         border-radius: 50%;
         border: 5px solid #ffffffaa;
         cursor: pointer;
     }
 
+    $button-size: 10vh;
+
     .skill {
-        height: 80px;
-        width: 80px;
+        height: $button-size;
+        width: $button-size;
         background: url(../../../img/skill.png);
         background-size: cover;
     }
 
     .inventory {
-        height: 80px;
-        width: 80px;
+        height: $button-size;
+        width: $button-size;
         background: url(../../../img/backpack.png);
         background-size: cover;
     }
 
     .character {
-        height: 80px;
-        width: 80px;
+        height: $button-size;
+        width: $button-size;
         background: url(../../../img/char.png);
         background-size: cover;
     }
