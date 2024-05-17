@@ -60,6 +60,60 @@
     top: 45vh;
 }
 
+.player-attack-numbers {
+    position: absolute;
+    left: 70vh;
+    top: 52vh;
+}
+
+.player-attack-number-item {
+    font-family: Helvetica, sans-serif;
+    font-size: 22px;
+    font-weight: bold;
+    color: rgb(249, 9, 9);
+    text-stroke: 1px #aaa;
+    -webkit-text-stroke: 1px #aaa;
+    position: absolute;
+    animation: 2s linear 0s infinite alternate player-attack-number-float;
+}
+.player-attack-number-item.miss {
+    color: #777;
+}
+
+@keyframes player-attack-number-float {
+    to {
+        margin-top: -50px;
+        margin-left: 30px;
+    }
+}
+
+.enemy-attack-numbers {
+    position: absolute;
+    left: 50vh;
+    top: 52vh;
+}
+
+.enemy-attack-number-item {
+    font-family: Helvetica, sans-serif;
+    font-size: 22px;
+    font-weight: bold;
+    color: rgb(249, 9, 9);
+    text-stroke: 1px #aaa;
+    -webkit-text-stroke: 1px #aaa;
+    position: absolute;
+    animation: 2s linear 0s infinite alternate enemy-attack-number-float;
+}
+.enemy-attack-number-item.block {
+    color: rgb(18, 239, 18);
+}
+
+@keyframes enemy-attack-number-float {
+    to {
+        margin-top: -50px;
+        margin-left: -30px;
+    }
+}
+
 .enemy {
     height: 16vh;
     width: 16vh;

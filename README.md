@@ -26,17 +26,17 @@
     +add npc sprites
     +add boss sprite
     +fix it for smaller screen size
-    add floating numbers
+    +add floating numbers
     add notification on levelup
     add notification on first item
-    fix menus
     improve run button
+    fix menus
     fix background-position: 3933px;
+- add elemental attacks
 - add timeout for skills
 - add NPC(5-10)
     what price for upgrade?
     - when I will add NPC that can give magic stones for an item, I need to make "economy" skill level 6 handling
-- add elemental attacks
 - add magic scrolls
 - need to create all skills logic(10 done)
 - need to create all effects for items

@@ -8,6 +8,11 @@ enum AttackStage {
     end
 }
 
+interface AttackNumber {
+    uuid: string,
+    result: string,
+}
+
 export function Field() {
     const [enemyProgress, setEnemyProgress] = useState(game.enemy?.movingProgress() || 0);
     const [npcProgress, setNpcProgress] = useState(game.npc?.movingProgress() || 0);
@@ -15,6 +20,8 @@ export function Field() {
     const [isRunning, setIsRunning] = useState(false);
     const [attackStage, setAttackStage] = useState(AttackStage.idle);
     const [isEnemyAttack, setEnemyAttack] = useState(false);
+    const [playerAttackNumbers, setPlayerAttackNumbers] = useState<Array<AttackNumber>>([]);
+    const [enemyAttackNumbers, setEnemyAttackNumbers] = useState<Array<AttackNumber>>([]);
     
     game.onEnemyProgress(() => {
         const newProgress = game.enemy?.movingProgress() || 0;
@@ -36,6 +43,22 @@ export function Field() {
 
     game.onAttack(() => {
         setAttackStage(AttackStage.start);
+        setPlayerAttackNumbers([
+            ...playerAttackNumbers,
+            {
+                uuid: (new Date()).getTime().toString(),
+                result: game.lastPlayerAttackResult,
+            }
+        ]);
+
+        setTimeout(() => {
+            setPlayerAttackNumbers(old => {
+                const newPlayerAttackNumbers = [...old];
+                newPlayerAttackNumbers.shift();
+                return newPlayerAttackNumbers;
+            });
+        }, 2000);
+
         setTimeout(() => {
             setAttackStage(AttackStage.end);
             setTimeout(() => {
@@ -46,6 +69,23 @@ export function Field() {
 
     game.onEnemyAttack(() => {
         setEnemyAttack(true);
+
+        setEnemyAttackNumbers([
+            ...enemyAttackNumbers,
+            {
+                uuid: (new Date()).getTime().toString(),
+                result: game.lastEnemyAttackResult,
+            }
+        ]);
+
+        setTimeout(() => {
+            setEnemyAttackNumbers(old => {
+                const newEnemyAttackNumbers = [...old];
+                newEnemyAttackNumbers.shift();
+                return newEnemyAttackNumbers;
+            });
+        }, 2000);
+
         setTimeout(() => {
             setEnemyAttack(false);
         }, 300);
@@ -70,6 +110,30 @@ export function Field() {
         <div className={"player " + (attackClass) + (isRunning ? ' run' : '')} />
         {isEnemyAttack && <div className='enemy-attack' />}
         {game.enemy && <div className={"enemy "+game.enemy?.name+(isEnemyAttack ? ' attacking' : '')} style={{left: enemyStartPosition}} />}
+        <div className='player-attack-numbers'>
+            {
+                playerAttackNumbers.map(
+                    i => (
+                        <div
+                            className={'player-attack-number-item '+i.result}
+                            key={i.uuid}
+                        >{i.result}</div>
+                    )
+                )
+            }
+        </div>
+        <div className='enemy-attack-numbers'>
+            {
+                enemyAttackNumbers.map(
+                    i => (
+                        <div
+                            className={'enemy-attack-number-item '+i.result}
+                            key={i.uuid}
+                        >{i.result}</div>
+                    )
+                )
+            }
+        </div>
         {game.npc && <div className="npc" style={{marginLeft: npcStartPosition}} />}
     </div>
 }

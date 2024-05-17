@@ -28,6 +28,8 @@ interface Game {
     loot: Loot,
     npcIndexesList: Array<number>,
     distance: number,
+    lastPlayerAttackResult: string,
+    lastEnemyAttackResult: string,
     init(): void,
     tick: (timeStamp: number) => void,
     doMove: (deltaTime: number) => void,
@@ -81,6 +83,8 @@ export const game: Game = {
     loot,
     npcIndexesList: [],
     distance: 0,
+    lastPlayerAttackResult: '',
+    lastEnemyAttackResult: '',
     init() {
         const savedDataStr = localStorage.getItem('data');
         if (savedDataStr) {
@@ -159,19 +163,20 @@ export const game: Game = {
     },
     doPlayerAttack(deltaTime: number) {
         if (this.player.isAttack()) {
-            this.attackHandler();
             this.player.resetAttackTimer();
             if (this.player.isHitSuccess()) {
-                this.hitEnemy(this.player.getDmg());
+                const amount = this.player.getDmg();
+                this.lastPlayerAttackResult = amount.toString();
+                this.hitEnemy(amount);
             } else {
-                console.log('miss');
+                this.lastPlayerAttackResult = 'miss';
             }
+            this.attackHandler();
         } else {
             this.player.updateAttackTimer(deltaTime);
         }
     },
     hitEnemy (dmg: number) {
-        console.log('player hit');
         this.enemy?.doDamage(dmg);
         if (this.enemy?.isAlive()) {
             this.enemyReceiveDmgHandler(this.enemy.hp);
@@ -181,10 +186,11 @@ export const game: Game = {
     },
     doEnemyAttack(deltaTime: number) {
         if (this.enemy?.isAttack()) {
-            this.enemyAttackHandler();
             this.enemy?.resetAttackTimer();
             if (!randomizer.isSuccess(this.player.getBlockChance())) {
-                this.player?.doDamage(this.enemy?.dmg);
+                const dmg = this.enemy?.dmg;
+                this.player?.doDamage(dmg);
+                this.lastEnemyAttackResult = dmg.toString();
                 const returnDmg = this.player?.getReturnDmg();
                 if (!this.player?.isAlive()) {
                     game.gameOverHandler();
@@ -192,8 +198,9 @@ export const game: Game = {
                     this.hitEnemy(returnDmg);
                 }
             } else {
-                console.log('block');
+                this.lastEnemyAttackResult = 'block';
             }
+            this.enemyAttackHandler();
         } else {
             this.enemy?.updateAttackTimer(deltaTime);
         }
