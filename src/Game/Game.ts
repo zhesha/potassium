@@ -193,7 +193,7 @@ export const game: Game = {
         if (this.enemy?.isAttack()) {
             this.enemy?.resetAttackTimer();
             if (!randomizer.isSuccess(this.player.getBlockChance())) {
-                const dmg = this.enemy?.dmg;
+                const dmg = this.player?.calculateRealDmg(this.enemy?.dmg);
                 this.player?.doDamage(dmg);
                 this.lastEnemyAttackResult = dmg.toString();
                 const returnDmg = this.player?.getReturnDmg();

@@ -32,6 +32,7 @@ export interface Player {
     isAttack: () => boolean,
     resetAttackTimer: () => void,
     startAttackTimer: () => void,
+    calculateRealDmg(dmg: number): number,
     doDamage: (dmg: number) => void,
     heal: (hp: number) => void,
     isAlive: () => boolean,
@@ -119,13 +120,16 @@ export function createPlayer (): Player {
         startAttackTimer () {
             this.attackTimer = 0;
         },
-        doDamage (dmg: number) {
+        calculateRealDmg(dmg: number) {
             const realDmg = (dmg - this.inventory.getBlockValue()) * (100 - this.inventory.getBlockPercent()) / 100;
             if (realDmg > 1) {
-                this.hp -= Math.floor(realDmg);
+                return Math.floor(realDmg);
             } else {
-                this.hp -= 1;
+                return 1;
             }
+        },
+        doDamage (dmg: number) {
+            this.hp -= dmg;
             game.infoChangeHandler();
         },
         heal (hp: number) {
