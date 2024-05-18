@@ -73,6 +73,7 @@ interface InventorySaveData {
     armor?: InventoryArmor,
     helmet?: InventoryHelmet,
     backpack: Array<RealItem>,
+    isFirst: boolean,
 }
 
 export interface Inventory {
@@ -173,6 +174,7 @@ export function createInventory (): Inventory {
                 armor: this.armor,
                 helmet: this.helmet,
                 backpack: this.backpack.list,
+                isFirst: this.backpack.isFirst,
             }
         },
         applySaveData (data: InventorySaveData) {
@@ -183,6 +185,7 @@ export function createInventory (): Inventory {
             this.armor = data.armor;
             this.helmet = data.helmet;
             this.backpack.list = data.backpack;
+            this.backpack.isFirst = data.isFirst;
         },
     };
 }

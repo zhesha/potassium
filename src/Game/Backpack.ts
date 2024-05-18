@@ -3,14 +3,22 @@ import { RealItem } from "./Loot";
 
 export interface Backpack {
     list: Array<RealItem>,
+    isFirst: boolean;
     add (item: RealItem): void;
     remove (item: RealItem): void;
+    firstItemHandler: () => void,
+    onFirstItem(handler: () => void): void
 }
 
 export function createBackpack (): Backpack {
     return {
         list: [],
+        isFirst: true,
         add (item: RealItem) {
+            if (this.isFirst) {
+                this.firstItemHandler();
+                this.isFirst = false
+            }
             this.list.push(item);
             game.player.changeInventoryHandler();
         },
@@ -19,7 +27,10 @@ export function createBackpack (): Backpack {
             if (index !== -1) {
                 this.list.splice(index, 1);
             }
-            game.player.changeInventoryHandler();
-        }
+        },
+        firstItemHandler: () => { },
+        onFirstItem(handler: () => void) {
+            this.firstItemHandler = handler;
+        },
     };
 }

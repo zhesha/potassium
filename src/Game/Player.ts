@@ -47,6 +47,8 @@ export interface Player {
     getFreePoints (): number,
     changeInventoryHandler: () => void,
     onChangeInventory(handler: () => void): void
+    levelUpHandler: () => void,
+    onLevelUp(handler: () => void): void
     charDataChangeHandler: () => void,
     onCharDataChange(handler: () => void): void
     skillsChangeHandler: () => void,
@@ -165,7 +167,12 @@ export function createPlayer (): Player {
                 const m = [1.2, 1.4, 1.6, 1.8, 2, 2.5, 3];
                 multiplier = m[skill.level - 1];
             }
+            const prevLevel = this.getCurrentLevel();
             this.experience += value * multiplier;
+            const currLevel = this.getCurrentLevel();
+            if (currLevel !== prevLevel) {
+                this.levelUpHandler();
+            }
         },
         getCurrentLevel() {
             let level = 1;
@@ -194,6 +201,10 @@ export function createPlayer (): Player {
         changeInventoryHandler: () => { },
         onChangeInventory(handler: () => void) {
             this.changeInventoryHandler = handler;
+        },
+        levelUpHandler: () => { },
+        onLevelUp(handler: () => void) {
+            this.levelUpHandler = handler;
         },
         charDataChangeHandler: () => {},
         onCharDataChange(handler: () => void) {

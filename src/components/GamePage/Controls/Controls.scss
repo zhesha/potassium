@@ -36,6 +36,16 @@
         background-size: cover;
     }
 
+    .exclamation {
+        height: 6vh;
+        width: 6vh;
+        background: url(../../../img/exclamation.png);
+        background-size: cover;
+        position: absolute;
+        margin-left: 6.5vh;
+        margin-top: -12.5vh;
+    }
+
     .character {
         height: $button-size;
         width: $button-size;

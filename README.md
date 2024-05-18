@@ -28,8 +28,8 @@
     +fix it for smaller screen size
     +add floating numbers
     +improve run button
-    add notification on levelup
-    add notification on first item
+    +add notification on levelup
+    +add notification on first item
     fix menus
     fix background-position: 3933px;
 - add elemental attacks
