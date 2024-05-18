@@ -19,3 +19,9 @@
     user-select: none;
     z-index: 2;
 }
+
+.action-button:active {
+    background-color: transparent;
+    border: 5px solid transparent;
+    color: transparent;
+}

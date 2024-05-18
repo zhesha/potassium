@@ -8,7 +8,7 @@ import { randomizer } from "./randomizer";
 
 const npcRate = 20;
 
-enum GameState {
+export enum GameState {
     start,
     moving,
     fighting,
@@ -39,6 +39,8 @@ interface Game {
     doEnemyAttack: (deltaTime: number) => void;
     runPressed: () => void,
     runReleased: () => void,
+    stateChangeHandlers: () => void,
+    onStateChange: (handler: () => void) => void,
     enemyProgressHandlers: () => void,
     onEnemyProgress: (handler: () => void) => void,
     npcProgressHandlers: () => void,
@@ -137,6 +139,7 @@ export const game: Game = {
         if (this.enemy.isArrive()) {
             this.player.startAttackTimer();
             this.gameState = GameState.fighting;
+            this.stateChangeHandlers();
             this.playerStopHandler();
         }
     },
@@ -150,6 +153,7 @@ export const game: Game = {
             this.reachNpcHandler();
             this.isRun = false;
             this.gameState = GameState.npcMenu;
+            this.stateChangeHandlers();
             this.playerStopHandler();
         }
     },
@@ -158,6 +162,7 @@ export const game: Game = {
         this.npc = null;
 
         this.gameState = GameState.moving;
+        this.stateChangeHandlers();
         this.enemyProgressHandlers();
         this.infoChangeHandler();
     },
@@ -210,12 +215,17 @@ export const game: Game = {
         this.lastTimeStamp = 0;
         if (this.gameState === GameState.start) {
             this.gameState = GameState.moving;
+            this.stateChangeHandlers();
             this.enemy = createEnemy(this.enemyKilledInRun);
         }
     },
     runReleased() {
         this.isRun = false;
         this.playerStopHandler();
+    },
+    stateChangeHandlers: () => { },
+    onStateChange(handler: () => void) {
+        this.stateChangeHandlers = handler;
     },
     enemyProgressHandlers: () => { },
     onEnemyProgress(handler: () => void) {
@@ -263,6 +273,7 @@ export const game: Game = {
             this.spawnEnemy();
         }
         this.gameState = GameState.moving;
+        this.stateChangeHandlers();
         this.isRun = false;
         this.generateLoot();
         this.enemyProgressHandlers();
@@ -345,6 +356,7 @@ export const game: Game = {
         this.enemyKilledInRun = 0;
         this.distance = 0;
         this.gameState = GameState.start;
+        this.stateChangeHandlers();
         this.npcIndexesList = [];
         this.player.restart();
         this.enemyProgressHandlers();

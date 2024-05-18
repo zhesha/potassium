@@ -4,7 +4,7 @@ import { Controls } from "./Controls/Controls";
 import { Pages } from "../../App";
 import { Info } from "./Info/Info";
 import { Modal } from "./Modal/Modal";
-import { game } from "../../Game/Game";
+import { game, GameState } from "../../Game/Game";
 import { LootItem } from "../../Game/Loot";
 import { LootWindow } from "./LootWindow/LootWindow";
 import "./GamePage.scss";
@@ -16,6 +16,7 @@ interface GameProps {
 export function GamePage ({setPage}: GameProps) {
     const [loot, setLoot] = useState<Array<LootItem> | undefined>(game.getLootMessage());
     const [gameOverMessage, setGameOverMessage] = useState<string | null>(null);
+    const [isRunning, setIsRunning] = useState(game.gameState !== GameState.fighting);
 
     game.onShowLoot(function () {
         setLoot(game.getLootMessage());
@@ -24,14 +25,22 @@ export function GamePage ({setPage}: GameProps) {
     game.onGameOver(function () {
         setGameOverMessage('Game Over');
     });
+
+    game.onStateChange(() => {
+        setIsRunning(game.gameState !== GameState.fighting);
+    });
     
     return <div className="game">
         <div
             className="action-button"
             onMouseDown={() => game.runPressed()}
+            onTouchStart={() => game.runPressed()}
             onMouseUp={() => game.runReleased()}
-            onMouseLeave={() => game.runReleased()}>
-                Run
+            onTouchEnd={() => game.runReleased()}
+            onMouseLeave={() => game.runReleased()}
+            onTouchCancel={() => game.runReleased()}
+        >
+                {isRunning ? 'Run' : 'Hit'}
         </div>
         <Field />
         <Controls
