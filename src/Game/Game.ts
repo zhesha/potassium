@@ -1,7 +1,7 @@
 import { InfoData } from "../components/GamePage/Info/Info";
 import { Enemy, createEnemy } from "./Enemy";
 import { InstantItemType } from "./Inventory";
-import { Loot, LootItem, getRealItemFromLoot, loot } from "./Loot";
+import { Loot, LootGenerationResult, LootItem, getRealItemFromLoot, loot } from "./Loot";
 import { Npc, createNpc } from "./Npc";
 import { Player, createPlayer } from "./Player";
 import { randomizer } from "./randomizer";
@@ -47,8 +47,8 @@ interface Game {
     onNpcProgress: (handler: () => void) => void,
     enemyReceiveDmgHandler: (currentHp: number) => void,
     onEnemyDmgReceive: (handler: (currentHp: number) => void) => void,
-    lootMessage?: Array<LootItem>,
-    getLootMessage(): Array<LootItem> | undefined,
+    lootMessage?: Array<LootGenerationResult>,
+    getLootMessage(): Array<LootGenerationResult> | undefined,
     showLootHandler: () => void,
     onShowLoot: (handler: () => void) => void,
     infoChangeHandler: () => void,

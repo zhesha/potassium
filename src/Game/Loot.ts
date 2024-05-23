@@ -19,11 +19,16 @@ interface LootSaveData {
     lootLists: LootLists,
 }
 
+export interface LootGenerationResult {
+    item: LootItem;
+    type: number;
+}
+
 export interface Loot {
     lootTypes: Array<number>,
     lootLists: LootLists,
     init(): void,
-    generate (): LootItem,
+    generate (): LootGenerationResult,
     generateTypeList (): void,
     addNumbersToTypeList (params: {type: number, count: number}): void
     getLootByType (lootType: number): LootItem
@@ -114,7 +119,10 @@ export const loot: Loot = {
         if (lootType === undefined) {
             throw Error('lootType should be defined');
         }
-        return this.getLootByType(lootType as keyof LootLists);
+        return {
+            item: this.getLootByType(lootType as keyof LootLists),
+            type: lootType,
+        }
     },
     generateTypeList () {
         this.lootTypes = [];
@@ -249,13 +257,7 @@ function convertInventoryItem(lootItem: InventoryLoot): InventoryItem {
     }
 }
 
-export interface SimpleItemEffect {
-    hp?: number
-    mp?: number
-    dmg?: number
-}
-
-export interface ItemEffect extends SimpleItemEffect {
+export interface ItemEffect {
     name: string,
     type: EffectType,
     baseValue: number,

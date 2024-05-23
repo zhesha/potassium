@@ -5,7 +5,7 @@ import { Pages } from "../../App";
 import { Info } from "./Info/Info";
 import { Modal } from "./Modal/Modal";
 import { game, GameState } from "../../Game/Game";
-import { LootItem } from "../../Game/Loot";
+import { LootGenerationResult, LootItem } from "../../Game/Loot";
 import { LootWindow } from "./LootWindow/LootWindow";
 import "./GamePage.scss";
 
@@ -14,7 +14,7 @@ interface GameProps {
 }
 
 export function GamePage ({setPage}: GameProps) {
-    const [loot, setLoot] = useState<Array<LootItem> | undefined>(game.getLootMessage());
+    const [loot, setLoot] = useState<Array<LootGenerationResult> | undefined>(game.getLootMessage());
     const [gameOverMessage, setGameOverMessage] = useState<string | null>(null);
     const [isRunning, setIsRunning] = useState(game.gameState !== GameState.fighting);
 
@@ -49,14 +49,7 @@ export function GamePage ({setPage}: GameProps) {
             toCharacter={() => setPage(Pages.character)}
         />
         <Info/>
-        {loot && <LootWindow close={() => {
-            game.lootMessage = undefined
-            setLoot(undefined);
-        }}>
-            {loot.map(item => 
-                <div onClick={() => game.acceptLoot(item)}>{item.name}</div>
-            )}
-        </LootWindow>}
+        {loot && <LootWindow loot={loot}/>}
         {gameOverMessage && <Modal
             close={() => {
                 setGameOverMessage(null);

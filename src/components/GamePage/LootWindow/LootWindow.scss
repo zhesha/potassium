@@ -7,16 +7,78 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    z-index: 2;
+    overflow: auto;
+}
+
+// #870909;
+// #774895;
+// #000000;
+.loot-window-item {
+    width: 30vh;
+    height: 40vh;
+    border-radius: 20px;
+    border: 5px solid #f3f377;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    margin: 10px 10px;
+    padding: 20px;
+}
+
+.type-1 {
+    background-color: #704209;
+}
+
+.type-2 {
+    background-color: #584d43;
+}
+
+.type-3 {
+    background-color: #cd7109;
+}
+
+.type-4 {
+    background-color: #8a9a9e;
+}
+
+.type-5 {
+    background-color: #959548;
 }
 
 .loot-window-inner {
-    width: 100px;
-    height: 100px;
-    background-color: brown;
+    min-width: 100vw;
     display: flex;
-    flex-direction: column;
+    justify-content: center;
+    position: absolute;
+    left: 0;
+
+    h1 {
+        margin: 0;
+        font-size: 30px;
+        font-weight: bold;
+    }
+
+    h2 {
+        font-size: 16px;
+        color: #eeeeee;
+    }
+
+    li {
+        font-size: 16px;
+    }
 }
 
-.loot-window-content {
-    flex-grow: 1;
+.loot-window-button {
+    padding: 6px 50px;
+    font-weight: bold;
+    border: 2px solid #d9d9d9;
+    border-radius: 20px;
+    background: #5757cd;
+    cursor: pointer;
 }
+
+// .loot-window-content {
+//     flex-grow: 1;
+// }

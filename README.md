@@ -31,24 +31,26 @@
     +add notification on levelup
     +add notification on first item
     fix menus
-    fix background-position: 3933px;
+        +loot
+        2 game over
+        3 buttons
+        5 npc
 - add elemental attacks
 - add timeout for skills
-- add NPC(5-10)
-    what price for upgrade?
-    - when I will add NPC that can give magic stones for an item, I need to make "economy" skill level 6 handling
+- add jewels
+- add rune
 - add magic scrolls
 - need to create all skills logic(10 done)
 - need to create all effects for items
-- add jewels
-- add rune
+- add NPC(5-10)
+    what price for upgrade?
+    - when I will add NPC that can give magic stones for an item, I need to make "economy" skill level 6 handling
 - config first 1000 monsters
 - add unique
 - add set
 - add superset
 - add runeword
 - add rune spell
-- add all loot
-- add all monsters
+- config all 5000 monsters
 - polish balance
 - polish presentation
