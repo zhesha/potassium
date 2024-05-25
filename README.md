@@ -32,7 +32,7 @@
     +add notification on first item
     fix menus
         +loot
-        2 game over
+        +2 game over
         3 buttons
         5 npc
 - add elemental attacks
