@@ -9,8 +9,10 @@ interface ModalProps {
 export function Modal ({ close, children }: ModalProps) {
     return <div className="modal-wrapper">
         <div className="modal-inner">
-            <div className="modal-content">{children}</div>
-            <div onClick={() => close()}>close</div>
+            <div className="modal-content">
+                <h1>{children}</h1>
+            </div>
+            <div className="modal-button" onClick={() => close()}>Restart</div>
         </div>
     </div>;
 }

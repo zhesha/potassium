@@ -10,11 +10,29 @@
 }
 
 .modal-inner {
-    width: 100px;
-    height: 100px;
-    background-color: brown;
+    width: 50vw;
+    height: 50vh;
+    background-color: #0b608e;
+    z-index: 2;
     display: flex;
     flex-direction: column;
+    align-items: center;
+    padding: 40px;
+    border-radius: 20px;
+    border: 5px solid #f82c2c;
+
+    h1 {
+        margin: 0;
+    }
+
+    .modal-button {
+        padding: 6px 50px;
+        font-weight: bold;
+        border: 2px solid #d9d9d9;
+        border-radius: 20px;
+        background: #5757cd;
+        cursor: pointer;
+    }
 }
 
 .modal-content {
