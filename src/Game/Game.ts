@@ -61,6 +61,8 @@ interface Game {
     save(): void,
     gameOverHandler: () => void,
     onGameOver(handler: () => void): void
+    winHandler: () => void,
+    onWin(handler: () => void): void
     reachNpcHandler: () => void,
     onReachNpc(handler: () => void): void
     playerStopHandler: () => void,
@@ -72,6 +74,8 @@ interface Game {
     restart(): void
     acceptLoot(item: LootItem): void
 }
+
+const killedEnemiesForWin = 101;
 
 export const game: Game = {
     lastTimeStamp: 0,
@@ -266,6 +270,9 @@ export const game: Game = {
     killEnemy: function () {
         this.addExperience(this.enemy!.experience);
         this.enemyKilledInRun += 1;
+        if (this.enemyKilledInRun >= killedEnemiesForWin) {
+            this.winHandler();
+        }
         if (this.needCreateNpc()) {
             this.npc = createNpc();
             this.enemy = null;
@@ -343,6 +350,10 @@ export const game: Game = {
     gameOverHandler: () => {},
     onGameOver(handler: () => void) {
         this.gameOverHandler = handler;
+    },
+    winHandler: () => {},
+    onWin(handler: () => void) {
+        this.winHandler = handler;
     },
     reachNpcHandler: () => {},
     onReachNpc(handler: () => void) {

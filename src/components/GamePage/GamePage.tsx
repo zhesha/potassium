@@ -16,6 +16,7 @@ interface GameProps {
 export function GamePage ({setPage}: GameProps) {
     const [loot, setLoot] = useState<Array<LootGenerationResult> | undefined>(game.getLootMessage());
     const [gameOverMessage, setGameOverMessage] = useState<string | null>(null);
+    const [winMessage, setWinMessage] = useState<string | null>(null);
     const [isRunning, setIsRunning] = useState(game.gameState !== GameState.fighting);
 
     game.onShowLoot(function () {
@@ -24,6 +25,10 @@ export function GamePage ({setPage}: GameProps) {
 
     game.onGameOver(function () {
         setGameOverMessage('Game Over');
+    });
+
+    game.onWin(function () {
+        setWinMessage('You win');
     });
 
     game.onStateChange(() => {
@@ -56,5 +61,8 @@ export function GamePage ({setPage}: GameProps) {
                 game.restart();
             }}
         >{gameOverMessage}</Modal>}
+        {winMessage && <Modal
+            showClose={false}
+        >{winMessage}</Modal>}
     </div>
 }
