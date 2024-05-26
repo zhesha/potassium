@@ -262,26 +262,27 @@ export function createSkills(): SkillsList {
     };
 }
 
+export const skillsValues = {
+    healAmount: [20, 50, 100, 150, 200, 300, 500],
+    dmgAmount: [5, 20, 75, 150, 300, 500, 750],
+}
+
 export function skillUseHandler (item: SkillItem) {
     const manaCost = getMana(item);
     if (!manaCost || game.player.mana < manaCost) {
         return;
     }
     if (item.type === SkillType.heal) {
-        const healAmount = [20, 50, 100, 150, 200, 300, 500]
-        game.player.heal(healAmount[item.level - 1]);
+        game.player.heal(skillsValues.healAmount[item.level - 1]);
         game.player.mana -= manaCost;
     } else if (item.type === SkillType.fireball) {
-        const dmgAmount = [5, 20, 75, 150, 300, 500, 750]
-        game.hitEnemy(dmgAmount[item.level - 1]);
+        game.hitEnemy(skillsValues.dmgAmount[item.level - 1]);
         game.player.mana -= manaCost;
     } else if (item.type === SkillType.iceBeam) {
-        const dmgAmount = [5, 20, 75, 150, 300, 500, 750]
-        game.hitEnemy(dmgAmount[item.level - 1]);
+        game.hitEnemy(skillsValues.dmgAmount[item.level - 1]);
         game.player.mana -= manaCost;
     } else if (item.type === SkillType.waterCanon) {
-        const dmgAmount = [5, 20, 75, 150, 300, 500, 750]
-        game.hitEnemy(dmgAmount[item.level - 1]);
+        game.hitEnemy(skillsValues.dmgAmount[item.level - 1]);
         game.player.mana -= manaCost;
     }
 }

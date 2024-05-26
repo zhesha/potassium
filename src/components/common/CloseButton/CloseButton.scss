@@ -2,8 +2,19 @@
     display: flex;
     justify-content: flex-end;
     .close-button {
-        background-color: red;
-        padding: 10px;
+        background-color: rgb(213, 55, 55);
+        height: 50px;
+        width: 50px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
         cursor: pointer;
+        font-size: 24px;
+        font-weight: bold;
+        margin: 10px;
+        border-radius: 10px;
+        position: absolute;
+        top: 0;
+        right: 0;
     }
 }

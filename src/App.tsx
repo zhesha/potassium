@@ -28,11 +28,11 @@ function App() {
                 {page === Pages.game &&
                     <GamePage setPage={setPage} />
                 }
-                {page === Pages.inventory &&
-                    <InventoryPage setPage={setPage} />
-                }
                 {page === Pages.skill &&
                     <SkillPage setPage={setPage} />
+                }
+                {page === Pages.inventory &&
+                    <InventoryPage setPage={setPage} />
                 }
                 {page === Pages.character &&
                     <CharacterPage setPage={setPage} />

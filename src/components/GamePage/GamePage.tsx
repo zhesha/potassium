@@ -5,7 +5,7 @@ import { Pages } from "../../App";
 import { Info } from "./Info/Info";
 import { Modal } from "./Modal/Modal";
 import { game, GameState } from "../../Game/Game";
-import { LootGenerationResult, LootItem } from "../../Game/Loot";
+import { LootGenerationResult } from "../../Game/Loot";
 import { LootWindow } from "./LootWindow/LootWindow";
 import "./GamePage.scss";
 

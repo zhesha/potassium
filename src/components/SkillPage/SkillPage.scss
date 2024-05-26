@@ -2,20 +2,40 @@
 
 .skill {
     display: flex;
-    flex-direction: column;
-    justify-content: stretch;
+    // flex-direction: column;
+    // justify-content: stretch;
+    align-items: stretch;
     height: 100%;
+    background-color: #0d4a6b;
+
+    h1 {
+        margin: 0;
+    }
+
+    .skill-list {
+        overflow: scroll;
+    }
 }
 
 .pocket-items {
     text-align: left;
-    border-bottom: 1px solid $border
+    border-right: 1px solid $border;
+    width: 50%;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
 }
 
 .skills {
     text-align: left;
+    width: 50%;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
 }
 
 .skillItem {
     cursor: pointer;
+    font-size: 24px;
+    padding: 10px 0;
 }

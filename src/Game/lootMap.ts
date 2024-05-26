@@ -46,7 +46,7 @@ export const lootMap: LootMap = {
             type: InstantItemType.money,
         },
         {
-            name: 'health potion 20',
+            name: 'Min health potion (+20 HP)',
             hp: 20,
             price: 20,
             type: PocketItemType.healthPotion,
@@ -66,7 +66,7 @@ export const lootMap: LootMap = {
             type: InstantItemType.experience,
         },
         {
-            name: 'mana potion 20',
+            name: 'Min mana potion (+20 MP)',
             mana: 20,
             price: 20,
             type: PocketItemType.manaPotion,
@@ -137,7 +137,7 @@ export const lootMap: LootMap = {
             baseLevel: 1,
         },
         {
-            name: 'mana potion 20',
+            name: 'Min mana potion (+20 MP)',
             mana: 20,
             price: 20,
             type: PocketItemType.manaPotion,
@@ -208,7 +208,7 @@ export const lootMap: LootMap = {
             baseLevel: 3,
         },
         {
-            name: 'health potion 20',
+            name: 'Min health potion (+20 HP)',
             hp: 20,
             price: 20,
             type: PocketItemType.healthPotion,
@@ -277,7 +277,7 @@ export const lootMap: LootMap = {
             type: InstantItemType.experience,
         },
         {
-            name: 'health potion 50',
+            name: 'Tiny health potion (+50 HP)',
             hp: 50,
             price: 50,
             type: PocketItemType.healthPotion,
@@ -361,7 +361,7 @@ export const lootMap: LootMap = {
             type: InstantItemType.healing,
         },
         {
-            name: 'mana potion 50',
+            name: 'Small mana potion (+50 MP)',
             mana: 50,
             price: 50,
             type: PocketItemType.manaPotion,
@@ -434,7 +434,7 @@ export const lootMap: LootMap = {
             baseLevel: 4,
         },
         {
-            name: 'health potion 50',
+            name: 'Tiny health potion (+50 HP)',
             hp: 50,
             price: 50,
             type: PocketItemType.healthPotion,
@@ -482,7 +482,7 @@ export const lootMap: LootMap = {
             baseLevel: 5,
         },
         {
-            name: 'mana potion 50',
+            name: 'Small mana potion (+50 MP)',
             mana: 50,
             price: 50,
             type: PocketItemType.manaPotion,
@@ -535,7 +535,7 @@ export const lootMap: LootMap = {
     3: [
         // шкода вогнем 50
         {
-            name: 'health potion 100',
+            name: 'Minor health potion (+100 HP)',
             hp: 100,
             price: 100,
             type: PocketItemType.healthPotion,
@@ -552,7 +552,7 @@ export const lootMap: LootMap = {
         },
         // рубін
         {
-            name: 'mana potion 100',
+            name: 'Middle mana potion (+100 MP)',
             mana: 100,
             price: 100,
             type: PocketItemType.manaPotion,
@@ -580,7 +580,7 @@ export const lootMap: LootMap = {
             baseLevel: 3,
         },
         {
-            name: 'health potion 100',
+            name: 'Minor health potion (+100 HP)',
             hp: 100,
             price: 100,
             type: PocketItemType.healthPotion,
@@ -646,7 +646,7 @@ export const lootMap: LootMap = {
             baseLevel: 9,
         },
         {
-            name: 'mana potion 100',
+            name: 'Middle mana potion (+100 MP)',
             mana: 100,
             price: 100,
             type: PocketItemType.manaPotion,
@@ -671,7 +671,7 @@ export const lootMap: LootMap = {
             baseLevel: 6,
         },
         {
-            name: 'health potion 100',
+            name: 'Minor health potion (+100 HP)',
             hp: 100,
             price: 100,
             type: PocketItemType.healthPotion,
@@ -744,7 +744,7 @@ export const lootMap: LootMap = {
             baseLevel: 7,
         },
         {
-            name: 'mana potion 100',
+            name: 'Middle mana potion (+100 MP)',
             mana: 100,
             price: 100,
             type: PocketItemType.manaPotion,
@@ -789,7 +789,7 @@ export const lootMap: LootMap = {
     ],
     4: [
         {
-            name: 'health potion 150',
+            name: 'Small health potion (+150 HP)',
             hp: 150,
             price: 150,
             type: PocketItemType.healthPotion,
@@ -938,7 +938,7 @@ export const lootMap: LootMap = {
             baseLevel: 7,
         },
         {
-            name: 'health potion 150',
+            name: 'Small health potion (+150 HP)',
             hp: 150,
             price: 150,
             type: PocketItemType.healthPotion,
