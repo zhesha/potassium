@@ -3,6 +3,7 @@ import './Used.scss';
 import { game } from "../../../Game/Game";
 import { InventoryLoot } from "../../../Game/Inventory";
 import { SelectedAct } from "../InventoryPage";
+import { getNameColorFromItem } from "../../GamePage/LootWindow/LootWindow";
 
 interface UsedProps {
     select (item: InventoryLoot, selectedAct: SelectedAct): void
@@ -16,12 +17,13 @@ export function Used ({select}: UsedProps) {
     });
 
     return <div className="used">
-        <UsedItem item={inventory.weapon} title="weapon" act={SelectedAct.removeWeapon} select={select} />
-        <UsedItem item={inventory.gloves} title="gloves" act={SelectedAct.removeGloves} select={select} />
-        <UsedItem item={inventory.boots} title="boots" act={SelectedAct.removeBoots} select={select} />
-        <UsedItem item={inventory.shield} title="shield" act={SelectedAct.removeShield} select={select} />
-        <UsedItem item={inventory.armor} title="armor" act={SelectedAct.removeArmor} select={select} />
-        <UsedItem item={inventory.helmet} title="helmet" act={SelectedAct.removeHelmet} select={select} />
+        <h1>Inventory:</h1>
+        <UsedItem item={inventory.weapon} title="Weapon" act={SelectedAct.removeWeapon} select={select} />
+        <UsedItem item={inventory.gloves} title="Gloves" act={SelectedAct.removeGloves} select={select} />
+        <UsedItem item={inventory.boots} title="Boots" act={SelectedAct.removeBoots} select={select} />
+        <UsedItem item={inventory.shield} title="Shield" act={SelectedAct.removeShield} select={select} />
+        <UsedItem item={inventory.armor} title="Armor" act={SelectedAct.removeArmor} select={select} />
+        <UsedItem item={inventory.helmet} title="Helmet" act={SelectedAct.removeHelmet} select={select} />
     </div>
 }
 
@@ -34,5 +36,12 @@ interface UsedItemProps {
 
 function UsedItem ({ item, title, act, select }: UsedItemProps) {
     const empty = 'Empty';
-    return <div onClick={() => item && select(item, act)}>{title}: {item?.name || empty}</div>
+    let color;
+    if (item) {
+        color = getNameColorFromItem(item);
+    }
+    return <div onClick={() => item && select(item, act)}>
+        <h2>{title}:</h2>
+        <div  style={{color: color}}>{item?.name || empty}</div>
+    </div>
 }

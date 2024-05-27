@@ -3,7 +3,8 @@ import './Backpack.scss';
 import { game } from "../../../Game/Game";
 import { InventoryType, InstantItemType, PocketItemType } from "../../../Game/Inventory";
 import { SelectedAct } from "../InventoryPage";
-import { LootItem } from "../../../Game/Loot";
+import { getRealItemFromLoot, LootItem } from "../../../Game/Loot";
+import { getNameColorFromItem } from "../../GamePage/LootWindow/LootWindow";
 
 interface BackpackProps {
     select (item: LootItem, selectedAct: SelectedAct): void
@@ -17,6 +18,7 @@ export function Backpack ({select}: BackpackProps) {
     });
 
     return <div className="backpack">
+        <h1>Backpack:</h1>
         {backpackList.map((item, index) => <BackpackItem item={item} select={select} key={index}/>)}
     </div>
 }
@@ -33,7 +35,7 @@ function BackpackItem ({item, select}: BackpackItemProps) {
         return null;
     }
 
-    return <div onClick={() => select(item, act)} className='backpackItem'>{item.name}</div>
+    return <div onClick={() => select(item, act)} className='backpackItem' style={{color: getNameColorFromItem(item)}}>{item.name}</div>
 }
 
 function inventoryTypeToAct (type: InventoryType | PocketItemType | InstantItemType) {

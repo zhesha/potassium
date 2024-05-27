@@ -25,6 +25,17 @@
     align-items: center;
     margin: 10px 10px;
     padding: 20px;
+
+    h1 {
+        margin: 0;
+        font-size: 30px;
+        font-weight: bold;
+    }
+
+    h2 {
+        font-size: 16px;
+        color: #eeeeee;
+    }
 }
 
 .type-1 {
@@ -47,31 +58,21 @@
     background-color: #959548;
 }
 
+.type-inventory {
+    background-color: #727677;
+}
+
 .loot-window-inner {
     min-width: 100vw;
     display: flex;
     justify-content: center;
     position: absolute;
     left: 0;
-
-    h1 {
-        margin: 0;
-        font-size: 30px;
-        font-weight: bold;
-    }
-
-    h2 {
-        font-size: 16px;
-        color: #eeeeee;
-    }
-
-    li {
-        font-size: 16px;
-    }
 }
 
 .loot-window-button {
     padding: 6px 50px;
+    margin-top: 12px;
     font-weight: bold;
     border: 2px solid #d9d9d9;
     border-radius: 20px;

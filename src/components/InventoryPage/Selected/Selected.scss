@@ -10,9 +10,10 @@
 }
 
 .selected-inner {
-    width: 100px;
-    min-height: 100px;
-    background-color: brown;
     display: flex;
     flex-direction: column;
+}
+
+.selected-info {
+    flex-grow: 2;
 }

@@ -2,7 +2,9 @@ import React from "react";
 import './Selected.scss';
 import { SelectedAct } from "../InventoryPage";
 import { game } from "../../../Game/Game";
-import { InventoryArmor, InventoryBoots, InventoryGloves, InventoryHelmet, InventoryItem, InventoryShield, InventoryWeapon } from "../../../Game/Loot";
+import { getRealItemFromLoot, InventoryArmor, InventoryBoots, InventoryGloves, InventoryHelmet, InventoryItem, InventoryShield, InventoryWeapon, isInventoryItem, LootItem } from "../../../Game/Loot";
+import { getDescriptionFromItem, getNameColorFromItem } from "../../GamePage/LootWindow/LootWindow";
+import "../../GamePage/LootWindow/LootWindow.scss"
 
 interface SelectedProps {
     setSelected (item: InventoryItem | null): void
@@ -82,15 +84,26 @@ export function Selected ({setSelected, act, selected}: SelectedProps) {
         game.player.changeInventoryHandler();
     }
 
+    const real = getRealItemFromLoot(selected);
+    const item = selected;
+
     return <div className="selected-wrapper">
         <div className="selected-inner">
-            {selected.name}
-            {selected.effects.map((effect, index) => <div key={index}>{effect.name}</div>)}
-            {act !== null && <div onClick={() => {
-                doAct(act);
-                setSelected(null);
-            }}>{mapActToTitle(act)}</div>}
-            <div onClick={() => setSelected(null)}>Close</div>
+            <div className="loot-window-item type-inventory">
+                <div className="selected-info">
+                    <h1 style={{color: getNameColorFromItem(item)}}>{item.name}</h1>
+                    {real && <h2>{getDescriptionFromItem(item)}</h2>}
+                    {real && isInventoryItem(real) && real.effects.length > 0 && <div>
+                        Extra effects:
+                        {real.effects.map(effect => <div>{effect.name}: {effect.baseValue + effect.extraValue}</div>)}
+                    </div>}
+                </div>
+                {act !== null && <div className="loot-window-button" onClick={() => {
+                    doAct(act);
+                    setSelected(null);
+                }}>{mapActToTitle(act)}</div>}
+                <div className="loot-window-button" onClick={() => setSelected(null)}>Close</div>
+            </div>
         </div>
     </div>
 }

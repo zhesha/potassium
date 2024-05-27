@@ -1,8 +1,15 @@
 .backpack {
     flex-grow: 1;
+    overflow: scroll;
 
     .backpackItem {
         text-align: left;
-        margin: 10px 20px;
+        padding: 12px 20px;
+        font-size: 20px;
+    }
+
+    h1 {
+        text-align: left;
+        margin: 20px 20px;
     }
 }

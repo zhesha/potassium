@@ -1,6 +1,6 @@
 import React from "react";
 import "./LootWindow.scss"
-import { getRealItemFromLoot, isArmor, isBoots, isGloves, isHelmet, isInventoryItem, isShield, isWeapon, LootGenerationResult } from "../../../Game/Loot";
+import { getRealItemFromLoot, isArmor, isBoots, isGloves, isHelmet, isInventoryItem, isShield, isWeapon, LootGenerationResult, LootItem } from "../../../Game/Loot";
 import { game } from "../../../Game/Game";
 import { ItemMagicType } from "../../../Game/Inventory";
 
@@ -20,8 +20,8 @@ function LootWindowItem ({item}: {item: LootGenerationResult}) {
     const real = getRealItemFromLoot(item.item);
     return <div className={"loot-window-item type-"+item.type}>
         <div>
-            <h1 style={{color: getNameColorFromItem(item)}}>{item.item.name}</h1>
-            {real && <h2>{getDescriptionFromItem(item)}</h2>}
+            <h1 style={{color: getNameColorFromItem(item.item)}}>{item.item.name}</h1>
+            {real && <h2>{getDescriptionFromItem(item.item)}</h2>}
             {real && isInventoryItem(real) && real.effects.length > 0 && <div>
                 Extra effects:
                 {real.effects.map(effect => <div>{effect.name}: {effect.baseValue + effect.extraValue}</div>)}
@@ -31,34 +31,34 @@ function LootWindowItem ({item}: {item: LootGenerationResult}) {
     </div>;
 }
 
-function getNameColorFromItem(item: LootGenerationResult) {
+export function getNameColorFromItem(item: LootItem) {
     const colors = {
         normal: '#ffffff',
         magic: '#8484fe',
         rare: '#ffff94'
     };
-    if (isInventoryItem(item.item)) {
-        if (item.item.magic === ItemMagicType.magic) {
+    if (isInventoryItem(item)) {
+        if (item.magic === ItemMagicType.magic) {
             return colors.magic;
-        } else if (item.item.magic === ItemMagicType.rare) {
+        } else if (item.magic === ItemMagicType.rare) {
             return colors.rare;
         }
     }
     return colors.normal
 }
 
-function getDescriptionFromItem (item: LootGenerationResult) {
-    if(isWeapon(item.item)) {
-        return `Deals ${item.item.dmg} damage`;
-    } else if(isArmor(item.item)) {
-        return `Blocks ${item.item.blockPercent}% of damage`;
-    } else if(isShield(item.item)) {
-        return `Can block hits with ${item.item.blockChance}% chance`;
-    } else if(isGloves(item.item)) {
-        return `Can land hit with ${item.item.hitChance}% chance`;
-    } else if(isBoots(item.item)) {
-        return `Hits ${item.item.rate} times per second`;
-    } else if(isHelmet(item.item)) {
-        return `Blocks ${item.item.blockValue} damage`;
+export function getDescriptionFromItem (item: LootItem) {
+    if(isWeapon(item)) {
+        return `Deals ${item.dmg} damage`;
+    } else if(isArmor(item)) {
+        return `Blocks ${item.blockPercent}% of damage`;
+    } else if(isShield(item)) {
+        return `Can block hits with ${item.blockChance}% chance`;
+    } else if(isGloves(item)) {
+        return `Can land hit with ${item.hitChance}% chance`;
+    } else if(isBoots(item)) {
+        return `Hits ${item.rate} times per second`;
+    } else if(isHelmet(item)) {
+        return `Blocks ${item.blockValue} damage`;
     }
 }
