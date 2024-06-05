@@ -30,10 +30,19 @@ function SkillLayer ({layer, activatedData}: {layer: Array<number>, activatedDat
 function SkillTreeItemComponent({index, activatedData}: {index: number, activatedData: Array<ActiveSkill>}) {
     const item = skillTreeList[index];
     const activated = activatedData.find(item => item.index === index);
+    let levelTitle = '0';
+    if (!activated?.level) {
+        levelTitle = '0';
+    } else if (activated?.level < 5) {
+        levelTitle = activated?.level?.toString();
+    } else {
+        levelTitle = 'Max';
+    }
     return <div
         className={"skill-tree-item" + (activated ? ' skill-tree-activated' : '') }
         onClick={() => game.player.skillsList.activateSkill(index)}
     >
-        {item.name} ({activated?.level || '0'})
+        <h3>{item.name}</h3>
+        <div>Level: {levelTitle}</div>
     </div>;
 }

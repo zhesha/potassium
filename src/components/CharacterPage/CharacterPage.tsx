@@ -18,9 +18,11 @@ export function CharacterPage ({ setPage }: CharacterPageProps) {
 
     return <div className="character">
         <CloseButton setPage={setPage} />
-        <div>Experience: {data.experience}</div>
-        <div>Level: {data.level}</div>
-        <div>Point: {data.point}</div>
+        <div className="character-info">
+            <div>Experience: <b>{data.experience}</b></div>
+            <div>Level: <b>{data.level}</b></div>
+            <div>Free points: <b>{data.point}</b></div>
+        </div>
         <SkillTree />
     </div>
 }
