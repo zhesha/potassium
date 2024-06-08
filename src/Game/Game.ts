@@ -6,7 +6,7 @@ import { Npc, createNpc } from "./Npc";
 import { Player, createPlayer } from "./Player";
 import { randomizer } from "./randomizer";
 
-const npcRate = 20;
+const npcRate = 101;
 
 export enum GameState {
     start,

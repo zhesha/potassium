@@ -33,8 +33,11 @@
     fix menus
         +loot
         +2 game over
-        3 buttons
+        +3 buttons
         5 npc
+    all names should be capitalized
+    extra DMG does not improve DMG
+    to hard(wolfs)
 - add elemental attacks
 - add timeout for skills
 - add jewels
