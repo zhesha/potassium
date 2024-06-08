@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/static/css/main.dc5c9559.css",
-    "main.js": "/static/js/main.61435d6b.js",
-    "static/js/787.2f90f7f3.chunk.js": "/static/js/787.2f90f7f3.chunk.js",
-    "static/media/backpack.png": "/static/media/backpack.8c67bf257daf7eb7809a.png",
-    "index.html": "/index.html",
-    "main.dc5c9559.css.map": "/static/css/main.dc5c9559.css.map",
-    "main.61435d6b.js.map": "/static/js/main.61435d6b.js.map",
-    "787.2f90f7f3.chunk.js.map": "/static/js/787.2f90f7f3.chunk.js.map"
+    "main.css": "https://zhesha.github.io/potassium/build/static/css/main.245afcd3.css",
+    "main.js": "https://zhesha.github.io/potassium/build/static/js/main.64cc4ee8.js",
+    "static/js/787.2f90f7f3.chunk.js": "https://zhesha.github.io/potassium/build/static/js/787.2f90f7f3.chunk.js",
+    "static/media/backpack.png": "https://zhesha.github.io/potassium/build/static/media/backpack.8c67bf257daf7eb7809a.png",
+    "index.html": "https://zhesha.github.io/potassium/build/index.html",
+    "main.245afcd3.css.map": "https://zhesha.github.io/potassium/build/static/css/main.245afcd3.css.map",
+    "main.64cc4ee8.js.map": "https://zhesha.github.io/potassium/build/static/js/main.64cc4ee8.js.map",
+    "787.2f90f7f3.chunk.js.map": "https://zhesha.github.io/potassium/build/static/js/787.2f90f7f3.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.dc5c9559.css",
-    "static/js/main.61435d6b.js"
+    "static/css/main.245afcd3.css",
+    "static/js/main.64cc4ee8.js"
   ]
 }
