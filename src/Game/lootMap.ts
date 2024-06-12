@@ -4,7 +4,7 @@ import { LootMap } from "./Loot";
 export const lootMap: LootMap = {
     1: [
         {
-            name: 'gloves 20%',
+            name: 'Gloves 20%',
             hitChance: 20,
             price: 5,
             baseValueStep: 1,
@@ -13,12 +13,12 @@ export const lootMap: LootMap = {
             baseLevel: 1,
         },
         {
-            name: 'money 10',
+            name: 'Money 10',
             money: 10,
             type: InstantItemType.money,
         },
         {
-            name: 'sword 2',
+            name: 'Sword 2',
             dmg: 2,
             price: 2,
             baseValueStep: 1,
@@ -27,12 +27,12 @@ export const lootMap: LootMap = {
             baseLevel: 1,
         },
         {
-            name: 'healing 20',
+            name: 'Healing 20',
             hp: 20,
             type: InstantItemType.healing,
         },
         {
-            name: 'armor 1%',
+            name: 'Armor 1%',
             blockPercent: 1,
             price: 3,
             baseValueStep: 1,
@@ -41,7 +41,7 @@ export const lootMap: LootMap = {
             baseLevel: 1,
         },
         {
-            name: 'money 10',
+            name: 'Money 10',
             money: 10,
             type: InstantItemType.money,
         },
@@ -52,7 +52,7 @@ export const lootMap: LootMap = {
             type: PocketItemType.healthPotion,
         },
         {
-            name: 'boots 1.1',
+            name: 'Boots 1.1',
             rate: 1.1,
             price: 5,
             baseValueStep: 0.1,
@@ -61,7 +61,7 @@ export const lootMap: LootMap = {
             baseLevel: 1,
         },
         {
-            name: 'experience 10',
+            name: 'Experience 10',
             experience: 10,
             type: InstantItemType.experience,
         },
@@ -72,7 +72,7 @@ export const lootMap: LootMap = {
             type: PocketItemType.manaPotion,
         },
         {
-            name: 'shield 1%',
+            name: 'Shield 1%',
             blockChance: 1,
             price: 3,
             baseValueStep: 1,
@@ -81,17 +81,17 @@ export const lootMap: LootMap = {
             baseLevel: 1,
         },
         {
-            name: 'healing 20',
+            name: 'Healing 20',
             hp: 20,
             type: InstantItemType.healing,
         },
         {
-            name: 'experience 10',
+            name: 'Experience 10',
             experience: 10,
             type: InstantItemType.experience,
         },
         {
-            name: 'gloves 25%',
+            name: 'Gloves 25%',
             hitChance: 25,
             price: 50,
             baseValueStep: 1,
@@ -100,12 +100,12 @@ export const lootMap: LootMap = {
             baseLevel: 2,
         },
         {
-            name: 'money 10',
+            name: 'Money 10',
             money: 10,
             type: InstantItemType.money,
         },
         {
-            name: 'sword 4',
+            name: 'Sword 4',
             dmg: 4,
             price: 4,
             baseValueStep: 1,
@@ -114,12 +114,12 @@ export const lootMap: LootMap = {
             baseLevel: 2,
         },
         {
-            name: 'healing 20',
+            name: 'Healing 20',
             hp: 20,
             type: InstantItemType.healing,
         },
         {
-            name: 'shield 2%',
+            name: 'Shield 2%',
             blockChance: 2,
             price: 8,
             baseValueStep: 1,
@@ -128,7 +128,7 @@ export const lootMap: LootMap = {
             baseLevel: 2,
         },
         {
-            name: 'helmet 1',
+            name: 'Helmet 1',
             blockValue: 1,
             price: 5,
             baseValueStep: 1,
@@ -143,12 +143,12 @@ export const lootMap: LootMap = {
             type: PocketItemType.manaPotion,
         },
         {
-            name: 'experience 10',
+            name: 'Experience 10',
             experience: 10,
             type: InstantItemType.experience,
         },
         {
-            name: 'armor 5%',
+            name: 'Armor 5%',
             blockPercent: 5,
             price: 8,
             baseValueStep: 1,
@@ -157,12 +157,12 @@ export const lootMap: LootMap = {
             baseLevel: 2,
         },
         {
-            name: 'healing 20',
+            name: 'Healing 20',
             hp: 20,
             type: InstantItemType.healing,
         },
         {
-            name: 'sword 6',
+            name: 'Sword 6',
             dmg: 6,
             price: 6,
             baseValueStep: 1,
@@ -171,7 +171,7 @@ export const lootMap: LootMap = {
             baseLevel: 3,
         },
         {
-            name: 'shield 4%',
+            name: 'Shield 4%',
             blockChance: 4,
             price: 30,
             baseValueStep: 1,
@@ -180,17 +180,17 @@ export const lootMap: LootMap = {
             baseLevel: 3,
         },
         {
-            name: 'money 10',
+            name: 'Money 10',
             money: 10,
             type: InstantItemType.money,
         },
         {
-            name: 'experience 10',
+            name: 'Experience 10',
             experience: 10,
             type: InstantItemType.experience,
         },
         {
-            name: 'sword 8',
+            name: 'Sword 8',
             dmg: 8,
             price: 10,
             baseValueStep: 1,
@@ -199,7 +199,7 @@ export const lootMap: LootMap = {
             baseLevel: 4,
         },
         {
-            name: 'armor 10%',
+            name: 'Armor 10%',
             blockPercent: 10,
             price: 30,
             baseValueStep: 1,
@@ -214,7 +214,7 @@ export const lootMap: LootMap = {
             type: PocketItemType.healthPotion,
         },
         {
-            name: 'boots 1.5',
+            name: 'Boots 1.5',
             rate: 1.5,
             price: 50,
             baseValueStep: 0.1,
@@ -223,7 +223,7 @@ export const lootMap: LootMap = {
             baseLevel: 2,
         },
         {
-            name: 'sword 10',
+            name: 'Sword 10',
             dmg: 10,
             price: 20,
             baseValueStep: 1,
@@ -232,12 +232,12 @@ export const lootMap: LootMap = {
             baseLevel: 5,
         },
         {
-            name: 'money 10',
+            name: 'Money 10',
             money: 10,
             type: InstantItemType.money,
         },
         {
-            name: 'helmet 2',
+            name: 'Helmet 2',
             blockValue: 2,
             price: 50,
             baseValueStep: 1,
@@ -246,24 +246,24 @@ export const lootMap: LootMap = {
             baseLevel: 2,
         },
         {
-            name: 'experience 10',
+            name: 'Experience 10',
             experience: 10,
             type: InstantItemType.experience,
         },
         {
-            name: 'healing 20',
+            name: 'Healing 20',
             hp: 20,
             type: InstantItemType.healing,
         },
     ],
     2: [
         {
-            name: 'money 50',
+            name: 'Money 50',
             money: 50,
             type: InstantItemType.money,
         },
         {
-            name: 'gloves 35%',
+            name: 'Gloves 35%',
             hitChance: 35,
             price: 500,
             baseValueStep: 1,
@@ -272,7 +272,7 @@ export const lootMap: LootMap = {
             baseLevel: 3,
         },
         {
-            name: 'experience 50',
+            name: 'Experience 50',
             experience: 50,
             type: InstantItemType.experience,
         },
@@ -283,12 +283,12 @@ export const lootMap: LootMap = {
             type: PocketItemType.healthPotion,
         },
         {
-            name: 'money 50',
+            name: 'Money 50',
             money: 50,
             type: InstantItemType.money,
         },
         {
-            name: 'armor 10% M',
+            name: 'Armor 10% M',
             blockPercent: 10,
             price: 50,
             baseValueStep: 1,
@@ -298,7 +298,7 @@ export const lootMap: LootMap = {
             baseLevel: 3,
         },
         {
-            name: 'weapon 10 M',
+            name: 'Weapon 10 M',
             dmg: 10,
             price: 33,
             baseValueStep: 1,
@@ -308,7 +308,7 @@ export const lootMap: LootMap = {
             baseLevel: 5,
         },
         {
-            name: 'boots 2',
+            name: 'Boots 2',
             rate: 2,
             price: 500,
             baseValueStep: 0.1,
@@ -317,12 +317,12 @@ export const lootMap: LootMap = {
             baseLevel: 3,
         },
         {
-            name: 'experience 50',
+            name: 'Experience 50',
             experience: 50,
             type: InstantItemType.experience,
         },
         {
-            name: 'shield 4% M',
+            name: 'Shield 4% M',
             blockChance: 4,
             price: 50,
             baseValueStep: 1,
@@ -332,7 +332,7 @@ export const lootMap: LootMap = {
             baseLevel: 3,
         },
         {
-            name: 'weapon 15',
+            name: 'Weapon 15',
             dmg: 15,
             price: 40,
             baseValueStep: 1,
@@ -341,12 +341,12 @@ export const lootMap: LootMap = {
             baseLevel: 6,
         },
         {
-            name: 'experience 50',
+            name: 'Experience 50',
             experience: 50,
             type: InstantItemType.experience,
         },
         {
-            name: 'helmet 2 M',
+            name: 'Helmet 2 M',
             blockValue: 2,
             price: 100,
             baseValueStep: 1,
@@ -356,7 +356,7 @@ export const lootMap: LootMap = {
             baseLevel: 2,
         },
         {
-            name: 'healing 50',
+            name: 'Healing 50',
             hp: 50,
             type: InstantItemType.healing,
         },
@@ -367,7 +367,7 @@ export const lootMap: LootMap = {
             type: PocketItemType.manaPotion,
         },
         {
-            name: 'armor 15%',
+            name: 'Armor 15%',
             blockPercent: 15,
             price: 80,
             baseValueStep: 1,
@@ -376,12 +376,12 @@ export const lootMap: LootMap = {
             baseLevel: 4,
         },
         {
-            name: 'money 50',
+            name: 'Money 50',
             money: 50,
             type: InstantItemType.money,
         },
         {
-            name: 'shield 7%',
+            name: 'Shield 7%',
             blockChance: 7,
             price: 80,
             baseValueStep: 1,
@@ -390,7 +390,7 @@ export const lootMap: LootMap = {
             baseLevel: 4,
         },
         {
-            name: 'weapon 20',
+            name: 'Weapon 20',
             dmg: 20,
             price: 60,
             baseValueStep: 1,
@@ -399,7 +399,7 @@ export const lootMap: LootMap = {
             baseLevel: 7,
         },
         {
-            name: 'gloves 25% M',
+            name: 'Gloves 25% M',
             hitChance: 25,
             price: 100,
             baseValueStep: 1,
@@ -409,7 +409,7 @@ export const lootMap: LootMap = {
             baseLevel: 2,
         },
         {
-            name: 'weapon 15 M',
+            name: 'Weapon 15 M',
             dmg: 15,
             price: 53,
             baseValueStep: 1,
@@ -419,12 +419,12 @@ export const lootMap: LootMap = {
             baseLevel: 6,
         },
         {
-            name: 'money 50',
+            name: 'Money 50',
             money: 50,
             type: InstantItemType.money,
         },
         {
-            name: 'armor 15% M',
+            name: 'Armor 15% M',
             blockPercent: 15,
             price: 150,
             baseValueStep: 1,
@@ -440,7 +440,7 @@ export const lootMap: LootMap = {
             type: PocketItemType.healthPotion,
         },
         {
-            name: 'shield 10%',
+            name: 'Shield 10%',
             blockChance: 10,
             price: 300,
             baseValueStep: 1,
@@ -449,12 +449,12 @@ export const lootMap: LootMap = {
             baseLevel: 5,
         },
         {
-            name: 'experience 50',
+            name: 'Experience 50',
             experience: 50,
             type: InstantItemType.experience,
         },
         {
-            name: 'helmet 5',
+            name: 'Helmet 5',
             blockValue: 5,
             price: 500,
             baseValueStep: 1,
@@ -463,7 +463,7 @@ export const lootMap: LootMap = {
             baseLevel: 3,
         },
         {
-            name: 'weapon 20 M',
+            name: 'Weapon 20 M',
             dmg: 20,
             price: 90,
             baseValueStep: 1,
@@ -473,7 +473,7 @@ export const lootMap: LootMap = {
             baseLevel: 7,
         },
         {
-            name: 'armor 20%',
+            name: 'Armor 20%',
             blockPercent: 20,
             price: 300,
             baseValueStep: 1,
@@ -488,7 +488,7 @@ export const lootMap: LootMap = {
             type: PocketItemType.manaPotion,
         },
         {
-            name: 'boots 1.5 M',
+            name: 'Boots 1.5 M',
             rate: 1.5,
             price: 100,
             baseValueStep: 0.1,
@@ -498,17 +498,17 @@ export const lootMap: LootMap = {
             baseLevel: 2,
         },
         {
-            name: 'healing 50',
+            name: 'Healing 50',
             hp: 50,
             type: InstantItemType.healing,
         },
         {
-            name: 'money 50',
+            name: 'Money 50',
             money: 50,
             type: InstantItemType.money,
         },
         {
-            name: 'shield 7% M',
+            name: 'Shield 7% M',
             blockChance: 7,
             price: 150,
             baseValueStep: 1,
@@ -518,12 +518,12 @@ export const lootMap: LootMap = {
             baseLevel: 4,
         },
         {
-            name: 'experience 50',
+            name: 'Experience 50',
             experience: 50,
             type: InstantItemType.experience,
         },
         {
-            name: 'weapon 25',
+            name: 'Weapon 25',
             dmg: 25,
             price: 100,
             baseValueStep: 1,
@@ -541,7 +541,7 @@ export const lootMap: LootMap = {
             type: PocketItemType.healthPotion,
         },
         {
-            name: 'gloves 35% M',
+            name: 'Gloves 35% M',
             hitChance: 35,
             price: 1000,
             baseValueStep: 1,
@@ -559,7 +559,7 @@ export const lootMap: LootMap = {
         },
         // топаз
         {
-            name: 'armor 20% M',
+            name: 'Armor 20% M',
             blockPercent: 20,
             price: 500,
             baseValueStep: 1,
@@ -570,7 +570,7 @@ export const lootMap: LootMap = {
         },
         // шкода холодом 50
         {
-            name: 'boots 2 M',
+            name: 'Boots 2 M',
             rate: 2,
             price: 1000,
             baseValueStep: 0.1,
@@ -586,7 +586,7 @@ export const lootMap: LootMap = {
             type: PocketItemType.healthPotion,
         },
         {
-            name: 'weapon 25 M',
+            name: 'Weapon 25 M',
             dmg: 25,
             price: 170,
             baseValueStep: 1,
@@ -597,7 +597,7 @@ export const lootMap: LootMap = {
         },
         // діамант
         {
-            name: 'armor 30%',
+            name: 'Armor 30%',
             blockPercent: 30,
             price: 800,
             baseValueStep: 1,
@@ -607,7 +607,7 @@ export const lootMap: LootMap = {
         },
         // шкода водою 50
         {
-            name: 'weapon 30',
+            name: 'Weapon 30',
             dmg: 30,
             price: 200,
             baseValueStep: 2,
@@ -616,7 +616,7 @@ export const lootMap: LootMap = {
             baseLevel: 9,
         },
         {
-            name: 'shield 10% M',
+            name: 'Shield 10% M',
             blockChance: 10,
             price: 500,
             baseValueStep: 1,
@@ -627,7 +627,7 @@ export const lootMap: LootMap = {
         },
         // сапфір
         {
-            name: 'gloves 50%',
+            name: 'Gloves 50%',
             hitChance: 50,
             price:5000,
             baseValueStep: 1,
@@ -636,7 +636,7 @@ export const lootMap: LootMap = {
             baseLevel: 4,
         },
         {
-            name: 'weapon 30 M',
+            name: 'Weapon 30 M',
             dmg: 330,
             price: 100,
             baseValueStep: 2,
@@ -652,7 +652,7 @@ export const lootMap: LootMap = {
             type: PocketItemType.manaPotion,
         },
         {
-            name: 'helmet 5 M',
+            name: 'Helmet 5 M',
             blockValue: 5,
             price: 1000,
             baseValueStep: 1,
@@ -662,7 +662,7 @@ export const lootMap: LootMap = {
             baseLevel: 3,
         },
         {
-            name: 'shield 15%',
+            name: 'Shield 15%',
             blockChance: 15,
             price: 800,
             baseValueStep: 1,
@@ -677,7 +677,7 @@ export const lootMap: LootMap = {
             type: PocketItemType.healthPotion,
         },
         {
-            name: 'weapon 40',
+            name: 'Weapon 40',
             dmg: 40,
             price: 400,
             baseValueStep: 1,
@@ -686,7 +686,7 @@ export const lootMap: LootMap = {
             baseLevel: 10,
         },
         {
-            name: 'armor 30% M',
+            name: 'Armor 30% M',
             blockPercent: 30,
             price: 1500,
             baseValueStep: 1,
@@ -696,7 +696,7 @@ export const lootMap: LootMap = {
             baseLevel: 6,
         },
         {
-            name: 'weapon 40 M',
+            name: 'Weapon 40 M',
             dmg: 40,
             price: 530,
             baseValueStep: 1,
@@ -707,7 +707,7 @@ export const lootMap: LootMap = {
         },
         // руна1
         {
-            name: 'shield 15% M',
+            name: 'Shield 15% M',
             blockChance: 15,
             price: 1500,
             baseValueStep: 1,
@@ -717,7 +717,7 @@ export const lootMap: LootMap = {
             baseLevel: 6,
         },
         {
-            name: 'boots 3',
+            name: 'Boots 3',
             rate: 3,
             price: 5000,
             baseValueStep: 0.1,
@@ -726,7 +726,7 @@ export const lootMap: LootMap = {
             baseLevel: 4,
         },
         {
-            name: 'weapon 50',
+            name: 'Weapon 50',
             dmg: 50,
             price: 600,
             baseValueStep: 1,
@@ -735,7 +735,7 @@ export const lootMap: LootMap = {
             baseLevel: 11,
         },
         {
-            name: 'armor 40%',
+            name: 'Armor 40%',
             blockPercent: 40,
             price: 3000,
             baseValueStep: 1,
@@ -750,7 +750,7 @@ export const lootMap: LootMap = {
             type: PocketItemType.manaPotion,
         },
         {
-            name: 'weapon 50 M',
+            name: 'Weapon 50 M',
             dmg: 50,
             price: 900,
             baseValueStep: 1,
@@ -760,7 +760,7 @@ export const lootMap: LootMap = {
             baseLevel: 11,
         },
         {
-            name: 'shield 20%',
+            name: 'Shield 20%',
             blockChance: 20,
             price: 3000,
             baseValueStep: 1,
@@ -769,7 +769,7 @@ export const lootMap: LootMap = {
             baseLevel: 7,
         },
         {
-            name: 'weapon 60',
+            name: 'Weapon 60',
             dmg: 60,
             price: 1000,
             baseValueStep: 2,
@@ -778,7 +778,7 @@ export const lootMap: LootMap = {
             baseLevel: 12,
         },
         {
-            name: 'helmet 10',
+            name: 'Helmet 10',
             blockValue: 10,
             price: 5000,
             baseValueStep: 1,
@@ -795,7 +795,7 @@ export const lootMap: LootMap = {
             type: PocketItemType.healthPotion,
         },
         {
-            name: 'gloves 35% R',
+            name: 'Gloves 35% R',
             hitChance: 35,
             price: 2000,
             baseValueStep: 1,
@@ -805,7 +805,7 @@ export const lootMap: LootMap = {
             baseLevel: 3,
         },
         {
-            name: 'boots 2 R',
+            name: 'Boots 2 R',
             rate: 2,
             price: 2000,
             baseValueStep: 0.1,
@@ -815,7 +815,7 @@ export const lootMap: LootMap = {
             baseLevel: 3,
         },
         {
-            name: 'weapon 30 R',
+            name: 'Weapon 30 R',
             dmg: 30,
             price: 460,
             baseValueStep: 2,
@@ -826,7 +826,7 @@ export const lootMap: LootMap = {
         },
         // баф вогнем 100
         {
-            name: 'armor 20% R',
+            name: 'Armor 20% R',
             blockPercent: 20,
             price: 700,
             baseValueStep: 1,
@@ -836,7 +836,7 @@ export const lootMap: LootMap = {
             baseLevel: 5,
         },
         {
-            name: 'weapon 40 R',
+            name: 'Weapon 40 R',
             dmg: 40,
             price: 660,
             baseValueStep: 1,
@@ -846,7 +846,7 @@ export const lootMap: LootMap = {
             baseLevel: 10,
         },
         {
-            name: 'shield 10% R',
+            name: 'Shield 10% R',
             blockChance: 10,
             price: 700,
             baseValueStep: 1,
@@ -857,7 +857,7 @@ export const lootMap: LootMap = {
         },
         // баф холодем 100
         {
-            name: 'armor 30% R',
+            name: 'Armor 30% R',
             blockPercent: 30,
             price: 2200,
             baseValueStep: 1,
@@ -867,7 +867,7 @@ export const lootMap: LootMap = {
             baseLevel: 6,
         },
         {
-            name: 'weapon 50 R',
+            name: 'Weapon 50 R',
             dmg: 50,
             price: 1200,
             baseValueStep: 1,
@@ -877,7 +877,7 @@ export const lootMap: LootMap = {
             baseLevel: 11,
         },
         {
-            name: 'gloves 50% M',
+            name: 'Gloves 50% M',
             hitChance: 50,
             price: 10000,
             baseValueStep: 1,
@@ -888,7 +888,7 @@ export const lootMap: LootMap = {
         },
         // баф водою 100
         {
-            name: 'weapon 60 M',
+            name: 'Weapon 60 M',
             dmg: 60,
             price: 1700,
             baseValueStep: 2,
@@ -898,7 +898,7 @@ export const lootMap: LootMap = {
             baseLevel: 12,
         },
         {
-            name: 'shield 15% R',
+            name: 'Shield 15% R',
             blockChance: 15,
             price: 2200,
             baseValueStep: 1,
@@ -908,7 +908,7 @@ export const lootMap: LootMap = {
             baseLevel: 6,
         },
         {
-            name: 'boots 3 M',
+            name: 'Boots 3 M',
             rate: 3,
             price: 10000,
             baseValueStep: 0.1,
@@ -918,7 +918,7 @@ export const lootMap: LootMap = {
             baseLevel: 4,
         },
         {
-            name: 'weapon 60 R',
+            name: 'Weapon 60 R',
             dmg: 60,
             price: 2400,
             baseValueStep: 2,
@@ -928,7 +928,7 @@ export const lootMap: LootMap = {
             baseLevel: 12,
         },
         {
-            name: 'armor 40% M',
+            name: 'Armor 40% M',
             blockPercent: 40,
             price: 5000,
             baseValueStep: 1,
@@ -944,7 +944,7 @@ export const lootMap: LootMap = {
             type: PocketItemType.healthPotion,
         },
         {
-            name: 'weapon 80',
+            name: 'Weapon 80',
             dmg: 80,
             price: 2000,
             baseValueStep: 2,
@@ -953,7 +953,7 @@ export const lootMap: LootMap = {
             baseLevel: 13,
         },
         {
-            name: 'helmet 5 R',
+            name: 'Helmet 5 R',
             blockValue: 5,
             price: 2000,
             baseValueStep: 1,
@@ -963,7 +963,7 @@ export const lootMap: LootMap = {
             baseLevel: 3,
         },
         {
-            name: 'weapon 80 M',
+            name: 'Weapon 80 M',
             dmg: 80,
             price: 3300,
             baseValueStep: 2,
@@ -973,7 +973,7 @@ export const lootMap: LootMap = {
             baseLevel: 13,
         },
         {
-            name: 'shield 20% M',
+            name: 'Shield 20% M',
             blockChance: 20,
             price: 5000,
             baseValueStep: 1,
@@ -983,7 +983,7 @@ export const lootMap: LootMap = {
             baseLevel: 7,
         },
         {
-            name: 'gloves 70%',
+            name: 'Gloves 70%',
             hitChance: 70,
             price: 50000,
             baseValueStep: 1,
@@ -993,7 +993,7 @@ export const lootMap: LootMap = {
         },
         // руна2
         {
-            name: 'armor 50%',
+            name: 'Armor 50%',
             blockPercent: 50,
             price: 8000,
             baseValueStep: 1,
@@ -1002,7 +1002,7 @@ export const lootMap: LootMap = {
             baseLevel: 8,
         },
         {
-            name: 'weapon 100',
+            name: 'Weapon 100',
             dmg: 100,
             price: 4000,
             baseValueStep: 1,
@@ -1011,7 +1011,7 @@ export const lootMap: LootMap = {
             baseLevel: 14,
         },
         {
-            name: 'boots 5',
+            name: 'Boots 5',
             rate: 5,
             price: 50000,
             baseValueStep: 0.1,
@@ -1020,7 +1020,7 @@ export const lootMap: LootMap = {
             baseLevel: 5,
         },
         {
-            name: 'shield 30%',
+            name: 'Shield 30%',
             blockChance: 30,
             price: 8000,
             baseValueStep: 1,
@@ -1029,7 +1029,7 @@ export const lootMap: LootMap = {
             baseLevel: 8,
         },
         {
-            name: 'helmet 10 M',
+            name: 'Helmet 10 M',
             blockValue: 10,
             price: 10000,
             baseValueStep: 1,
@@ -1039,7 +1039,7 @@ export const lootMap: LootMap = {
             baseLevel: 4,
         },
         {
-            name: 'weapon 100 M',
+            name: 'Weapon 100 M',
             dmg: 100,
             price: 5300,
             baseValueStep: 1,
@@ -1049,7 +1049,7 @@ export const lootMap: LootMap = {
             baseLevel: 14,
         },
         {
-            name: 'armor 60%',
+            name: 'Armor 60%',
             blockPercent: 60,
             price: 30000,
             baseValueStep: 1,
@@ -1058,7 +1058,7 @@ export const lootMap: LootMap = {
             baseLevel: 9,
         },
         {
-            name: 'weapon 120',
+            name: 'Weapon 120',
             dmg: 120,
             price: 6000,
             baseValueStep: 2,
@@ -1067,7 +1067,7 @@ export const lootMap: LootMap = {
             baseLevel: 15,
         },
         {
-            name: 'shield 40%',
+            name: 'Shield 40%',
             blockChance: 40,
             price: 30000,
             baseValueStep: 1,
@@ -1076,7 +1076,7 @@ export const lootMap: LootMap = {
             baseLevel: 9,
         },
         {
-            name: 'weapon 160',
+            name: 'Weapon 160',
             dmg: 160,
             price: 10000,
             baseValueStep: 2,
@@ -1085,7 +1085,7 @@ export const lootMap: LootMap = {
             baseLevel: 16,
         },
         {
-            name: 'helmet 20',
+            name: 'Helmet 20',
             blockValue: 20,
             price: 50000,
             baseValueStep: 1,
@@ -1097,7 +1097,7 @@ export const lootMap: LootMap = {
     5: [
         // сундук
         {
-            name: 'gloves 50% R',
+            name: 'Gloves 50% R',
             hitChance: 50,
             price: 20000,
             baseValueStep: 1,
@@ -1107,7 +1107,7 @@ export const lootMap: LootMap = {
             baseLevel: 4,
         },
         {
-            name: 'weapon 80 R',
+            name: 'Weapon 80 R',
             dmg: 80,
             price: 4600,
             baseValueStep: 2,
@@ -1117,7 +1117,7 @@ export const lootMap: LootMap = {
             baseLevel: 13,
         },
         {
-            name: 'boots 3 R',
+            name: 'Boots 3 R',
             rate: 3,
             price: 20000,
             baseValueStep: 0.1,
@@ -1127,7 +1127,7 @@ export const lootMap: LootMap = {
             baseLevel: 4,
         },
         {
-            name: 'weapon 100 R',
+            name: 'Weapon 100 R',
             dmg: 100,
             price: 6600,
             baseValueStep: 1,
@@ -1137,7 +1137,7 @@ export const lootMap: LootMap = {
             baseLevel: 14,
         },
         {
-            name: 'armor 40% R',
+            name: 'Armor 40% R',
             blockPercent: 40,
             price: 7000,
             baseValueStep: 1,
@@ -1147,7 +1147,7 @@ export const lootMap: LootMap = {
             baseLevel: 7,
         },
         {
-            name: 'weapon 120 M',
+            name: 'Weapon 120 M',
             dmg: 120,
             price: 9000,
             baseValueStep: 2,
@@ -1157,7 +1157,7 @@ export const lootMap: LootMap = {
             baseLevel: 15,
         },
         {
-            name: 'shield 20% R',
+            name: 'Shield 20% R',
             blockChance: 20,
             price: 7000,
             baseValueStep: 1,
@@ -1167,7 +1167,7 @@ export const lootMap: LootMap = {
             baseLevel: 7,
         },
         {
-            name: 'weapon 120 R',
+            name: 'Weapon 120 R',
             dmg: 120,
             price: 12000,
             baseValueStep: 2,
@@ -1177,7 +1177,7 @@ export const lootMap: LootMap = {
             baseLevel: 15,
         },
         {
-            name: 'armor 50% M',
+            name: 'Armor 50% M',
             blockPercent: 50,
             price: 15000,
             baseValueStep: 1,
@@ -1187,7 +1187,7 @@ export const lootMap: LootMap = {
             baseLevel: 8,
         },
         {
-            name: 'shield 30% M',
+            name: 'Shield 30% M',
             blockChance: 30,
             price: 15000,
             baseValueStep: 1,
@@ -1197,7 +1197,7 @@ export const lootMap: LootMap = {
             baseLevel: 8,
         },
         {
-            name: 'weapon 160 M',
+            name: 'Weapon 160 M',
             dmg: 160,
             price: 17000,
             baseValueStep: 2,
@@ -1207,7 +1207,7 @@ export const lootMap: LootMap = {
             baseLevel: 16,
         },
         {
-            name: 'gloves 70% M',
+            name: 'Gloves 70% M',
             hitChance: 70,
             price: 100000,
             baseValueStep: 1,
@@ -1217,7 +1217,7 @@ export const lootMap: LootMap = {
             baseLevel: 5,
         },
         {
-            name: 'helmet 10 R',
+            name: 'Helmet 10 R',
             blockValue: 10,
             price: 20000,
             baseValueStep: 1,
@@ -1227,7 +1227,7 @@ export const lootMap: LootMap = {
             baseLevel: 4,
         },
         {
-            name: 'weapon 160 R',
+            name: 'Weapon 160 R',
             dmg: 160,
             price: 24000,
             baseValueStep: 2,
@@ -1237,7 +1237,7 @@ export const lootMap: LootMap = {
             baseLevel: 16,
         },
         {
-            name: 'boots 5 M',
+            name: 'Boots 5 M',
             rate: 5,
             price: 100000,
             baseValueStep: 0.1,
@@ -1247,7 +1247,7 @@ export const lootMap: LootMap = {
             baseLevel: 5,
         },
         {
-            name: 'shield 30% R',
+            name: 'Shield 30% R',
             blockChance: 30,
             price: 22000,
             baseValueStep: 1,
@@ -1257,7 +1257,7 @@ export const lootMap: LootMap = {
             baseLevel: 8,
         },
         {
-            name: 'weapon 200',
+            name: 'Weapon 200',
             dmg: 200,
             price: 20000,
             baseValueStep: 2,
@@ -1266,7 +1266,7 @@ export const lootMap: LootMap = {
             baseLevel: 17,
         },
         {
-            name: 'armor 50% R',
+            name: 'Armor 50% R',
             blockPercent: 50,
             price: 22000,
             baseValueStep: 1,
@@ -1276,7 +1276,7 @@ export const lootMap: LootMap = {
             baseLevel: 8,
         },
         {
-            name: 'weapon 200 M',
+            name: 'Weapon 200 M',
             dmg: 200,
             price: 33000,
             baseValueStep: 2,
@@ -1286,7 +1286,7 @@ export const lootMap: LootMap = {
             baseLevel: 17,
         },
         {
-            name: 'shield 40% M',
+            name: 'Shield 40% M',
             blockChance: 40,
             price: 50000,
             baseValueStep: 1,
@@ -1296,7 +1296,7 @@ export const lootMap: LootMap = {
             baseLevel: 9,
         },
         {
-            name: 'armor 60% M',
+            name: 'Armor 60% M',
             blockPercent: 60,
             price: 50000,
             baseValueStep: 1,
@@ -1306,7 +1306,7 @@ export const lootMap: LootMap = {
             baseLevel: 9,
         },
         {
-            name: 'weapon 200 R',
+            name: 'Weapon 200 R',
             dmg: 200,
             price: 46000,
             baseValueStep: 2,
@@ -1316,7 +1316,7 @@ export const lootMap: LootMap = {
             baseLevel: 17,
         },
         {
-            name: 'gloves 70% R',
+            name: 'Gloves 70% R',
             hitChance: 70,
             price: 200000,
             baseValueStep: 1,
@@ -1326,7 +1326,7 @@ export const lootMap: LootMap = {
             baseLevel: 5,
         },
         {
-            name: 'weapon 250',
+            name: 'Weapon 250',
             dmg: 250,
             price: 40000,
             baseValueStep: 2,
@@ -1335,7 +1335,7 @@ export const lootMap: LootMap = {
             baseLevel: 18,
         },
         {
-            name: 'boots 5 R',
+            name: 'Boots 5 R',
             rate: 5,
             price: 200000,
             baseValueStep: 0.1,
@@ -1345,7 +1345,7 @@ export const lootMap: LootMap = {
             baseLevel: 5,
         },
         {
-            name: 'helmet 20 M',
+            name: 'Helmet 20 M',
             blockValue: 20,
             price: 100000,
             baseValueStep: 1,
@@ -1355,7 +1355,7 @@ export const lootMap: LootMap = {
             baseLevel: 5,
         },
         {
-            name: 'shield 60%',
+            name: 'Shield 60%',
             blockChance: 60,
             price: 80000,
             baseValueStep: 1,
@@ -1364,7 +1364,7 @@ export const lootMap: LootMap = {
             baseLevel: 10,
         },
         {
-            name: 'weapon 250 M',
+            name: 'Weapon 250 M',
             dmg: 250,
             price: 53000,
             baseValueStep: 2,
@@ -1374,7 +1374,7 @@ export const lootMap: LootMap = {
             baseLevel: 18,
         },
         {
-            name: 'armor 70%',
+            name: 'Armor 70%',
             blockPercent: 70,
             price: 80000,
             baseValueStep: 1,
@@ -1383,7 +1383,7 @@ export const lootMap: LootMap = {
             baseLevel: 10,
         },
         {
-            name: 'helmet 20 R',
+            name: 'Helmet 20 R',
             blockValue: 20,
             price: 200000,
             baseValueStep: 1,
@@ -1393,7 +1393,7 @@ export const lootMap: LootMap = {
             baseLevel: 5,
         },
         {
-            name: 'weapon 300',
+            name: 'Weapon 300',
             dmg: 300,
             price: 60000,
             baseValueStep: 2,
@@ -1403,7 +1403,7 @@ export const lootMap: LootMap = {
         },
         // ключ
         {
-            name: 'shield 60% M',
+            name: 'Shield 60% M',
             blockChance: 60,
             price: 150000,
             baseValueStep: 1,
@@ -1413,7 +1413,7 @@ export const lootMap: LootMap = {
             baseLevel: 10,
         },
         {
-            name: 'armor 70% M',
+            name: 'Armor 70% M',
             blockPercent: 70,
             price: 150000,
             baseValueStep: 1,
@@ -1423,7 +1423,7 @@ export const lootMap: LootMap = {
             baseLevel: 10,
         },
         {
-            name: 'weapon 400',
+            name: 'Weapon 400',
             dmg: 400,
             price: 100000,
             baseValueStep: 2,

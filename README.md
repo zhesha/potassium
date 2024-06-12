@@ -33,7 +33,7 @@
     fix menus
         +loot
         +2 game over
-        3 buttons
+        +3 buttons
         5 npc
 - add elemental attacks
 - add timeout for skills
