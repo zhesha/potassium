@@ -22,7 +22,7 @@ function LootWindowItem ({item}: {item: LootGenerationResult}) {
         <div>
             <h1 style={{color: getNameColorFromItem(item.item)}}>{item.item.name}</h1>
             {real && <h2>{getDescriptionFromItem(item.item)}</h2>}
-            {real && isInventoryItem(real) && real.effects.length > 0 && <div>
+            {real && isInventoryItem(real) && real.effects.length > 0 && <div className="extra-info">
                 Extra effects:
                 {real.effects.map(effect => <div>{effect.name}: {effect.baseValue + effect.extraValue}</div>)}
             </div>}
